@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis</title>
+  <meta name="description" content="3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Nikhil Sharma" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="day-2-data-manipulation-and-visualization-in-r.html"/>
+<link rel="next" href="day-4-genomic-data-exploration-using-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Day-0 : Course Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-objectives"><i class="fa fa-check"></i><b>0.1</b> Course Objectives</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#what-this-course-is-not-about"><i class="fa fa-check"></i><b>0.2</b> What This Course Is <strong>Not</strong> About</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.3</b> Target Audience</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i><b>0.4</b> Software Requirements</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#course-structure"><i class="fa fa-check"></i><b>0.5</b> Course Structure</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#how-to-use-this-book"><i class="fa fa-check"></i><b>0.6</b> How to Use This Book</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#suggested-reading"><i class="fa fa-check"></i><b>0.7</b> Suggested Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html"><i class="fa fa-check"></i>Day-0 : Installation &amp; Environment Setup (Linux)</a>
+<ul>
+<li class="chapter" data-level="0.8" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#learning-objectives"><i class="fa fa-check"></i><b>0.8</b> Learning Objectives</a></li>
+<li class="chapter" data-level="0.9" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-r-ubuntudebian"><i class="fa fa-check"></i><b>0.9</b> Installing R (Ubuntu/Debian)</a></li>
+<li class="chapter" data-level="0.10" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#you-can-also-follow-below-link-for-installations"><i class="fa fa-check"></i><b>0.10</b> You can also follow below link for installations</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#what-is-r"><i class="fa fa-check"></i><b>1.2</b> What Is R?</a></li>
+<li class="chapter" data-level="1.3" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#rstudio-interface-quick-tour"><i class="fa fa-check"></i><b>1.3</b> RStudio Interface (Quick Tour)</a></li>
+<li class="chapter" data-level="1.4" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>1.4</b> Using R as a Calculator</a></li>
+<li class="chapter" data-level="1.5" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#creating-objects-in-r"><i class="fa fa-check"></i><b>1.5</b> Creating Objects in R</a></li>
+<li class="chapter" data-level="1.6" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#basic-data-types"><i class="fa fa-check"></i><b>1.6</b> Basic Data Types</a></li>
+<li class="chapter" data-level="1.7" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#data-structures"><i class="fa fa-check"></i><b>1.7</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#vector"><i class="fa fa-check"></i><b>1.7.1</b> Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#vectorization-thinking-in-vectors"><i class="fa fa-check"></i><b>1.8</b> Vectorization: Thinking in Vectors</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#data-frames"><i class="fa fa-check"></i><b>1.8.1</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#getting-help-in-r"><i class="fa fa-check"></i><b>1.9</b> Getting Help in R</a></li>
+<li class="chapter" data-level="1.10" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#hands-on-exercises"><i class="fa fa-check"></i><b>1.10</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-1"><i class="fa fa-check"></i><b>1.10.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="1.10.2" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-2"><i class="fa fa-check"></i><b>1.10.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="1.10.3" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-3"><i class="fa fa-check"></i><b>1.10.3</b> Exercise 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html"><i class="fa fa-check"></i><b>2</b> Day-2 : Data Manipulation and Visualization in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#introduction-to-the-tidyverse"><i class="fa fa-check"></i><b>2.2</b> Introduction to the Tidyverse</a></li>
+<li class="chapter" data-level="2.3" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>2.3</b> Installing and Loading Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#tidy-data-principles"><i class="fa fa-check"></i><b>2.4</b> Tidy Data Principles</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#working-with-a-real-dataset"><i class="fa fa-check"></i><b>2.4.1</b> Working with a Real Dataset</a></li>
+<li class="chapter" data-level="2.4.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>2.4.2</b> Data Manipulation with dplyr</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#introduction-to-ggplot2"><i class="fa fa-check"></i><b>2.5</b> Introduction to ggplot2</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#basic-scatter-plot"><i class="fa fa-check"></i><b>2.5.1</b> Basic Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>2.6</b> Exploratory Data Analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#eda-helps-you"><i class="fa fa-check"></i><b>2.6.1</b> EDA helps you:</a></li>
+<li class="chapter" data-level="2.6.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#questions-to-ask"><i class="fa fa-check"></i><b>2.6.2</b> Questions to ask:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#hands-on-exercises-1"><i class="fa fa-check"></i><b>2.7</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-1-1"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="2.7.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-2-1"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="2.7.3" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-3-1"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="2.7.4" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-4-challenge"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4 (Challenge)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html"><i class="fa fa-check"></i><b>3</b> Day-3 : Statistical Analysis Using R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#learning-objectives-3"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#types-of-data"><i class="fa fa-check"></i><b>3.2</b> Types of Data</a></li>
+<li class="chapter" data-level="3.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#numeric-summaries"><i class="fa fa-check"></i><b>3.3.1</b> Numeric Summaries</a></li>
+<li class="chapter" data-level="3.3.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#grouped-summaries"><i class="fa fa-check"></i><b>3.3.2</b> Grouped summaries:</a></li>
+<li class="chapter" data-level="3.3.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#visualizing-distributions"><i class="fa fa-check"></i><b>3.3.3</b> Visualizing Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#introduction-to-hypothesis-testing"><i class="fa fa-check"></i><b>3.4</b> Introduction to Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#key-concepts"><i class="fa fa-check"></i><b>3.4.1</b> Key concepts:</a></li>
+<li class="chapter" data-level="3.4.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#t-test"><i class="fa fa-check"></i><b>3.4.2</b> t-test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>3.4.3</b> Two-Sample t-test</a></li>
+<li class="chapter" data-level="3.4.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#non-parametric-test-wilcoxon-test"><i class="fa fa-check"></i><b>3.4.4</b> Non-Parametric Test: Wilcoxon Test</a></li>
+<li class="chapter" data-level="3.4.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#analysis-of-variance-anova"><i class="fa fa-check"></i><b>3.4.5</b> Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="3.4.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#correlation-analysis"><i class="fa fa-check"></i><b>3.4.6</b> Correlation Analysis</a></li>
+<li class="chapter" data-level="3.4.7" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#linear-regression"><i class="fa fa-check"></i><b>3.4.7</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.4.8" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#visualizing-the-regression"><i class="fa fa-check"></i><b>3.4.8</b> Visualizing the Regression</a></li>
+<li class="chapter" data-level="3.4.9" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#interpreting-statistical-results"><i class="fa fa-check"></i><b>3.4.9</b> Interpreting Statistical Results</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#machine-learning-statistical-learning-a-gentle-introduction"><i class="fa fa-check"></i><b>3.5</b> Machine Learning (Statistical Learning): A Gentle Introduction</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#statistics-vs-machine-learning-conceptual-view"><i class="fa fa-check"></i><b>3.5.1</b> Statistics vs Machine Learning (Conceptual View)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#a-simple-example-linear-regression-as-machine-learning"><i class="fa fa-check"></i><b>3.5.2</b> A Simple Example: Linear Regression as Machine Learning</a></li>
+<li class="chapter" data-level="3.5.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#evaluating-predictions"><i class="fa fa-check"></i><b>3.5.3</b> Evaluating Predictions</a></li>
+<li class="chapter" data-level="3.5.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#types-of-machine-learning-tasks"><i class="fa fa-check"></i><b>3.5.4</b> Types of Machine Learning Tasks</a></li>
+<li class="chapter" data-level="3.5.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#regression-tasks"><i class="fa fa-check"></i><b>3.5.5</b> Regression Tasks</a></li>
+<li class="chapter" data-level="3.5.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#classification-tasks"><i class="fa fa-check"></i><b>3.5.6</b> Classification Tasks</a></li>
+<li class="chapter" data-level="3.5.7" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#advanced-machine-learning-algorithms-overview"><i class="fa fa-check"></i><b>3.5.7</b> Advanced Machine Learning Algorithms (Overview)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#hands-on-exercises-2"><i class="fa fa-check"></i><b>3.6</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-1-2"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="3.6.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-2-2"><i class="fa fa-check"></i><b>3.6.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="3.6.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-3-2"><i class="fa fa-check"></i><b>3.6.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="3.6.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-4-challenge-1"><i class="fa fa-check"></i><b>3.6.4</b> Exercise 4 (Challenge)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html"><i class="fa fa-check"></i><b>4</b> Day-4 : Genomic Data Exploration Using R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#learning-objectives-4"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-genomic-data"><i class="fa fa-check"></i><b>4.2</b> What Is Genomic Data?</a></li>
+<li class="chapter" data-level="4.3" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-bioconductor"><i class="fa fa-check"></i><b>4.3</b> What Is Bioconductor?</a></li>
+<li class="chapter" data-level="4.4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#installing-bioconductor"><i class="fa fa-check"></i><b>4.4</b> Installing Bioconductor</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programming for Statistical &amp; Genomic Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="day-3-statistical-analysis-using-r" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Day-3 : Statistical Analysis Using R<a href="day-3-statistical-analysis-using-r.html#day-3-statistical-analysis-using-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-3" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Learning Objectives<a href="day-3-statistical-analysis-using-r.html#learning-objectives-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By the end of this day, students will be able to:</p>
+<ul>
+<li>Understand descriptive and inferential statistics</li>
+<li>Summarize data numerically and graphically</li>
+<li>Perform common hypothesis tests in R</li>
+<li>Interpret p-values and confidence intervals</li>
+<li>Fit and interpret basic statistical models</li>
+</ul>
+<hr />
+</div>
+<div id="types-of-data" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Types of Data<a href="day-3-statistical-analysis-using-r.html#types-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Understanding data types is essential for choosing the right statistical test.</p>
+<ul>
+<li><strong>Numeric</strong> – continuous or discrete values<br />
+</li>
+<li><strong>Categorical</strong> – groups or labels<br />
+</li>
+<li><strong>Binary</strong> – two outcomes (e.g., yes/no)</li>
+</ul>
+<p>Example using <code>iris</code>:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="day-3-statistical-analysis-using-r.html#cb80-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div id="descriptive-statistics" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Descriptive Statistics<a href="day-3-statistical-analysis-using-r.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Descriptive statistics summarize the main characteristics of data.</p>
+<div id="numeric-summaries" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Numeric Summaries<a href="day-3-statistical-analysis-using-r.html#numeric-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="day-3-statistical-analysis-using-r.html#cb82-1" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 5.843333</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="day-3-statistical-analysis-using-r.html#cb84-1" tabindex="-1"></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 5.8</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="day-3-statistical-analysis-using-r.html#cb86-1" tabindex="-1"></a><span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 0.8280661</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="day-3-statistical-analysis-using-r.html#cb88-1" tabindex="-1"></a><span class="fu">range</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<pre><code>## [1] 4.3 7.9</code></pre>
+</div>
+<div id="grouped-summaries" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Grouped summaries:<a href="day-3-statistical-analysis-using-r.html#grouped-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="day-3-statistical-analysis-using-r.html#cb90-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb90-2"><a href="day-3-statistical-analysis-using-r.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="day-3-statistical-analysis-using-r.html#cb90-3" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb90-4"><a href="day-3-statistical-analysis-using-r.html#cb90-4" tabindex="-1"></a><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb90-5"><a href="day-3-statistical-analysis-using-r.html#cb90-5" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb90-6"><a href="day-3-statistical-analysis-using-r.html#cb90-6" tabindex="-1"></a><span class="at">mean_sepal =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb90-7"><a href="day-3-statistical-analysis-using-r.html#cb90-7" tabindex="-1"></a><span class="at">sd_sepal =</span> <span class="fu">sd</span>(Sepal.Length)</span>
+<span id="cb90-8"><a href="day-3-statistical-analysis-using-r.html#cb90-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   Species    mean_sepal sd_sepal
+##   &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt;
+## 1 setosa           5.01    0.352
+## 2 versicolor       5.94    0.516
+## 3 virginica        6.59    0.636</code></pre>
+</div>
+<div id="visualizing-distributions" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Visualizing Distributions<a href="day-3-statistical-analysis-using-r.html#visualizing-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Histogram</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="day-3-statistical-analysis-using-r.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb92-2"><a href="day-3-statistical-analysis-using-r.html#cb92-2" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="day-3-statistical-analysis-using-r.html#cb92-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb92-4"><a href="day-3-statistical-analysis-using-r.html#cb92-4" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>Boxplot</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="day-3-statistical-analysis-using-r.html#cb93-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb93-2"><a href="day-3-statistical-analysis-using-r.html#cb93-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+</div>
+</div>
+<div id="introduction-to-hypothesis-testing" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Introduction to Hypothesis Testing<a href="day-3-statistical-analysis-using-r.html#introduction-to-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A hypothesis test evaluates evidence against a null hypothesis.</p>
+<div id="key-concepts" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Key concepts:<a href="day-3-statistical-analysis-using-r.html#key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Null hypothesis (H₀): no effect or no difference</p></li>
+<li><p>Alternative hypothesis (H₁): effect or difference exists</p></li>
+<li><p>p-value: probability of observing the data assuming H₀ is true</p></li>
+</ul>
+</div>
+<div id="t-test" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> t-test<a href="day-3-statistical-analysis-using-r.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One-Sample t-test</p>
+<p>Tests whether the mean differs from a known value.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="day-3-statistical-analysis-using-r.html#cb94-1" tabindex="-1"></a><span class="fu">t.test</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">mu =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  iris$Sepal.Length
+## t = 12.473, df = 149, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 5
+## 95 percent confidence interval:
+##  5.709732 5.976934
+## sample estimates:
+## mean of x 
+##  5.843333</code></pre>
+</div>
+<div id="two-sample-t-test" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Two-Sample t-test<a href="day-3-statistical-analysis-using-r.html#two-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Compare Sepal Length between two species.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="day-3-statistical-analysis-using-r.html#cb96-1" tabindex="-1"></a><span class="fu">t.test</span>(</span>
+<span id="cb96-2"><a href="day-3-statistical-analysis-using-r.html#cb96-2" tabindex="-1"></a>Sepal.Length <span class="sc">~</span> Species,</span>
+<span id="cb96-3"><a href="day-3-statistical-analysis-using-r.html#cb96-3" tabindex="-1"></a><span class="at">data =</span> <span class="fu">subset</span>(iris, Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;versicolor&quot;</span>))</span>
+<span id="cb96-4"><a href="day-3-statistical-analysis-using-r.html#cb96-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Sepal.Length by Species
+## t = -10.521, df = 86.538, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group setosa and group versicolor is not equal to 0
+## 95 percent confidence interval:
+##  -1.1057074 -0.7542926
+## sample estimates:
+##     mean in group setosa mean in group versicolor 
+##                    5.006                    5.936</code></pre>
+</div>
+<div id="non-parametric-test-wilcoxon-test" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Non-Parametric Test: Wilcoxon Test<a href="day-3-statistical-analysis-using-r.html#non-parametric-test-wilcoxon-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Used when data do not meet t-test assumptions.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="day-3-statistical-analysis-using-r.html#cb98-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(</span>
+<span id="cb98-2"><a href="day-3-statistical-analysis-using-r.html#cb98-2" tabindex="-1"></a>Sepal.Length <span class="sc">~</span> Species,</span>
+<span id="cb98-3"><a href="day-3-statistical-analysis-using-r.html#cb98-3" tabindex="-1"></a><span class="at">data =</span> <span class="fu">subset</span>(iris, Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;versicolor&quot;</span>))</span>
+<span id="cb98-4"><a href="day-3-statistical-analysis-using-r.html#cb98-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Sepal.Length by Species
+## W = 168.5, p-value = 8.346e-14
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+<div id="analysis-of-variance-anova" class="section level3 hasAnchor" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Analysis of Variance (ANOVA)<a href="day-3-statistical-analysis-using-r.html#analysis-of-variance-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ANOVA compares means across more than two groups.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="day-3-statistical-analysis-using-r.html#cb100-1" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb100-2"><a href="day-3-statistical-analysis-using-r.html#cb100-2" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code></pre></div>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Species       2  63.21  31.606   119.3 &lt;2e-16 ***
+## Residuals   147  38.96   0.265                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Post-hoc Test</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="day-3-statistical-analysis-using-r.html#cb102-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(anova_model)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Sepal.Length ~ Species, data = iris)
+## 
+## $Species
+##                       diff       lwr       upr p adj
+## versicolor-setosa    0.930 0.6862273 1.1737727     0
+## virginica-setosa     1.582 1.3382273 1.8257727     0
+## virginica-versicolor 0.652 0.4082273 0.8957727     0</code></pre>
+</div>
+<div id="correlation-analysis" class="section level3 hasAnchor" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Correlation Analysis<a href="day-3-statistical-analysis-using-r.html#correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Correlation measures the strength of association between two variables.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="day-3-statistical-analysis-using-r.html#cb104-1" tabindex="-1"></a><span class="fu">cor</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span></code></pre></div>
+<pre><code>## [1] 0.8717538</code></pre>
+<p>Test for significance:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="day-3-statistical-analysis-using-r.html#cb106-1" tabindex="-1"></a><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  iris$Sepal.Length and iris$Petal.Length
+## t = 21.646, df = 148, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.8270363 0.9055080
+## sample estimates:
+##       cor 
+## 0.8717538</code></pre>
+</div>
+<div id="linear-regression" class="section level3 hasAnchor" number="3.4.7">
+<h3><span class="header-section-number">3.4.7</span> Linear Regression<a href="day-3-statistical-analysis-using-r.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Linear regression models the relationship between variables.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="day-3-statistical-analysis-using-r.html#cb108-1" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Petal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb108-2"><a href="day-3-statistical-analysis-using-r.html#cb108-2" tabindex="-1"></a><span class="fu">summary</span>(lm_model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Sepal.Length ~ Petal.Length, data = iris)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.24675 -0.29657 -0.01515  0.27676  1.00269 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   4.30660    0.07839   54.94   &lt;2e-16 ***
+## Petal.Length  0.40892    0.01889   21.65   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4071 on 148 degrees of freedom
+## Multiple R-squared:   0.76,  Adjusted R-squared:  0.7583 
+## F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="visualizing-the-regression" class="section level3 hasAnchor" number="3.4.8">
+<h3><span class="header-section-number">3.4.8</span> Visualizing the Regression<a href="day-3-statistical-analysis-using-r.html#visualizing-the-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="day-3-statistical-analysis-using-r.html#cb110-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb110-2"><a href="day-3-statistical-analysis-using-r.html#cb110-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb110-3"><a href="day-3-statistical-analysis-using-r.html#cb110-3" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p>Model Diagnostics (Brief Overview)</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="day-3-statistical-analysis-using-r.html#cb112-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb112-2"><a href="day-3-statistical-analysis-using-r.html#cb112-2" tabindex="-1"></a><span class="fu">plot</span>(lm_model)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+</div>
+<div id="interpreting-statistical-results" class="section level3 hasAnchor" number="3.4.9">
+<h3><span class="header-section-number">3.4.9</span> Interpreting Statistical Results<a href="day-3-statistical-analysis-using-r.html#interpreting-statistical-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When reporting results, always consider:</p>
+<ul>
+<li><p>Effect size</p></li>
+<li><p>Confidence intervals</p></li>
+<li><p>p-values</p></li>
+<li><p>Practical or biological relevance</p></li>
+</ul>
+<p>⚠️ Statistical significance does not always imply practical importance.</p>
+</div>
+</div>
+<div id="machine-learning-statistical-learning-a-gentle-introduction" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Machine Learning (Statistical Learning): A Gentle Introduction<a href="day-3-statistical-analysis-using-r.html#machine-learning-statistical-learning-a-gentle-introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this course, <strong>machine learning</strong> is introduced as an extension of
+<strong>statistical modeling</strong>, with a different primary goal.</p>
+<p>While traditional statistical analysis often focuses on:
+- Estimating effects
+- Hypothesis testing
+- Interpretation</p>
+<p>Machine learning (also called <strong>statistical learning</strong>) focuses on:
+- Prediction
+- Generalization to new data
+- Model performance on unseen observations</p>
+<hr />
+<div id="statistics-vs-machine-learning-conceptual-view" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Statistics vs Machine Learning (Conceptual View)<a href="day-3-statistical-analysis-using-r.html#statistics-vs-machine-learning-conceptual-view" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="47%" />
+<col width="39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Statistical Modeling</th>
+<th>Machine Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary goal</td>
+<td>Inference &amp; explanation</td>
+<td>Prediction</td>
+</tr>
+<tr class="even">
+<td>Key questions</td>
+<td>“Is this effect real?”</td>
+<td>“How well does this predict?”</td>
+</tr>
+<tr class="odd">
+<td>Outputs</td>
+<td>Coefficients, p-values</td>
+<td>Predictions, errors</td>
+</tr>
+<tr class="even">
+<td>Evaluation</td>
+<td>p-values, confidence intervals</td>
+<td>Prediction error</td>
+</tr>
+</tbody>
+</table>
+<p>Both approaches use <strong>the same data</strong>, and often <strong>the same models</strong>,
+but answer different questions.</p>
+<hr />
+</div>
+<div id="a-simple-example-linear-regression-as-machine-learning" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> A Simple Example: Linear Regression as Machine Learning<a href="day-3-statistical-analysis-using-r.html#a-simple-example-linear-regression-as-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Linear regression can be used not only for inference, but also for prediction.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="day-3-statistical-analysis-using-r.html#cb113-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb113-2"><a href="day-3-statistical-analysis-using-r.html#cb113-2" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="day-3-statistical-analysis-using-r.html#cb113-3" tabindex="-1"></a><span class="co"># Simulated data</span></span>
+<span id="cb113-4"><a href="day-3-statistical-analysis-using-r.html#cb113-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb113-5"><a href="day-3-statistical-analysis-using-r.html#cb113-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb113-6"><a href="day-3-statistical-analysis-using-r.html#cb113-6" tabindex="-1"></a></span>
+<span id="cb113-7"><a href="day-3-statistical-analysis-using-r.html#cb113-7" tabindex="-1"></a><span class="co"># Train-test split</span></span>
+<span id="cb113-8"><a href="day-3-statistical-analysis-using-r.html#cb113-8" tabindex="-1"></a>train_id <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_along</span>(x), <span class="dv">70</span>)</span>
+<span id="cb113-9"><a href="day-3-statistical-analysis-using-r.html#cb113-9" tabindex="-1"></a></span>
+<span id="cb113-10"><a href="day-3-statistical-analysis-using-r.html#cb113-10" tabindex="-1"></a>x_train <span class="ot">&lt;-</span> x[train_id]</span>
+<span id="cb113-11"><a href="day-3-statistical-analysis-using-r.html#cb113-11" tabindex="-1"></a>y_train <span class="ot">&lt;-</span> y[train_id]</span>
+<span id="cb113-12"><a href="day-3-statistical-analysis-using-r.html#cb113-12" tabindex="-1"></a>x_test  <span class="ot">&lt;-</span> x[<span class="sc">-</span>train_id]</span>
+<span id="cb113-13"><a href="day-3-statistical-analysis-using-r.html#cb113-13" tabindex="-1"></a>y_test  <span class="ot">&lt;-</span> y[<span class="sc">-</span>train_id]</span>
+<span id="cb113-14"><a href="day-3-statistical-analysis-using-r.html#cb113-14" tabindex="-1"></a></span>
+<span id="cb113-15"><a href="day-3-statistical-analysis-using-r.html#cb113-15" tabindex="-1"></a><span class="co"># Fit model on training data</span></span>
+<span id="cb113-16"><a href="day-3-statistical-analysis-using-r.html#cb113-16" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_train <span class="sc">~</span> x_train)</span>
+<span id="cb113-17"><a href="day-3-statistical-analysis-using-r.html#cb113-17" tabindex="-1"></a></span>
+<span id="cb113-18"><a href="day-3-statistical-analysis-using-r.html#cb113-18" tabindex="-1"></a><span class="co"># Predict on new data</span></span>
+<span id="cb113-19"><a href="day-3-statistical-analysis-using-r.html#cb113-19" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model,</span>
+<span id="cb113-20"><a href="day-3-statistical-analysis-using-r.html#cb113-20" tabindex="-1"></a>                       <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x_train =</span> x_test))</span>
+<span id="cb113-21"><a href="day-3-statistical-analysis-using-r.html#cb113-21" tabindex="-1"></a></span>
+<span id="cb113-22"><a href="day-3-statistical-analysis-using-r.html#cb113-22" tabindex="-1"></a><span class="fu">head</span>(predictions)</span></code></pre></div>
+<pre><code>##           1           2           3           4           5           6 
+## -1.18138102  2.94154666  0.04621488  0.80576347  0.12437508 -1.50903793</code></pre>
+<p>Here:</p>
+<ul>
+<li>The model is trained on one part of the data</li>
+<li>Predictions are made on new, unseen data</li>
+</ul>
+</div>
+<div id="evaluating-predictions" class="section level3 hasAnchor" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Evaluating Predictions<a href="day-3-statistical-analysis-using-r.html#evaluating-predictions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Instead of p-values, we evaluate prediction error.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="day-3-statistical-analysis-using-r.html#cb115-1" tabindex="-1"></a><span class="fu">mean</span>((predictions <span class="sc">-</span> y_test)<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5508944</code></pre>
+</div>
+<div id="types-of-machine-learning-tasks" class="section level3 hasAnchor" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Types of Machine Learning Tasks<a href="day-3-statistical-analysis-using-r.html#types-of-machine-learning-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Most machine learning problems fall into two broad categories:
+<strong>regression</strong> and <strong>classification</strong>.</p>
+<hr />
+</div>
+<div id="regression-tasks" class="section level3 hasAnchor" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Regression Tasks<a href="day-3-statistical-analysis-using-r.html#regression-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regression is used when the outcome variable is <strong>continuous</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>Predicting blood pressure</li>
+<li>Predicting gene expression levels</li>
+<li>Predicting healthcare costs</li>
+</ul>
+<p>Typical evaluation metrics for regression include:</p>
+<ul>
+<li><strong>Mean Squared Error (MSE)</strong> – average squared prediction error</li>
+<li><strong>Root Mean Squared Error (RMSE)</strong> – error on the original scale</li>
+<li><strong>Mean Absolute Error (MAE)</strong> – average absolute difference</li>
+<li><strong>R-squared</strong> – proportion of variance explained</li>
+</ul>
+<p>In this course, we have seen regression using <strong>linear models</strong>.</p>
+<hr />
+</div>
+<div id="classification-tasks" class="section level3 hasAnchor" number="3.5.6">
+<h3><span class="header-section-number">3.5.6</span> Classification Tasks<a href="day-3-statistical-analysis-using-r.html#classification-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Classification is used when the outcome variable is <strong>categorical</strong>.</p>
+<p>Examples:
+- Disease vs healthy
+- Treatment responder vs non-responder
+- Tumor type classification</p>
+<p>Common evaluation metrics for classification include:</p>
+<ul>
+<li><strong>Accuracy</strong> – proportion of correct predictions</li>
+<li><strong>Sensitivity (Recall)</strong> – ability to detect positive cases</li>
+<li><strong>Specificity</strong> – ability to detect negative cases</li>
+<li><strong>Precision</strong> – proportion of true positives among predicted positives</li>
+</ul>
+<p>The choice of metric depends on the <strong>problem context</strong>, especially in
+biomedical applications.</p>
+<hr />
+</div>
+<div id="advanced-machine-learning-algorithms-overview" class="section level3 hasAnchor" number="3.5.7">
+<h3><span class="header-section-number">3.5.7</span> Advanced Machine Learning Algorithms (Overview)<a href="day-3-statistical-analysis-using-r.html#advanced-machine-learning-algorithms-overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Beyond linear models, many advanced algorithms are commonly used in practice.</p>
+<p>Examples include:</p>
+<ul>
+<li><strong>Logistic regression</strong> – classification using probabilistic models</li>
+<li><strong>Decision trees</strong> – rule-based models</li>
+<li><strong>Random forests</strong> – ensembles of decision trees</li>
+<li><strong>Support vector machines (SVMs)</strong> – margin-based classifiers</li>
+<li><strong>Neural networks</strong> – layered models for complex patterns</li>
+</ul>
+<p>These methods are powerful, but require:</p>
+<ul>
+<li>Larger datasets</li>
+<li>Careful tuning</li>
+<li>Proper validation strategies</li>
+</ul>
+<blockquote>
+<p>💡 Note:<br />
+Exploring these algorithms is beyond the scope of this course and
+typically covered in dedicated machine learning classes. For R, you can explore packages like caret and tidymodels specifically for ML tasks.</p>
+</blockquote>
+</div>
+</div>
+<div id="hands-on-exercises-2" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Hands-on Exercises<a href="day-3-statistical-analysis-using-r.html#hands-on-exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-2" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Exercise 1<a href="day-3-statistical-analysis-using-r.html#exercise-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Calculate descriptive statistics for Petal.Width grouped by species.</li>
+</ul>
+</div>
+<div id="exercise-2-2" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Exercise 2<a href="day-3-statistical-analysis-using-r.html#exercise-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Perform a t-test comparing Petal.Length between:</p>
+<p>setosa &amp; virginica</p></li>
+</ul>
+</div>
+<div id="exercise-3-2" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Exercise 3<a href="day-3-statistical-analysis-using-r.html#exercise-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Fit a linear model predicting Petal.Width from Petal.Length.</li>
+</ul>
+</div>
+<div id="exercise-4-challenge-1" class="section level3 hasAnchor" number="3.6.4">
+<h3><span class="header-section-number">3.6.4</span> Exercise 4 (Challenge)<a href="day-3-statistical-analysis-using-r.html#exercise-4-challenge-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Create a boxplot of Petal.Length by species and interpret the differences.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="day-2-data-manipulation-and-visualization-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="day-4-genomic-data-exploration-using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R_Programming_Course.pdf", "R_Programming_Course.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
