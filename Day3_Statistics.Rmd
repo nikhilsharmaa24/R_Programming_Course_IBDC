@@ -1,0 +1,365 @@
+# Day-3 : Statistical Analysis Using R
+
+## Learning Objectives
+
+By the end of this day, students will be able to:
+
+- Understand descriptive and inferential statistics
+- Summarize data numerically and graphically
+- Perform common hypothesis tests in R
+- Interpret p-values and confidence intervals
+- Fit and interpret basic statistical models
+
+---
+
+## Types of Data
+
+Understanding data types is essential for choosing the right statistical test.
+
+- **Numeric** – continuous or discrete values  
+- **Categorical** – groups or labels  
+- **Binary** – two outcomes (e.g., yes/no)
+
+Example using `iris`:
+
+```{r}
+str(iris)
+```
+
+## Descriptive Statistics
+
+Descriptive statistics summarize the main characteristics of data.
+
+### Numeric Summaries
+
+```{r}
+
+mean(iris$Sepal.Length)
+median(iris$Sepal.Length)
+sd(iris$Sepal.Length)
+range(iris$Sepal.Length)
+
+```
+
+### Grouped summaries:
+
+```{r}
+library(dplyr)
+
+iris %>%
+group_by(Species) %>%
+summarise(
+mean_sepal = mean(Sepal.Length),
+sd_sepal = sd(Sepal.Length)
+)
+
+```
+
+
+### Visualizing Distributions
+
+Histogram
+
+```{r}
+library(ggplot2)
+
+ggplot(iris, aes(x = Sepal.Length)) +
+geom_histogram(bins = 20)
+
+```
+
+Boxplot
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+geom_boxplot()
+
+```
+
+
+## Introduction to Hypothesis Testing
+
+A hypothesis test evaluates evidence against a null hypothesis.
+
+### Key concepts:
+
+- Null hypothesis (H₀): no effect or no difference
+
+- Alternative hypothesis (H₁): effect or difference exists
+
+- p-value: probability of observing the data assuming H₀ is true
+
+### t-test
+
+One-Sample t-test
+
+Tests whether the mean differs from a known value.
+
+```{r}
+t.test(iris$Sepal.Length, mu = 5)
+
+```
+
+### Two-Sample t-test
+
+Compare Sepal Length between two species.
+
+```{r}
+t.test(
+Sepal.Length ~ Species,
+data = subset(iris, Species %in% c("setosa", "versicolor"))
+)
+
+```
+
+### Non-Parametric Test: Wilcoxon Test
+
+Used when data do not meet t-test assumptions.
+
+```{r}
+wilcox.test(
+Sepal.Length ~ Species,
+data = subset(iris, Species %in% c("setosa", "versicolor"))
+)
+
+```
+
+### Analysis of Variance (ANOVA)
+
+ANOVA compares means across more than two groups.
+
+```{r}
+anova_model <- aov(Sepal.Length ~ Species, data = iris)
+summary(anova_model)
+
+```
+
+Post-hoc Test
+
+```{r}
+TukeyHSD(anova_model)
+
+```
+
+### Correlation Analysis
+
+Correlation measures the strength of association between two variables.
+
+```{r}
+cor(iris$Sepal.Length, iris$Petal.Length)
+
+```
+
+Test for significance:
+
+```{r}
+cor.test(iris$Sepal.Length, iris$Petal.Length)
+
+```
+
+### Linear Regression
+
+Linear regression models the relationship between variables.
+
+```{r}
+lm_model <- lm(Sepal.Length ~ Petal.Length, data = iris)
+summary(lm_model)
+
+```
+
+### Visualizing the Regression
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
+geom_point() +
+geom_smooth(method = "lm", se = TRUE)
+
+```
+
+Model Diagnostics (Brief Overview)
+
+```{r}
+par(mfrow = c(2, 2))
+plot(lm_model)
+
+```
+
+### Interpreting Statistical Results
+
+When reporting results, always consider:
+
+- Effect size
+
+- Confidence intervals
+
+- p-values
+
+- Practical or biological relevance
+
+⚠️ Statistical significance does not always imply practical importance.
+
+## Machine Learning (Statistical Learning): A Gentle Introduction
+
+In this course, **machine learning** is introduced as an extension of
+**statistical modeling**, with a different primary goal.
+
+While traditional statistical analysis often focuses on:
+- Estimating effects
+- Hypothesis testing
+- Interpretation
+
+Machine learning (also called **statistical learning**) focuses on:
+- Prediction
+- Generalization to new data
+- Model performance on unseen observations
+
+---
+
+### Statistics vs Machine Learning (Conceptual View)
+
+| Aspect | Statistical Modeling | Machine Learning |
+|------|----------------------|------------------|
+| Primary goal | Inference & explanation | Prediction |
+| Key questions | “Is this effect real?” | “How well does this predict?” |
+| Outputs | Coefficients, p-values | Predictions, errors |
+| Evaluation | p-values, confidence intervals | Prediction error |
+
+Both approaches use **the same data**, and often **the same models**,
+but answer different questions.
+
+---
+
+### A Simple Example: Linear Regression as Machine Learning
+
+Linear regression can be used not only for inference, but also for prediction.
+
+```{r}
+set.seed(123)
+
+# Simulated data
+x <- rnorm(100)
+y <- 2 * x + rnorm(100)
+
+# Train-test split
+train_id <- sample(seq_along(x), 70)
+
+x_train <- x[train_id]
+y_train <- y[train_id]
+x_test  <- x[-train_id]
+y_test  <- y[-train_id]
+
+# Fit model on training data
+model <- lm(y_train ~ x_train)
+
+# Predict on new data
+predictions <- predict(model,
+                       newdata = data.frame(x_train = x_test))
+
+head(predictions)
+
+```
+
+Here:
+
+- The model is trained on one part of the data
+- Predictions are made on new, unseen data
+
+### Evaluating Predictions
+
+Instead of p-values, we evaluate prediction error.
+
+```{r}
+mean((predictions - y_test)^2)
+
+```
+
+### Types of Machine Learning Tasks
+
+Most machine learning problems fall into two broad categories:
+**regression** and **classification**.
+
+---
+
+### Regression Tasks
+
+Regression is used when the outcome variable is **continuous**.
+
+Examples:
+
+- Predicting blood pressure
+- Predicting gene expression levels
+- Predicting healthcare costs
+
+Typical evaluation metrics for regression include:
+
+- **Mean Squared Error (MSE)** – average squared prediction error
+- **Root Mean Squared Error (RMSE)** – error on the original scale
+- **Mean Absolute Error (MAE)** – average absolute difference
+- **R-squared** – proportion of variance explained
+
+In this course, we have seen regression using **linear models**.
+
+---
+
+### Classification Tasks
+
+Classification is used when the outcome variable is **categorical**.
+
+Examples:
+- Disease vs healthy
+- Treatment responder vs non-responder
+- Tumor type classification
+
+Common evaluation metrics for classification include:
+
+- **Accuracy** – proportion of correct predictions
+- **Sensitivity (Recall)** – ability to detect positive cases
+- **Specificity** – ability to detect negative cases
+- **Precision** – proportion of true positives among predicted positives
+
+The choice of metric depends on the **problem context**, especially in
+biomedical applications.
+
+---
+
+### Advanced Machine Learning Algorithms (Overview)
+
+Beyond linear models, many advanced algorithms are commonly used in practice.
+
+Examples include:
+
+- **Logistic regression** – classification using probabilistic models
+- **Decision trees** – rule-based models
+- **Random forests** – ensembles of decision trees
+- **Support vector machines (SVMs)** – margin-based classifiers
+- **Neural networks** – layered models for complex patterns
+
+These methods are powerful, but require:
+
+- Larger datasets
+- Careful tuning
+- Proper validation strategies
+
+> 💡 Note:  
+> Exploring these algorithms is beyond the scope of this course and
+> typically covered in dedicated machine learning classes. For R, you can explore packages like caret and tidymodels specifically for ML tasks.
+
+
+## Hands-on Exercises
+
+### Exercise 1
+
+- Calculate descriptive statistics for Petal.Width grouped by species.
+
+### Exercise 2
+
+- Perform a t-test comparing Petal.Length between:
+
+    setosa & virginica
+
+### Exercise 3
+
+- Fit a linear model predicting Petal.Width from Petal.Length.
+
+### Exercise 4 (Challenge)
+
+- Create a boxplot of Petal.Length by species and interpret the differences.

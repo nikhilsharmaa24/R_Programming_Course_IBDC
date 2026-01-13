@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Day-4 : Genomic Data Exploration Using R | R Programming for Statistical &amp; Genomic Data Analysis</title>
+  <meta name="description" content="4 Day-4 : Genomic Data Exploration Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Day-4 : Genomic Data Exploration Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Day-4 : Genomic Data Exploration Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Nikhil Sharma" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="day-3-statistical-analysis-using-r.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Day-0 : Course Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-objectives"><i class="fa fa-check"></i><b>0.1</b> Course Objectives</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#what-this-course-is-not-about"><i class="fa fa-check"></i><b>0.2</b> What This Course Is <strong>Not</strong> About</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.3</b> Target Audience</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i><b>0.4</b> Software Requirements</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#course-structure"><i class="fa fa-check"></i><b>0.5</b> Course Structure</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#how-to-use-this-book"><i class="fa fa-check"></i><b>0.6</b> How to Use This Book</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#suggested-reading"><i class="fa fa-check"></i><b>0.7</b> Suggested Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html"><i class="fa fa-check"></i>Day-0 : Installation &amp; Environment Setup (Linux)</a>
+<ul>
+<li class="chapter" data-level="0.8" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#learning-objectives"><i class="fa fa-check"></i><b>0.8</b> Learning Objectives</a></li>
+<li class="chapter" data-level="0.9" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-r-ubuntudebian"><i class="fa fa-check"></i><b>0.9</b> Installing R (Ubuntu/Debian)</a></li>
+<li class="chapter" data-level="0.10" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#you-can-also-follow-below-link-for-installations"><i class="fa fa-check"></i><b>0.10</b> You can also follow below link for installations</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#what-is-r"><i class="fa fa-check"></i><b>1.2</b> What Is R?</a></li>
+<li class="chapter" data-level="1.3" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#rstudio-interface-quick-tour"><i class="fa fa-check"></i><b>1.3</b> RStudio Interface (Quick Tour)</a></li>
+<li class="chapter" data-level="1.4" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>1.4</b> Using R as a Calculator</a></li>
+<li class="chapter" data-level="1.5" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#creating-objects-in-r"><i class="fa fa-check"></i><b>1.5</b> Creating Objects in R</a></li>
+<li class="chapter" data-level="1.6" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#basic-data-types"><i class="fa fa-check"></i><b>1.6</b> Basic Data Types</a></li>
+<li class="chapter" data-level="1.7" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#data-structures"><i class="fa fa-check"></i><b>1.7</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#vector"><i class="fa fa-check"></i><b>1.7.1</b> Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#vectorization-thinking-in-vectors"><i class="fa fa-check"></i><b>1.8</b> Vectorization: Thinking in Vectors</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#data-frames"><i class="fa fa-check"></i><b>1.8.1</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#getting-help-in-r"><i class="fa fa-check"></i><b>1.9</b> Getting Help in R</a></li>
+<li class="chapter" data-level="1.10" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#hands-on-exercises"><i class="fa fa-check"></i><b>1.10</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-1"><i class="fa fa-check"></i><b>1.10.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="1.10.2" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-2"><i class="fa fa-check"></i><b>1.10.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="1.10.3" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html#exercise-3"><i class="fa fa-check"></i><b>1.10.3</b> Exercise 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html"><i class="fa fa-check"></i><b>2</b> Day-2 : Data Manipulation and Visualization in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#introduction-to-the-tidyverse"><i class="fa fa-check"></i><b>2.2</b> Introduction to the Tidyverse</a></li>
+<li class="chapter" data-level="2.3" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>2.3</b> Installing and Loading Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#tidy-data-principles"><i class="fa fa-check"></i><b>2.4</b> Tidy Data Principles</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#working-with-a-real-dataset"><i class="fa fa-check"></i><b>2.4.1</b> Working with a Real Dataset</a></li>
+<li class="chapter" data-level="2.4.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>2.4.2</b> Data Manipulation with dplyr</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#introduction-to-ggplot2"><i class="fa fa-check"></i><b>2.5</b> Introduction to ggplot2</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#basic-scatter-plot"><i class="fa fa-check"></i><b>2.5.1</b> Basic Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>2.6</b> Exploratory Data Analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#eda-helps-you"><i class="fa fa-check"></i><b>2.6.1</b> EDA helps you:</a></li>
+<li class="chapter" data-level="2.6.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#questions-to-ask"><i class="fa fa-check"></i><b>2.6.2</b> Questions to ask:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#hands-on-exercises-1"><i class="fa fa-check"></i><b>2.7</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-1-1"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="2.7.2" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-2-1"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="2.7.3" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-3-1"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="2.7.4" data-path="day-2-data-manipulation-and-visualization-in-r.html"><a href="day-2-data-manipulation-and-visualization-in-r.html#exercise-4-challenge"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4 (Challenge)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html"><i class="fa fa-check"></i><b>3</b> Day-3 : Statistical Analysis Using R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#learning-objectives-3"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#types-of-data"><i class="fa fa-check"></i><b>3.2</b> Types of Data</a></li>
+<li class="chapter" data-level="3.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.3</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#numeric-summaries"><i class="fa fa-check"></i><b>3.3.1</b> Numeric Summaries</a></li>
+<li class="chapter" data-level="3.3.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#grouped-summaries"><i class="fa fa-check"></i><b>3.3.2</b> Grouped summaries:</a></li>
+<li class="chapter" data-level="3.3.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#visualizing-distributions"><i class="fa fa-check"></i><b>3.3.3</b> Visualizing Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#introduction-to-hypothesis-testing"><i class="fa fa-check"></i><b>3.4</b> Introduction to Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#key-concepts"><i class="fa fa-check"></i><b>3.4.1</b> Key concepts:</a></li>
+<li class="chapter" data-level="3.4.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#t-test"><i class="fa fa-check"></i><b>3.4.2</b> t-test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>3.4.3</b> Two-Sample t-test</a></li>
+<li class="chapter" data-level="3.4.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#non-parametric-test-wilcoxon-test"><i class="fa fa-check"></i><b>3.4.4</b> Non-Parametric Test: Wilcoxon Test</a></li>
+<li class="chapter" data-level="3.4.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#analysis-of-variance-anova"><i class="fa fa-check"></i><b>3.4.5</b> Analysis of Variance (ANOVA)</a></li>
+<li class="chapter" data-level="3.4.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#correlation-analysis"><i class="fa fa-check"></i><b>3.4.6</b> Correlation Analysis</a></li>
+<li class="chapter" data-level="3.4.7" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#linear-regression"><i class="fa fa-check"></i><b>3.4.7</b> Linear Regression</a></li>
+<li class="chapter" data-level="3.4.8" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#visualizing-the-regression"><i class="fa fa-check"></i><b>3.4.8</b> Visualizing the Regression</a></li>
+<li class="chapter" data-level="3.4.9" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#interpreting-statistical-results"><i class="fa fa-check"></i><b>3.4.9</b> Interpreting Statistical Results</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#machine-learning-statistical-learning-a-gentle-introduction"><i class="fa fa-check"></i><b>3.5</b> Machine Learning (Statistical Learning): A Gentle Introduction</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#statistics-vs-machine-learning-conceptual-view"><i class="fa fa-check"></i><b>3.5.1</b> Statistics vs Machine Learning (Conceptual View)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#a-simple-example-linear-regression-as-machine-learning"><i class="fa fa-check"></i><b>3.5.2</b> A Simple Example: Linear Regression as Machine Learning</a></li>
+<li class="chapter" data-level="3.5.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#evaluating-predictions"><i class="fa fa-check"></i><b>3.5.3</b> Evaluating Predictions</a></li>
+<li class="chapter" data-level="3.5.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#types-of-machine-learning-tasks"><i class="fa fa-check"></i><b>3.5.4</b> Types of Machine Learning Tasks</a></li>
+<li class="chapter" data-level="3.5.5" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#regression-tasks"><i class="fa fa-check"></i><b>3.5.5</b> Regression Tasks</a></li>
+<li class="chapter" data-level="3.5.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#classification-tasks"><i class="fa fa-check"></i><b>3.5.6</b> Classification Tasks</a></li>
+<li class="chapter" data-level="3.5.7" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#advanced-machine-learning-algorithms-overview"><i class="fa fa-check"></i><b>3.5.7</b> Advanced Machine Learning Algorithms (Overview)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#hands-on-exercises-2"><i class="fa fa-check"></i><b>3.6</b> Hands-on Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-1-2"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="3.6.2" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-2-2"><i class="fa fa-check"></i><b>3.6.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="3.6.3" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-3-2"><i class="fa fa-check"></i><b>3.6.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="3.6.4" data-path="day-3-statistical-analysis-using-r.html"><a href="day-3-statistical-analysis-using-r.html#exercise-4-challenge-1"><i class="fa fa-check"></i><b>3.6.4</b> Exercise 4 (Challenge)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html"><i class="fa fa-check"></i><b>4</b> Day-4 : Genomic Data Exploration Using R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#learning-objectives-4"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-genomic-data"><i class="fa fa-check"></i><b>4.2</b> What Is Genomic Data?</a></li>
+<li class="chapter" data-level="4.3" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-bioconductor"><i class="fa fa-check"></i><b>4.3</b> What Is Bioconductor?</a></li>
+<li class="chapter" data-level="4.4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#installing-bioconductor"><i class="fa fa-check"></i><b>4.4</b> Installing Bioconductor</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programming for Statistical &amp; Genomic Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="day-4-genomic-data-exploration-using-r" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Day-4 : Genomic Data Exploration Using R<a href="day-4-genomic-data-exploration-using-r.html#day-4-genomic-data-exploration-using-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-4" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Learning Objectives<a href="day-4-genomic-data-exploration-using-r.html#learning-objectives-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By the end of this day, students will be able to:</p>
+<ul>
+<li>Understand common genomic data types</li>
+<li>Learn what Bioconductor is and why it is used</li>
+<li>Work with expression data in R</li>
+<li>Use Bioconductor data structures</li>
+<li>Perform basic exploratory analysis on genomic datasets</li>
+</ul>
+<hr />
+</div>
+<div id="what-is-genomic-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> What Is Genomic Data?<a href="day-4-genomic-data-exploration-using-r.html#what-is-genomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Genomic data refers to information derived from DNA, RNA, or related molecules.</p>
+<p>Common genomic data types include:</p>
+<ul>
+<li><strong>Gene expression data</strong> (RNA-seq, microarrays)</li>
+<li><strong>Genomic coordinates</strong> (BED, GFF, GRanges)</li>
+<li><strong>Variant data</strong> (VCF)</li>
+<li><strong>Annotation data</strong> (gene names, pathways)</li>
+</ul>
+<p>In this course, we focus on <strong>gene expression data</strong>.</p>
+<hr />
+</div>
+<div id="what-is-bioconductor" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> What Is Bioconductor?<a href="day-4-genomic-data-exploration-using-r.html#what-is-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Bioconductor</strong> is a collection of R packages designed for:</p>
+<ul>
+<li>Genomic data analysis</li>
+<li>Biological annotation</li>
+<li>Reproducible research</li>
+</ul>
+<p>Key features:</p>
+<ul>
+<li>Standardized data structures</li>
+<li>Well-documented packages</li>
+<li>Strong integration with R statistics</li>
+</ul>
+<p>Bioconductor complements CRAN.</p>
+<hr />
+</div>
+<div id="installing-bioconductor" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Installing Bioconductor<a href="day-4-genomic-data-exploration-using-r.html#installing-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Install Bioconductor (only once):</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="day-4-genomic-data-exploration-using-r.html#cb117-1" tabindex="-1"></a><span class="co"># install.packages(&quot;BiocManager&quot;) [unhash it for first run]</span></span>
+<span id="cb117-2"><a href="day-4-genomic-data-exploration-using-r.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="day-4-genomic-data-exploration-using-r.html#cb117-3" tabindex="-1"></a><span class="co"># BiocManager::install() [unhash it for first run]</span></span></code></pre></div>
+<p>Install required packages:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="day-4-genomic-data-exploration-using-r.html#cb118-1" tabindex="-1"></a><span class="co"># BiocManager::install(c(&quot;SummarizedExperiment&quot;, &quot;airway&quot;, &quot;Biobase&quot;)) [unhash it for first run]</span></span></code></pre></div>
+<p>Loading Required Libraries</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="day-4-genomic-data-exploration-using-r.html#cb119-1" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span></code></pre></div>
+<pre><code>## Loading required package: MatrixGenerics</code></pre>
+<pre><code>## Loading required package: matrixStats</code></pre>
+<pre><code>## 
+## Attaching package: &#39;matrixStats&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     count</code></pre>
+<pre><code>## 
+## Attaching package: &#39;MatrixGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
+## 
+##     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
+##     colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
+##     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
+##     colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
+##     colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+##     colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
+##     colWeightedMeans, colWeightedMedians, colWeightedSds,
+##     colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
+##     rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+##     rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+##     rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+##     rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
+##     rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+##     rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
+##     rowWeightedSds, rowWeightedVars</code></pre>
+<pre><code>## Loading required package: GenomicRanges</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: BiocGenerics</code></pre>
+<pre><code>## Loading required package: generics</code></pre>
+<pre><code>## 
+## Attaching package: &#39;generics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     as.difftime</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     explain</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+##     setequal, union</code></pre>
+<pre><code>## 
+## Attaching package: &#39;BiocGenerics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+##     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+##     get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+##     unsplit, which.max, which.min</code></pre>
+<pre><code>## Loading required package: S4Vectors</code></pre>
+<pre><code>## 
+## Attaching package: &#39;S4Vectors&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:lubridate&#39;:
+## 
+##     second, second&lt;-</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, rename</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     expand</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     findMatches</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     expand.grid, I, unname</code></pre>
+<pre><code>## Loading required package: IRanges</code></pre>
+<pre><code>## 
+## Attaching package: &#39;IRanges&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     %within%</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     collapse, desc, slice</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     reduce</code></pre>
+<pre><code>## Loading required package: Seqinfo</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
+##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Biobase&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MatrixGenerics&#39;:
+## 
+##     rowMedians</code></pre>
+<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
+## 
+##     anyMissing, rowMedians</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="day-4-genomic-data-exploration-using-r.html#cb156-1" tabindex="-1"></a><span class="fu">library</span>(airway)</span>
+<span id="cb156-2"><a href="day-4-genomic-data-exploration-using-r.html#cb156-2" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
+<span id="cb156-3"><a href="day-4-genomic-data-exploration-using-r.html#cb156-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb156-4"><a href="day-4-genomic-data-exploration-using-r.html#cb156-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Example Dataset: airway</p>
+<p>The airway dataset contains RNA-seq gene expression data from an experiment
+studying the effect of dexamethasone on human airway smooth muscle cells.</p>
+<p>Load the dataset:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="day-4-genomic-data-exploration-using-r.html#cb157-1" tabindex="-1"></a><span class="fu">data</span>(airway)</span>
+<span id="cb157-2"><a href="day-4-genomic-data-exploration-using-r.html#cb157-2" tabindex="-1"></a>airway</span></code></pre></div>
+<pre><code>## class: RangedSummarizedExperiment 
+## dim: 63677 8 
+## metadata(1): &#39;&#39;
+## assays(1): counts
+## rownames(63677): ENSG00000000003 ENSG00000000005 ... ENSG00000273492
+##   ENSG00000273493
+## rowData names(10): gene_id gene_name ... seq_coord_system symbol
+## colnames(8): SRR1039508 SRR1039509 ... SRR1039520 SRR1039521
+## colData names(9): SampleName cell ... Sample BioSample</code></pre>
+<p>Understanding SummarizedExperiment</p>
+<p>SummarizedExperiment is a core Bioconductor data structure.</p>
+<p>It contains:</p>
+<ul>
+<li><p>assay data – expression matrix</p></li>
+<li><p>rowData – gene-level information</p></li>
+<li><p>colData – sample-level metadata</p></li>
+</ul>
+<p>Exploring the Expression Data
+Assay Data (Counts Matrix)</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="day-4-genomic-data-exploration-using-r.html#cb159-1" tabindex="-1"></a><span class="fu">assay</span>(airway)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>##                 SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516
+## ENSG00000000003        679        448        873        408       1138
+## ENSG00000000005          0          0          0          0          0
+## ENSG00000000419        467        515        621        365        587
+## ENSG00000000457        260        211        263        164        245
+## ENSG00000000460         60         55         40         35         78</code></pre>
+<p>Dimensions:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="day-4-genomic-data-exploration-using-r.html#cb161-1" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">assay</span>(airway))</span></code></pre></div>
+<pre><code>## [1] 63677     8</code></pre>
+<p>Sample Metadata (colData)</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="day-4-genomic-data-exploration-using-r.html#cb163-1" tabindex="-1"></a><span class="fu">colData</span>(airway)</span></code></pre></div>
+<pre><code>## DataFrame with 8 rows and 9 columns
+##            SampleName     cell      dex    albut        Run avgLength
+##              &lt;factor&gt; &lt;factor&gt; &lt;factor&gt; &lt;factor&gt;   &lt;factor&gt; &lt;integer&gt;
+## SRR1039508 GSM1275862  N61311     untrt    untrt SRR1039508       126
+## SRR1039509 GSM1275863  N61311     trt      untrt SRR1039509       126
+## SRR1039512 GSM1275866  N052611    untrt    untrt SRR1039512       126
+## SRR1039513 GSM1275867  N052611    trt      untrt SRR1039513        87
+## SRR1039516 GSM1275870  N080611    untrt    untrt SRR1039516       120
+## SRR1039517 GSM1275871  N080611    trt      untrt SRR1039517       126
+## SRR1039520 GSM1275874  N061011    untrt    untrt SRR1039520       101
+## SRR1039521 GSM1275875  N061011    trt      untrt SRR1039521        98
+##            Experiment    Sample    BioSample
+##              &lt;factor&gt;  &lt;factor&gt;     &lt;factor&gt;
+## SRR1039508  SRX384345 SRS508568 SAMN02422669
+## SRR1039509  SRX384346 SRS508567 SAMN02422675
+## SRR1039512  SRX384349 SRS508571 SAMN02422678
+## SRR1039513  SRX384350 SRS508572 SAMN02422670
+## SRR1039516  SRX384353 SRS508575 SAMN02422682
+## SRR1039517  SRX384354 SRS508576 SAMN02422673
+## SRR1039520  SRX384357 SRS508579 SAMN02422683
+## SRR1039521  SRX384358 SRS508580 SAMN02422677</code></pre>
+<p>Convert to data frame:</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="day-4-genomic-data-exploration-using-r.html#cb165-1" tabindex="-1"></a>sample_info <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colData</span>(airway))</span>
+<span id="cb165-2"><a href="day-4-genomic-data-exploration-using-r.html#cb165-2" tabindex="-1"></a><span class="fu">head</span>(sample_info)</span></code></pre></div>
+<pre><code>##            SampleName    cell   dex albut        Run avgLength Experiment
+## SRR1039508 GSM1275862  N61311 untrt untrt SRR1039508       126  SRX384345
+## SRR1039509 GSM1275863  N61311   trt untrt SRR1039509       126  SRX384346
+## SRR1039512 GSM1275866 N052611 untrt untrt SRR1039512       126  SRX384349
+## SRR1039513 GSM1275867 N052611   trt untrt SRR1039513        87  SRX384350
+## SRR1039516 GSM1275870 N080611 untrt untrt SRR1039516       120  SRX384353
+## SRR1039517 GSM1275871 N080611   trt untrt SRR1039517       126  SRX384354
+##               Sample    BioSample
+## SRR1039508 SRS508568 SAMN02422669
+## SRR1039509 SRS508567 SAMN02422675
+## SRR1039512 SRS508571 SAMN02422678
+## SRR1039513 SRS508572 SAMN02422670
+## SRR1039516 SRS508575 SAMN02422682
+## SRR1039517 SRS508576 SAMN02422673</code></pre>
+<p>Gene Metadata (rowData)</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="day-4-genomic-data-exploration-using-r.html#cb167-1" tabindex="-1"></a><span class="fu">rowData</span>(airway)</span></code></pre></div>
+<pre><code>## DataFrame with 63677 rows and 10 columns
+##                         gene_id     gene_name  entrezid   gene_biotype
+##                     &lt;character&gt;   &lt;character&gt; &lt;integer&gt;    &lt;character&gt;
+## ENSG00000000003 ENSG00000000003        TSPAN6        NA protein_coding
+## ENSG00000000005 ENSG00000000005          TNMD        NA protein_coding
+## ENSG00000000419 ENSG00000000419          DPM1        NA protein_coding
+## ENSG00000000457 ENSG00000000457         SCYL3        NA protein_coding
+## ENSG00000000460 ENSG00000000460      C1orf112        NA protein_coding
+## ...                         ...           ...       ...            ...
+## ENSG00000273489 ENSG00000273489 RP11-180C16.1        NA      antisense
+## ENSG00000273490 ENSG00000273490        TSEN34        NA protein_coding
+## ENSG00000273491 ENSG00000273491  RP11-138A9.2        NA        lincRNA
+## ENSG00000273492 ENSG00000273492    AP000230.1        NA        lincRNA
+## ENSG00000273493 ENSG00000273493  RP11-80H18.4        NA        lincRNA
+##                 gene_seq_start gene_seq_end              seq_name seq_strand
+##                      &lt;integer&gt;    &lt;integer&gt;           &lt;character&gt;  &lt;integer&gt;
+## ENSG00000000003       99883667     99894988                     X         -1
+## ENSG00000000005       99839799     99854882                     X          1
+## ENSG00000000419       49551404     49575092                    20         -1
+## ENSG00000000457      169818772    169863408                     1         -1
+## ENSG00000000460      169631245    169823221                     1          1
+## ...                        ...          ...                   ...        ...
+## ENSG00000273489      131178723    131182453                     7         -1
+## ENSG00000273490       54693789     54697585 HSCHR19LRC_LRC_J_CTG1          1
+## ENSG00000273491      130600118    130603315          HG1308_PATCH          1
+## ENSG00000273492       27543189     27589700                    21          1
+## ENSG00000273493       58315692     58315845                     3          1
+##                 seq_coord_system        symbol
+##                        &lt;integer&gt;   &lt;character&gt;
+## ENSG00000000003               NA        TSPAN6
+## ENSG00000000005               NA          TNMD
+## ENSG00000000419               NA          DPM1
+## ENSG00000000457               NA         SCYL3
+## ENSG00000000460               NA      C1orf112
+## ...                          ...           ...
+## ENSG00000273489               NA RP11-180C16.1
+## ENSG00000273490               NA        TSEN34
+## ENSG00000273491               NA  RP11-138A9.2
+## ENSG00000273492               NA    AP000230.1
+## ENSG00000273493               NA  RP11-80H18.4</code></pre>
+<p>Basic Quality Checks
+Library Sizes</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="day-4-genomic-data-exploration-using-r.html#cb169-1" tabindex="-1"></a>library_sizes <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">assay</span>(airway))</span>
+<span id="cb169-2"><a href="day-4-genomic-data-exploration-using-r.html#cb169-2" tabindex="-1"></a>library_sizes</span></code></pre></div>
+<pre><code>## SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 
+##   20637971   18809481   25348649   15163415   24448408   30818215   19126151 
+## SRR1039521 
+##   21164133</code></pre>
+<p>Visualize library sizes:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="day-4-genomic-data-exploration-using-r.html#cb171-1" tabindex="-1"></a><span class="fu">qplot</span>(library_sizes, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb171-2"><a href="day-4-genomic-data-exploration-using-r.html#cb171-2" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb171-3"><a href="day-4-genomic-data-exploration-using-r.html#cb171-3" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Library Size Distribution&quot;</span>,</span>
+<span id="cb171-4"><a href="day-4-genomic-data-exploration-using-r.html#cb171-4" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Total Read Counts&quot;</span>,</span>
+<span id="cb171-5"><a href="day-4-genomic-data-exploration-using-r.html#cb171-5" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Number of Samples&quot;</span></span>
+<span id="cb171-6"><a href="day-4-genomic-data-exploration-using-r.html#cb171-6" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="day-3-statistical-analysis-using-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R_Programming_Course.pdf", "R_Programming_Course.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

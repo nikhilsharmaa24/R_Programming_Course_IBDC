@@ -1,0 +1,162 @@
+# Day-4 : Genomic Data Exploration Using R
+
+## Learning Objectives
+
+By the end of this day, students will be able to:
+
+- Understand common genomic data types
+- Learn what Bioconductor is and why it is used
+- Work with expression data in R
+- Use Bioconductor data structures
+- Perform basic exploratory analysis on genomic datasets
+
+---
+
+## What Is Genomic Data?
+
+Genomic data refers to information derived from DNA, RNA, or related molecules.
+
+Common genomic data types include:
+
+- **Gene expression data** (RNA-seq, microarrays)
+- **Genomic coordinates** (BED, GFF, GRanges)
+- **Variant data** (VCF)
+- **Annotation data** (gene names, pathways)
+
+In this course, we focus on **gene expression data**.
+
+---
+
+## What Is Bioconductor?
+
+**Bioconductor** is a collection of R packages designed for:
+
+- Genomic data analysis
+- Biological annotation
+- Reproducible research
+
+Key features:
+
+- Standardized data structures
+- Well-documented packages
+- Strong integration with R statistics
+
+Bioconductor complements CRAN.
+
+---
+
+## Installing Bioconductor
+
+Install Bioconductor (only once):
+
+```{r, eval=FALSE}
+
+# install.packages("BiocManager") [unhash it for first run]
+
+# BiocManager::install() [unhash it for first run]
+
+```
+
+Install required packages:
+
+```{r}
+
+# BiocManager::install(c("SummarizedExperiment", "airway", "Biobase")) [unhash it for first run]
+
+```
+
+Loading Required Libraries
+
+```{r}
+library(SummarizedExperiment)
+library(airway)
+library(Biobase)
+library(dplyr)
+library(ggplot2)
+
+```
+
+Example Dataset: airway
+
+The airway dataset contains RNA-seq gene expression data from an experiment
+studying the effect of dexamethasone on human airway smooth muscle cells.
+
+Load the dataset:
+
+```{r}
+data(airway)
+airway
+
+```
+
+Understanding SummarizedExperiment
+
+SummarizedExperiment is a core Bioconductor data structure.
+
+It contains:
+
+- assay data – expression matrix
+
+- rowData – gene-level information
+
+- colData – sample-level metadata
+
+Exploring the Expression Data
+Assay Data (Counts Matrix)
+
+```{r}
+assay(airway)[1:5, 1:5]
+
+```
+
+Dimensions:
+
+```{r}
+dim(assay(airway))
+
+```
+
+Sample Metadata (colData)
+
+```{r}
+colData(airway)
+
+```
+
+Convert to data frame:
+
+```{r}
+sample_info <- as.data.frame(colData(airway))
+head(sample_info)
+
+```
+
+Gene Metadata (rowData)
+
+```{r}
+rowData(airway)
+
+```
+
+
+Basic Quality Checks
+Library Sizes
+
+```{r}
+library_sizes <- colSums(assay(airway))
+library_sizes
+
+```
+
+Visualize library sizes:
+
+```{r}
+qplot(library_sizes, bins = 10) +
+labs(
+title = "Library Size Distribution",
+x = "Total Read Counts",
+y = "Number of Samples"
+)
+
+```
+

@@ -1,0 +1,29 @@
+# Day-0 : Installation & Environment Setup (Linux) {-}
+
+## Learning Objectives
+- Install R (version 4.5)
+- Install RStudio
+- Verify a working R environment
+
+---
+
+## Installing R (Ubuntu/Debian)
+
+Run the following commands in a terminal:
+
+```{r, engine='bash', eval=FALSE}
+sudo apt update
+sudo apt install -y software-properties-common dirmngr
+
+sudo wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
+  | sudo tee /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/"
+
+sudo apt update
+sudo apt install -y r-base=4.5* r-base-dev=4.5*
+```
+
+## You can also follow below link for installations
+
+- https://cran.r-project.org/bin/linux/ubuntu/

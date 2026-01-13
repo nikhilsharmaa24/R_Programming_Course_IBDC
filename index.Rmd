@@ -1,0 +1,100 @@
+---
+title: "R Programming for Statistical & Genomic Data Analysis"
+author: "Nikhil Sharma"
+date: "29 Jan 2026 – 3 Feb 2026"
+site: bookdown::bookdown_site
+documentclass: book
+---
+
+# Day-0 : Course Overview {-}
+
+This course introduces **R programming** for statistical analysis, data visualization,  
+and introductory genomic data exploration.
+
+It is designed as a **hands-on, reproducible course** using **RMarkdown** and **Bookdown**.
+
+---
+
+## Course Objectives
+
+By the end of this course, students will be able to:
+
+- Write basic R programs
+- Manipulate and visualize data
+- Perform common statistical analyses
+- Explore genomic data using Bioconductor
+- Produce reproducible analysis reports
+
+---
+
+## What This Course Is **Not** About
+
+We will not focus on:
+
+- Advanced programming concepts or algorithms
+
+- Software engineering practices or application development
+
+- Writing optimized or production-level R code
+
+---
+
+## Target Audience
+
+- Life science students
+- Beginners to R programming
+- Researchers starting data analysis
+
+No prior programming experience is required.
+
+---
+
+## Software Requirements
+
+- **R version 4.5.x**
+- **RStudio Desktop**
+- Linux (Ubuntu/Debian preferred)
+
+All installation steps are covered in the next chapter.
+
+---
+
+## Course Structure
+
+- **Day 0:** Course overview & installation  
+- **Day 1:** R fundamentals  
+- **Day 2:** Data manipulation & visualization  
+- **Day 3:** Statistical analysis  
+- **Day 4:** Genomic data exploration  
+- **Day 5:** Mini project
+---
+
+## How to Use This Book
+
+- Read each chapter sequentially
+- Run code examples locally in RStudio
+- Attempt all hands-on exercises
+- Use the navigation panel to move between days
+
+## Suggested Reading
+
+This course draws inspiration from the following excellent resources:
+
+- **Wickham, H. & Grolemund, G.**  
+  *R for Data Science (2nd Edition)*  
+  https://r4ds.hadley.nz/
+
+- **Grolemund, G.**  
+  *Hands-On Programming with R*  
+  https://rstudio-education.github.io/hopr/
+
+- **Bioconductor Core Team**  
+  *Bioconductor Workflows*  
+  https://bioconductor.org/help/workflows/
+
+- **Xie, Y., Allaire, J. J., & Grolemund, G.**  
+  *R Markdown: The Definitive Guide*  
+  https://bookdown.org/yihui/rmarkdown/
+---
+
+➡️ Proceed to **Installation & Environment Setup** to begin.

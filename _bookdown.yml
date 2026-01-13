@@ -1,0 +1,11 @@
+book_filename: "R_Programming_Course"
+delete_merged_file: true
+output_dir: "_book"
+rmd_files:
+  - index.Rmd
+  - Day0_Installation_Linux.Rmd
+  - Day1_R_Fundamentals.Rmd
+  - Day2_Data_Manipulation.Rmd
+  - Day3_Statistics.Rmd
+  - Day4_Genomics.Rmd
+  - Day5_Mini_Project.Rmd

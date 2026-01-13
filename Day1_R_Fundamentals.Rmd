@@ -1,0 +1,244 @@
+
+# Day-1 : Fundamentals of R Programming 
+
+## Learning Objectives
+
+By the end of this day, students will be able to:
+
+- Understand what R is and where it is used
+- Use R as a calculator
+- Create and manipulate basic R objects
+- Work with vectors and data frames
+- Use basic R functions and help documentation
+
+
+## What Is R?
+
+R is a **programming language and environment** designed for:
+
+- Statistical analysis
+- Data visualization
+- Reproducible research
+
+R is widely used in:
+- Statistics
+- Epidemiology
+- Genomics
+- Social sciences
+- Machine learning research
+
+One of R’s biggest strengths is its **ecosystem of packages**, including  
+**CRAN** and **Bioconductor**.
+
+---
+
+## RStudio Interface (Quick Tour)
+
+RStudio provides a user-friendly interface for working with R.
+
+Main components:
+- **Console** – where commands are executed
+- **Script Editor** – where you write and save code
+- **Environment** – shows created objects
+- **Plots / Files / Help** – outputs and documentation
+
+> 💡 Tip:  
+> Always write code in a **script file**, not directly in the Console.
+
+---
+
+## Using R as a Calculator
+
+Let’s start with simple arithmetic.
+
+```{r}
+2 + 3
+10 - 4
+5 * 6
+8 / 2
+```
+
+
+Additional useful operators:
+
+```{r}
+2^3 # Exponentiation
+10 %% 3 # Remainder
+10 %/% 3 # Integer division
+```
+
+## Creating Objects in R
+
+R stores values in objects.
+
+Assignment is typically done using <-:
+
+```{r}
+x <- 10
+y <- 3
+
+
+```
+
+Use the objects in calculations:
+
+```{r}
+x + y
+x * y
+```
+
+💡 **Tip**
+The "=" operator also works, but <- is the recommended R convention.
+
+---
+
+## Basic Data Types
+
+Common data types in R include:
+
+```{r}
+numeric_value <- 3.14
+integer_value <- 10L
+character_value <- "genomics"
+logical_value <- TRUE
+
+```
+
+Check the type of an object:
+```{r}
+
+class(numeric_value)
+class(character_value)
+class(logical_value)
+
+```
+
+---
+
+## Data Structures
+
+### Vector
+
+A vector is a collection of elements of the same data type.
+
+```{r}
+
+numbers <- c(1, 2, 3, 4, 5)
+genes <- c("TP53", "BRCA1", "EGFR")
+flags <- c(TRUE, FALSE, TRUE)
+
+```
+
+Indexing vectors:
+
+```{r}
+
+numbers[1]
+numbers[2:4]
+
+```
+
+## Vectorization: Thinking in Vectors
+
+One of the key ideas in R is **vectorization**.
+
+In R, most operations are designed to work on **entire vectors at once**, rather than
+one element at a time. This makes R code:
+
+- Simpler to write
+- Easier to read
+- Faster to execute
+
+This is different from many other programming languages, where you often need loops
+to process each value individually.
+
+```{r}
+
+numbers * 2
+numbers + 10
+
+```
+
+
+### Data Frames
+
+A data frame is a table-like structure where each column can be a different data type.
+
+```{r}
+df <- data.frame(
+id = 1:5,
+age = c(23, 35, 41, 29, 50),
+group = c("A", "B", "A", "B", "A")
+)
+
+df
+
+```
+
+Inspecting a data frame:
+
+```{r}
+str(df)
+summary(df)
+head(df)
+
+```
+
+Accessing columns:
+
+```{r}
+
+df$age
+df[, "group"]
+
+```
+
+
+## Getting Help in R
+
+R has built-in help documentation.
+
+```{r}
+?mean
+help(mean)
+
+help.search("regression") # gives difference functions to perform regression using in-built functions or downloaded packages
+
+```
+
+
+## Hands-on Exercises
+
+### Exercise 1
+
+Create a numeric vector of 10 values and calculate:
+
+- Mean
+
+- Median
+
+- Standard deviation
+
+### Exercise 2
+
+Create a data frame with:
+
+- Name
+
+- Age
+
+- Field of study
+
+- Display its structure and summary.
+
+### Exercise 3
+
+Explore the built-in iris dataset:
+
+- View the first 6 rows
+
+- Find the mean of Sepal.Length
+
+
+
+

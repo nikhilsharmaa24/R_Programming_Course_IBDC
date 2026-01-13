@@ -1,0 +1,251 @@
+# Day-2 : Data Manipulation and Visualization in R
+
+## Learning Objectives
+
+By the end of this day, students will be able to:
+
+- Understand tidy data principles
+- Use `dplyr` for data manipulation
+- Create publication-quality plots using `ggplot2`
+- Work efficiently with real-world datasets
+- Perform basic exploratory data analysis (EDA)
+
+---
+
+## Introduction to the Tidyverse
+
+The **tidyverse** is a collection of R packages designed for:
+
+- Data manipulation
+- Data visualization
+- Data analysis workflows
+
+Core tidyverse packages include:
+
+- `dplyr` – data manipulation
+- `ggplot2` – data visualization
+- `tidyr` – data reshaping
+- `readr` – data import
+
+---
+
+## Installing and Loading Packages
+
+Install packages (only once):
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+Load packages (before every session):
+
+```{r}
+library(tidyverse)
+
+```
+
+## Tidy Data Principles
+
+A dataset is tidy if:
+
+- Each variable is a column
+
+- Each observation is a row
+
+- Each value is a cell
+
+These principles make data easier to manipulate, visualize and analyze. 
+
+### Working with a Real Dataset
+
+We will use the built-in iris dataset.
+
+```{r}
+head(iris)
+str(iris)
+
+```
+
+### Data Manipulation with dplyr
+
+Selecting Columns
+
+```{r}
+iris %>% select(Sepal.Length, Sepal.Width) %>% head()
+
+```
+
+Exclude columns:
+
+```{r}
+iris %>% select(-Species) %>% head()
+```
+
+Filtering Rows
+
+```{r}
+iris %>% filter(Species == "setosa") %>% head()
+
+```
+
+Multiple conditions:
+
+```{r}
+iris %>% filter(Sepal.Length > 5, Species == "virginica") %>% head()
+
+```
+
+Creating New Variables (mutate)
+
+```{r}
+iris %>%
+mutate(
+Sepal.Area = Sepal.Length * Sepal.Width
+) %>% head()
+
+```
+
+
+Sorting Data (arrange)
+
+
+```{r}
+iris %>% arrange(Sepal.Length)%>% head()
+
+```
+
+
+```{r}
+iris %>% arrange(desc(Sepal.Length))%>% head()
+```
+
+Summarizing Data (summarise)
+
+```{r}
+iris %>%
+summarise(
+mean_sepal_length = mean(Sepal.Length),
+sd_sepal_length = sd(Sepal.Length)
+)
+
+```
+
+Grouped Operations (group_by)
+
+```{r}
+iris %>%
+group_by(Species) %>%
+summarise(
+mean_sepal_length = mean(Sepal.Length),
+mean_petal_length = mean(Petal.Length)
+)
+
+```
+
+## Introduction to ggplot2
+
+The grammar of graphics:
+
+- Data
+
+- Aesthetics (aes)
+
+- Geometries (geom_*)
+
+### Basic Scatter Plot
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point()
+
+```
+
+Adding Color and Labels
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+geom_point() +
+labs(
+title = "Sepal Length vs Width",
+x = "Sepal Length",
+y = "Sepal Width"
+)
+
+```
+
+Boxplots
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+geom_boxplot()
+
+```
+
+Histograms
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length)) +
+geom_histogram(bins = 20)
+
+```
+
+Combining dplyr and ggplot2
+
+```{r}
+
+iris %>%
+filter(Species != "setosa") %>%
+ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+geom_point()
+
+```
+
+## Exploratory Data Analysis (EDA)
+
+### EDA helps you:
+
+- Understand distributions
+
+- Identify outliers
+
+- Compare groups 
+
+- Generate hypotheses
+
+### Questions to ask:
+
+- Are there missing values?
+
+- Are variables skewed?
+
+- Do groups differ?
+
+## Hands-on Exercises
+
+### Exercise 1
+
+Using iris dataset:
+
+- Filter only versicolor
+
+- Select Sepal.Length and Petal.Length
+
+### Exercise 2
+
+Create a new column:
+
+Petal.ratio = Petal.Length to Petal.Width
+
+### Exercise 3
+
+- Create a plot:
+
+X-axis: Petal.Length
+
+Y-axis: Petal.Width
+
+Color by Species
+
+### Exercise 4 (Challenge)
+
+Calculate mean Sepal.Length for each species and visualize it using a bar plot.

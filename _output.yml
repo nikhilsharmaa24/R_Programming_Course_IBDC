@@ -1,0 +1,15 @@
+bookdown::gitbook:
+  toc_depth: 3
+  split_by: chapter
+  css: style.css
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: true
+    download: ["pdf", "epub"]
+
+bookdown::pdf_book:
+  number_sections: true
+
+bookdown::epub_book: default
+
