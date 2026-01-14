@@ -62,11 +62,17 @@ All installation steps are covered in the next chapter.
 ## Course Structure
 
 - **Day 0:** Course overview & installation  
+
 - **Day 1:** R fundamentals  
+
 - **Day 2:** Data manipulation & visualization  
+
 - **Day 3:** Statistical analysis  
+
 - **Day 4:** Genomic data exploration  
+
 - **Day 5:** Mini project
+
 ---
 
 ## How to Use This Book
