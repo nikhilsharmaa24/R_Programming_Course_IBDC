@@ -152,6 +152,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.8" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#learning-objectives"><i class="fa fa-check"></i><b>0.8</b> Learning Objectives</a></li>
 <li class="chapter" data-level="0.9" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-r-ubuntudebian"><i class="fa fa-check"></i><b>0.9</b> Installing R (Ubuntu/Debian)</a></li>
 <li class="chapter" data-level="0.10" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#you-can-also-follow-below-link-for-installations"><i class="fa fa-check"></i><b>0.10</b> You can also follow below link for installations</a></li>
+<li class="chapter" data-level="0.11" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-linux"><i class="fa fa-check"></i><b>0.11</b> Installing RStudio Desktop (Linux)</a>
+<ul>
+<li class="chapter" data-level="0.11.1" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio"><i class="fa fa-check"></i><b>0.11.1</b> Step 2: Install RStudio</a></li>
+<li class="chapter" data-level="0.11.2" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio"><i class="fa fa-check"></i><b>0.11.2</b> Step 3: Launch RStudio</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
 <ul>
@@ -302,9 +307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-and-loading-packages" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Installing and Loading Packages<a href="day-2-data-manipulation-and-visualization-in-r.html#installing-and-loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Install packages (only once):</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb50-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb52-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>Load packages (before every session):</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb51-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb53-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching core tidyverse packages ────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.6
 ## ✔ forcats   1.0.1     ✔ stringr   1.6.0
@@ -328,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="working-with-a-real-dataset" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Working with a Real Dataset<a href="day-2-data-manipulation-and-visualization-in-r.html#working-with-a-real-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will use the built-in iris dataset.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb53-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb55-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -336,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb55-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb57-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
@@ -347,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-manipulation-with-dplyr" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Data Manipulation with dplyr<a href="day-2-data-manipulation-and-visualization-in-r.html#data-manipulation-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Selecting Columns</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb57-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb59-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width
 ## 1          5.1         3.5
 ## 2          4.9         3.0
@@ -356,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6
 ## 6          5.4         3.9</code></pre>
 <p>Exclude columns:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb59-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Species) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb61-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Species) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## 1          5.1         3.5          1.4         0.2
 ## 2          4.9         3.0          1.4         0.2
@@ -365,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6          1.4         0.2
 ## 6          5.4         3.9          1.7         0.4</code></pre>
 <p>Filtering Rows</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb61-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb63-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -374,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>Multiple conditions:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb63-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb65-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          6.3         3.3          6.0         2.5 virginica
 ## 2          5.8         2.7          5.1         1.9 virginica
@@ -383,10 +388,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          6.5         3.0          5.8         2.2 virginica
 ## 6          7.6         3.0          6.6         2.1 virginica</code></pre>
 <p>Creating New Variables (mutate)</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb65-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb65-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb65-2" tabindex="-1"></a><span class="fu">mutate</span>(</span>
-<span id="cb65-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb65-3" tabindex="-1"></a><span class="at">Sepal.Area =</span> Sepal.Length <span class="sc">*</span> Sepal.Width</span>
-<span id="cb65-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb65-4" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb67-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb67-2" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb67-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb67-3" tabindex="-1"></a><span class="at">Sepal.Area =</span> Sepal.Length <span class="sc">*</span> Sepal.Width</span>
+<span id="cb67-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb67-4" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species Sepal.Area
 ## 1          5.1         3.5          1.4         0.2  setosa      17.85
 ## 2          4.9         3.0          1.4         0.2  setosa      14.70
@@ -395,7 +400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          5.0         3.6          1.4         0.2  setosa      18.00
 ## 6          5.4         3.9          1.7         0.4  setosa      21.06</code></pre>
 <p>Sorting Data (arrange)</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb67-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb69-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          4.3         3.0          1.1         0.1  setosa
 ## 2          4.4         2.9          1.4         0.2  setosa
@@ -403,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.4         3.2          1.3         0.2  setosa
 ## 5          4.5         2.3          1.3         0.3  setosa
 ## 6          4.6         3.1          1.5         0.2  setosa</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb69-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          7.9         3.8          6.4         2.0 virginica
 ## 2          7.7         3.8          6.7         2.2 virginica
@@ -412,20 +417,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          7.7         3.0          6.1         2.3 virginica
 ## 6          7.6         3.0          6.6         2.1 virginica</code></pre>
 <p>Summarizing Data (summarise)</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb71-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-2" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb71-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-3" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb71-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-4" tabindex="-1"></a><span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
-<span id="cb71-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb71-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb73-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-2" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb73-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-3" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb73-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-4" tabindex="-1"></a><span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
+<span id="cb73-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-5" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##   mean_sepal_length sd_sepal_length
 ## 1          5.843333       0.8280661</code></pre>
 <p>Grouped Operations (group_by)</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-2" tabindex="-1"></a><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-3" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb73-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-4" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb73-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-5" tabindex="-1"></a><span class="at">mean_petal_length =</span> <span class="fu">mean</span>(Petal.Length)</span>
-<span id="cb73-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb73-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb75-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-2" tabindex="-1"></a><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-3" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb75-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-4" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb75-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-5" tabindex="-1"></a><span class="at">mean_petal_length =</span> <span class="fu">mean</span>(Petal.Length)</span>
+<span id="cb75-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-6" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   Species    mean_sepal_length mean_petal_length
 ##   &lt;fct&gt;                  &lt;dbl&gt;             &lt;dbl&gt;
@@ -444,32 +449,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="basic-scatter-plot" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Basic Scatter Plot<a href="day-2-data-manipulation-and-visualization-in-r.html#basic-scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
-<span id="cb75-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb75-2" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
-<p>Adding Color and Labels</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb76-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb76-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb76-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length vs Width&quot;</span>,</span>
-<span id="cb76-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
-<span id="cb76-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Width&quot;</span></span>
-<span id="cb76-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb76-7" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
-<p>Boxplots</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb77-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb77-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb77-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb77-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
+<span id="cb77-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb77-2" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
-<p>Histograms</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb78-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p>Adding Color and Labels</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb78-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb78-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb78-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length vs Width&quot;</span>,</span>
+<span id="cb78-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb78-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Width&quot;</span></span>
+<span id="cb78-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb78-7" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
-<p>Combining dplyr and ggplot2</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb79-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-2" tabindex="-1"></a><span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb79-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb79-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-4" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
+<p>Boxplots</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb79-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb79-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Histograms</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb80-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb80-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb80-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Combining dplyr and ggplot2</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb81-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb81-2" tabindex="-1"></a><span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb81-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb81-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb81-4" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level2 hasAnchor" number="2.6">

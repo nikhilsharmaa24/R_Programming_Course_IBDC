@@ -152,6 +152,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.8" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#learning-objectives"><i class="fa fa-check"></i><b>0.8</b> Learning Objectives</a></li>
 <li class="chapter" data-level="0.9" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-r-ubuntudebian"><i class="fa fa-check"></i><b>0.9</b> Installing R (Ubuntu/Debian)</a></li>
 <li class="chapter" data-level="0.10" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#you-can-also-follow-below-link-for-installations"><i class="fa fa-check"></i><b>0.10</b> You can also follow below link for installations</a></li>
+<li class="chapter" data-level="0.11" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-linux"><i class="fa fa-check"></i><b>0.11</b> Installing RStudio Desktop (Linux)</a>
+<ul>
+<li class="chapter" data-level="0.11.1" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio"><i class="fa fa-check"></i><b>0.11.1</b> Step 2: Install RStudio</a></li>
+<li class="chapter" data-level="0.11.2" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio"><i class="fa fa-check"></i><b>0.11.2</b> Step 3: Launch RStudio</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
 <ul>
@@ -298,7 +303,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="https://cran.r-project.org/bin/linux/ubuntu/" class="uri">https://cran.r-project.org/bin/linux/ubuntu/</a></li>
 </ul>
+</div>
+<div id="installing-rstudio-desktop-linux" class="section level2 hasAnchor" number="0.11">
+<h2><span class="header-section-number">0.11</span> Installing RStudio Desktop (Linux)<a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-linux" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>RStudio provides a user-friendly interface for working with R.</p></li>
+<li><p>Step 1: Download RStudio</p></li>
+<li><p>Go to the official RStudio download page:</p></li>
+<li><p><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
+<li><p>Download the Linux → Debian/Ubuntu (.deb) installer.</p></li>
+</ul>
+<div id="step-2-install-rstudio" class="section level3 hasAnchor" number="0.11.1">
+<h3><span class="header-section-number">0.11.1</span> Step 2: Install RStudio<a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Navigate to the downloaded file and run:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="day-0-installation-environment-setup-linux.html#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="day-0-installation-environment-setup-linux.html#cb2-2" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class="at">-i</span> rstudio-<span class="pp">*</span>.deb</span>
+<span id="cb2-3"><a href="day-0-installation-environment-setup-linux.html#cb2-3" tabindex="-1"></a><span class="fu">sudo</span> apt <span class="at">--fix-broken</span> install</span></code></pre></div>
+</div>
+<div id="step-3-launch-rstudio" class="section level3 hasAnchor" number="0.11.2">
+<h3><span class="header-section-number">0.11.2</span> Step 3: Launch RStudio<a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>You can start RStudio by:</p></li>
+<li><p>Searching “RStudio” in the application menu</p></li>
+<li><p>Or running in terminal:</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="day-0-installation-environment-setup-linux.html#cb3-1" tabindex="-1"></a><span class="ex">rstudio</span></span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

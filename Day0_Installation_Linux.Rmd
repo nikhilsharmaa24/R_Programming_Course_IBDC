@@ -27,3 +27,41 @@ sudo apt install -y r-base=4.5* r-base-dev=4.5*
 ## You can also follow below link for installations
 
 - https://cran.r-project.org/bin/linux/ubuntu/
+
+## Installing RStudio Desktop (Linux)
+
+- RStudio provides a user-friendly interface for working with R.
+
+- Step 1: Download RStudio
+
+- Go to the official RStudio download page:
+
+- https://posit.co/download/rstudio-desktop/
+
+- Download the Linux → Debian/Ubuntu (.deb) installer.
+
+### Step 2: Install RStudio
+
+- Navigate to the downloaded file and run:
+
+```{r, engine='bash', eval=FALSE}
+
+sudo dpkg -i rstudio-*.deb
+sudo apt --fix-broken install
+
+```
+
+### Step 3: Launch RStudio
+
+- You can start RStudio by:
+
+- Searching “RStudio” in the application menu
+
+- Or running in terminal:
+
+```{r, engine='bash', eval=FALSE}
+rstudio
+
+```
+
+

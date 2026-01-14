@@ -8,6 +8,9 @@ suggested-reading
 learning-objectives
 installing-r-ubuntudebian
 you-can-also-follow-below-link-for-installations
+installing-rstudio-desktop-linux
+step-2-install-rstudio
+step-3-launch-rstudio
 day-1-fundamentals-of-r-programming
 learning-objectives-1
 what-is-r
