@@ -79,3 +79,4 @@ learning-objectives-4
 what-is-genomic-data
 what-is-bioconductor
 installing-bioconductor
+differential-expression-analysis-conceptual

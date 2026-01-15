@@ -73,6 +73,7 @@ library(airway)
 library(Biobase)
 library(dplyr)
 library(ggplot2)
+library(DESeq2)
 
 ```
 
@@ -80,6 +81,18 @@ Example Dataset: airway
 
 The airway dataset contains RNA-seq gene expression data from an experiment
 studying the effect of dexamethasone on human airway smooth muscle cells.
+
+What Kind of Data Is This?
+
+- The airway dataset contains raw RNA-seq count data.
+
+- Each value represents the number of sequencing reads mapped to a gene
+
+- Values are integers
+
+- Data is not normalized
+
+- Data is not log-transformed
 
 Load the dataset:
 
@@ -105,6 +118,7 @@ Exploring the Expression Data
 Assay Data (Counts Matrix)
 
 ```{r}
+
 assay(airway)[1:5, 1:5]
 
 ```
@@ -112,6 +126,7 @@ assay(airway)[1:5, 1:5]
 Dimensions:
 
 ```{r}
+
 dim(assay(airway))
 
 ```
@@ -151,12 +166,158 @@ library_sizes
 Visualize library sizes:
 
 ```{r}
-qplot(library_sizes, bins = 10) +
+
+ggplot(data.frame(library_sizes), aes(x = library_sizes)) +
+geom_histogram(bins = 10, fill = "steelblue") +
 labs(
 title = "Library Size Distribution",
 x = "Total Read Counts",
 y = "Number of Samples"
 )
+
+```
+
+```{r}
+counts <- assay(airway)
+
+hist(counts[, 1],
+breaks = 50,
+main = "Distribution of Raw Counts (Sample 1)",
+xlab = "Read Counts")
+
+```
+
+
+```{r}
+
+log_counts <- log2(counts + 1)
+
+hist(log_counts[, 1],
+breaks = 50,
+main = "Log-transformed Counts (Sample 1)",
+xlab = "log2(count + 1)")
+
+```
+
+```{r}
+group <- colData(airway)$dex
+group
+
+```
+
+```{r}
+boxplot(
+log_counts,
+col = ifelse(group == "trt", "tomato", "lightblue"),
+las = 2,
+main = "Log-transformed Expression Values"
+)
+
+```
+
+### Differential Expression Analysis (Conceptual)
+
+- We now demonstrate how genomic analyses are typically performed using a specialized package.
+
+```{r}
+
+dds <- DESeqDataSet(
+airway,
+design = ~ dex
+)
+
+```
+
+```{r}
+dds <- DESeq(dds)
+
+res <- results(dds)
+
+head(res)
+
+```
+
+```{r}
+
+res_df <- as.data.frame(res)
+res_df$gene <- rownames(res_df)
+
+sig_genes <- res_df %>%
+filter(padj < 0.05, abs(log2FoldChange) > 1)
+
+nrow(sig_genes)
+head(sig_genes)
+
+```
+
+```{r}
+
+ggplot(res_df, aes(x = log2FoldChange, y = -log10(pvalue))) +
+geom_point(alpha = 0.4) +
+geom_vline(xintercept = c(-1, 1), linetype = "dashed") +
+geom_hline(yintercept = -log10(0.05), linetype = "dashed") +
+labs(
+title = "Volcano Plot",
+x = "Log2 Fold Change",
+y = "-log10(p-value)"
+)
+
+```
+
+```{r}
+res_df <- res_df %>%
+  mutate(
+    regulation = case_when(
+      padj < 0.05 & log2FoldChange > 1  ~ "Up-regulated",
+      padj < 0.05 & log2FoldChange < -1 ~ "Down-regulated",
+      TRUE                             ~ "Not significant"
+    )
+  )
+
+ggplot(res_df, aes(x = log2FoldChange, y = -log10(pvalue), color = regulation)) +
+  geom_point(alpha = 0.6, size = 0.25) +
+  geom_vline(xintercept = c(-1, 1), linetype = "dashed") +
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed") +
+  scale_color_manual(
+    values = c(
+      "Up-regulated" = "red",
+      "Down-regulated" = "blue",
+      "Not significant" = "grey"
+    )
+  ) +
+  labs(
+    title = "Volcano Plot of Differential Gene Expression",
+    x = "Log2 Fold Change",
+    y = "-log10(p-value)",
+    color = "Gene Regulation"
+  ) +
+  theme_minimal()
+
+```
+
+```{r}
+library(ggrepel)
+
+top_genes <- res_df %>%
+  filter(regulation != "Not significant") %>%
+  arrange(padj) %>%
+  head(10)
+
+ggplot(res_df, aes(log2FoldChange, -log10(pvalue), color = regulation)) +
+  geom_point(alpha = 0.6, size = 0.5) +
+  geom_text_repel(
+    data = top_genes,
+    aes(label = gene),
+    size = 3
+  ) +
+  geom_vline(xintercept = c(-1, 1), linetype = "dashed") +
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed") +
+  scale_color_manual(
+    values = c("Up-regulated" = "red",
+               "Down-regulated" = "blue",
+               "Not significant" = "grey")
+  ) +
+  theme_minimal()
 
 ```
 

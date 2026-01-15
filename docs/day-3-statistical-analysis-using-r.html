@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis</title>
   <meta name="description" content="3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Day-3 : Statistical Analysis Using R | R Programming for Statistical &amp; Genomic Data Analysis" />
   <meta property="og:type" content="book" />
@@ -254,7 +254,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#learning-objectives-4"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="4.2" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-genomic-data"><i class="fa fa-check"></i><b>4.2</b> What Is Genomic Data?</a></li>
 <li class="chapter" data-level="4.3" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#what-is-bioconductor"><i class="fa fa-check"></i><b>4.3</b> What Is Bioconductor?</a></li>
-<li class="chapter" data-level="4.4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#installing-bioconductor"><i class="fa fa-check"></i><b>4.4</b> Installing Bioconductor</a></li>
+<li class="chapter" data-level="4.4" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#installing-bioconductor"><i class="fa fa-check"></i><b>4.4</b> Installing Bioconductor</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="day-4-genomic-data-exploration-using-r.html"><a href="day-4-genomic-data-exploration-using-r.html#differential-expression-analysis-conceptual"><i class="fa fa-check"></i><b>4.4.1</b> Differential Expression Analysis (Conceptual)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -344,11 +347,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-2"><a href="day-3-statistical-analysis-using-r.html#cb94-2" tabindex="-1"></a></span>
 <span id="cb94-3"><a href="day-3-statistical-analysis-using-r.html#cb94-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
 <span id="cb94-4"><a href="day-3-statistical-analysis-using-r.html#cb94-4" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-37-1.png" alt="" width="672" /></p>
 <p>Boxplot</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="day-3-statistical-analysis-using-r.html#cb95-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
 <span id="cb95-2"><a href="day-3-statistical-analysis-using-r.html#cb95-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-38-1.png" alt="" width="672" /></p>
 </div>
 </div>
 <div id="introduction-to-hypothesis-testing" class="section level2 hasAnchor" number="3.4">
@@ -484,11 +487,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb112-2"><a href="day-3-statistical-analysis-using-r.html#cb112-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb112-3"><a href="day-3-statistical-analysis-using-r.html#cb112-3" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-47-1.png" alt="" width="672" /></p>
 <p>Model Diagnostics (Brief Overview)</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="day-3-statistical-analysis-using-r.html#cb114-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb114-2"><a href="day-3-statistical-analysis-using-r.html#cb114-2" tabindex="-1"></a><span class="fu">plot</span>(lm_model)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-48-1.png" alt="" width="672" /></p>
 </div>
 <div id="interpreting-statistical-results" class="section level3 hasAnchor" number="3.4.9">
 <h3><span class="header-section-number">3.4.9</span> Interpreting Statistical Results<a href="day-3-statistical-analysis-using-r.html#interpreting-statistical-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
