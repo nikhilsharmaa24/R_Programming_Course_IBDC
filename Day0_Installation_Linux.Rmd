@@ -68,3 +68,40 @@ rstudio
 ```
 
 
+### Installing RStudio Desktop (Windows)
+
+### Step 1: Download RStudio
+
+- Go to the official RStudio download page:
+
+- https://posit.co/download/rstudio-desktop/
+
+- Download Windows Installer (.exe)
+
+
+### Step 2: Install RStudio
+
+- Double-click the downloaded .exe file
+
+- Follow the setup wizard (default options are sufficient)
+
+- Finish installation
+
+### Step 3: Launch RStudio
+
+- Open RStudio from:
+- Start Menu → RStudio
+
+   OR
+   
+- Desktop shortcut (if created)
+
+Verify Working R Environment (Windows)
+
+In the RStudio Console, run:
+
+```{r, engine='bash', eval=FALSE}
+version
+
+
+```
