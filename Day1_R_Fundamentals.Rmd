@@ -6,13 +6,33 @@
 By the end of this day, students will be able to:
 
 - Understand what R is and where it is used
-- Use R as a calculator
+- Use R as a calculator (basic operations)
 - Create and manipulate basic R objects
-- Work with vectors and data frames
-- Use basic R functions and help documentation
-
+- Work with core R data structures (vectors, lists, data frames)
+- Understand basic program control using conditions and loops
 
 ## What Is R?
+
+R is an interpreted language, meaning commands are executed immediately as they are entered, allowing users to interact with the language and see results in real time.
+
+Interact execution means:
+
+1. You type a command
+2. R executes it right away
+3. You immediately see the output or error
+4. Then you decide what to do next
+
+Contrast with typical compiled languages
+
+In many compiled languages (like C or Java):
+
+1. You write the entire program
+2. Compile the whole program
+3. Run it
+4. Only then see results or errors
+You cannot easily run line-by-line commands in the same way.
+
+This interpreted behavior of R is very important for task like data Analysis and modeling.
 
 R is a **programming language and environment** designed for:
 
@@ -20,15 +40,16 @@ R is a **programming language and environment** designed for:
 - Data visualization
 - Reproducible research
 
-R is widely used in:
+R is widely used in academia, research:
+
 - Statistics
 - Epidemiology
 - Genomics
 - Social sciences
 - Machine learning research
 
-One of R’s biggest strengths is its **ecosystem of packages**, including  
-**CRAN** and **Bioconductor**.
+
+One of R’s biggest strengths is its **ecosystem of packages**, including  **CRAN** and **Bioconductor**.
 
 ---
 
@@ -49,23 +70,96 @@ Main components:
 
 ## Using R as a Calculator
 
-Let’s start with simple arithmetic.
+Let’s start with simple arithmetic and basic mathematical operations 
+
+Summary: Common R Operators
+
+| Category            | Operator | Description                  | Example        |
+|---------------------|----------|------------------------------|----------------|
+| Arithmetic          | `+`      | Addition                     | `2 + 3`        |
+| Arithmetic          | `-`      | Subtraction                  | `5 - 2`        |
+| Arithmetic          | `*`      | Multiplication               | `4 * 3`        |
+| Arithmetic          | `/`      | Division                     | `8 / 2`        |
+| Arithmetic          | `^`      | Exponentiation               | `2^3`          |
+| Arithmetic          | `%%`     | Remainder (modulus)          | `10 %% 3`      |
+| Arithmetic          | `%/%`    | Integer division             | `10 %/% 3`     |
+| Comparison          | `==`     | Equal to                     | `x == 5`       |
+| Comparison          | `!=`     | Not equal to                 | `x != 3`       |
+| Comparison          | `>`      | Greater than                 | `x > 5`        |
+| Comparison          | `<`      | Less than                    | `x < 2`        |
+| Logical             | `&`      | AND                          | `x > 1 & x <5` | 
+| Logical             | `|`      | OR                           | `x < 2 | x >8` |
+| Assignment          | `<-`     | Assign value                 | `x <- 10`      |
+
 
 ```{r}
-2 + 3
-10 - 4
-5 * 6
-8 / 2
+
+2 + 3 # addition 
+10 - 4 # sub
+5 * 6 # multiply
+8 / 2 # divide
+
 ```
 
+
+```{r}
+
+2 + 3 * 4      # multiplication first
+(2 + 3) * 4    # parentheses change order
+
+```
 
 Additional useful operators:
 
 ```{r}
+
 2^3 # Exponentiation
-10 %% 3 # Remainder
+10 %% 4 # Remainder # (10 %% 3)
 10 %/% 3 # Integer division
+
 ```
+
+## Comments
+
+Comments in R:
+
+Purpose: To explain code, add notes, or temporarily disable code.
+Syntax: Start with a hash symbol (#).
+Behavior: Ignored during execution; have no functional impact. 
+
+```{r}
+# This is a comment
+x <- 10   # Assign 10 to x
+y <- 5    # Assign 5 to y
+
+x + y     # Add x and y
+
+# Even if a comment appears after code, it is still ignored:
+
+x <- 10
+# x <- 100   # This line will not be executed
+x
+  
+```
+
+### Documentation comments using #'
+
+The #' syntax is a special type of comment used for documentation, mainly when writing functions or packages.
+
+```{r}
+#' Add two numbers
+#'
+#' This function takes two numeric values and returns their sum.
+#' 
+
+add_numbers <- function(a, b) {
+  a + b
+}
+
+add_numbers(2,3)
+
+```
+
 
 ## Creating Objects in R
 
@@ -74,17 +168,24 @@ R stores values in objects.
 Assignment is typically done using <-:
 
 ```{r}
+
 x <- 10
 y <- 3
 
+z = 10
+
+10 -> a
+20 -> b
 
 ```
 
 Use the objects in calculations:
 
 ```{r}
+
 x + y
 x * y
+
 ```
 
 💡 **Tip**
@@ -94,17 +195,37 @@ The "=" operator also works, but <- is the recommended R convention.
 
 ## Basic Data Types
 
+In programming, data type is an important concept.
+Variables can store data of different types, and different types can do different things.
+
 Common data types in R include:
 
+### Summary: Basic R Data Types
+
+| Data Type   | Description                         | Example                  |
+|-------------|-------------------------------------|--------------------------|
+| numeric     | Decimal numbers                     | `3.14`, `10.5`           |
+| integer     | Whole numbers                       | `10L`, `5L`              |
+| character   | Text strings                        | `"genomics"`             |
+| logical     | Boolean values                      | `TRUE`, `FALSE`          |
+| complex     | Complex numbers                     | `2 + 3i`                 |
+
+
 ```{r}
-numeric_value <- 3.14
-integer_value <- 10L
-character_value <- "genomics"
-logical_value <- TRUE
+numeric_value <- 3.14 # (10.5, 55, 787)
+
+integer_value <- 10L # (1L, 55L, 100L, where the letter "L" declares this as an integer)
+
+character_value <- "genomics" # ("k", "R is exciting", "FALSE", "11.5")
+
+logical_value <- TRUE # (a.k.a. boolean) - (TRUE or FALSE)
+
+complex <- c(9 + 3i) # where "i" is the imaginary part
 
 ```
 
 Check the type of an object:
+
 ```{r}
 
 class(numeric_value)
@@ -113,13 +234,65 @@ class(logical_value)
 
 ```
 
+Type Conversion
+
+- You can convert from one type to another with the following functions:
+
+as.numeric()
+as.integer()
+as.complex()
+
+```{r}
+
+x <- 5L # integer
+y <- 7 # numeric
+
+# convert from integer to numeric:
+a <- as.numeric(x)
+
+# convert from numeric to integer:
+b <- as.integer(y)
+
+# print values of x and y
+class(x)
+class(y)
+
+# print the class name of a and b
+class(a)
+class(b)
+
+```
+
 ---
 
 ## Data Structures
 
+Data structures are used to store and organize data values/ types.
+
+### Summary: Core R Data Structures
+
+| Structure    | Description                                  | Example                                  
+|--------------|----------------------------------------------|------------------------------------------
+| Vector       | Same data type, 1D                           | `c(1, 2, 3)`                            
+| List         | Different data types allowed                | `list(1, "A", TRUE)`                   
+| Factor       | Categorical data with levels                | `factor(c("A","B"))`                    
+| Data Frame   | Tabular data, columns of equal length       | `data.frame(x=1:3, y=c("A","B","C"))`   
+| Matrix       | Same data type, 2D                           | `matrix(1:6, nrow=2)`                  
+| Array        | Same data type, multi-dimensional           | `array(1:8, dim=c(2,2,2))`             
+
+
+R provides many built-in data structures. Each is used to handle data in different ways:
+
+- Vectors
+- Lists
+- Matrices
+- Arrays
+- Data Frames
+
 ### Vector
 
-A vector is a collection of elements of the same data type.
+A vector is the most basic data structure in R. It contains a list of items of the same type.
+
 
 ```{r}
 
@@ -135,6 +308,133 @@ Indexing vectors:
 
 numbers[1]
 numbers[2:4]
+genes[2]
+
+numbers[-2] # excess all elements except 2nd 
+numbers[-1:-4] # excess all elements except 2nd 
+
+```
+
+### Lists
+
+- A list is a flexible data structure in R that can store different types of objects together.
+
+- Unlike vectors, list elements do not have to be the same data type.
+
+- Creating a List
+
+```{r}
+
+my_list <- list(
+numbers = c(1, 2, 3),
+gene = "TP53",
+flag = TRUE,
+data = data.frame(id = 1:3, value = c(10, 20, 30))
+)
+
+my_list
+
+```
+
+Accessing List Elements
+
+```{r}
+
+my_list$numbers
+my_list[[2]]
+my_list[1]
+
+```
+
+$ → access by name
+
+[[]] → extract one element
+
+[ ] → returns a sub-list
+
+- Why Lists Are Important
+
+- Explain in plain language:
+
+- Many R functions return results as lists.
+
+
+```{r}
+
+model <- lm(mpg ~ wt, data = mtcars)
+model
+
+model$coefficients
+model$model
+model$fitted.values
+
+```
+
+
+```{r}
+
+numbers * 2
+numbers + 10
+
+```
+
+### Factors
+
+Factors are used to represent **categorical data** in R.
+
+They store values as integers internally, but display meaningful labels called *levels*.
+
+```{r}
+group <- factor(c("A", "B", "A", "B"))
+group
+
+levels(group)
+
+as.numeric(group) # this show how they are stored internally
+
+group <- factor(
+  c("A", "B", "A", "B"),
+  levels = c("A", "B"),
+  labels = c("Control", "Treatment")
+)
+
+group
+
+```
+
+
+### Data Frames
+
+A data frame is a table-like structure where each column can be a different data type.
+
+```{r}
+
+df <- data.frame(
+id = 1:5,
+age = c(23, 35, 41, 29, 50),
+group = c("A", "B", "A", "B", "A")
+)
+
+df
+
+```
+
+Inspecting a data frame:
+
+```{r}
+
+str(df)
+summary(df)
+head(df)
+
+```
+
+Accessing columns:
+
+```{r}
+
+df$age
+df[, "group"]
 
 ```
 
@@ -149,47 +449,283 @@ one element at a time. This makes R code:
 - Easier to read
 - Faster to execute
 
-This is different from many other programming languages, where you often need loops
-to process each value individually.
+This is different from many other programming languages, where you often need loops to process each value individually.
+
+
+## Working with Text (Strings)
+
+In R, text data is stored as character vectors.
+A single string is a character vector of length 1, and individual characters are accessed only after explicitly splitting the string.
+
+
+```{r}
+gene_string <- "ATGCGATAGCGAG"
+gene_string
+
+```
+
+Splitting a String into Characters
+
+To work with individual letters, the string must be split into a character vector.
 
 ```{r}
 
-numbers * 2
-numbers + 10
+chars <- strsplit(gene_string, "")[[1]]
+chars
+length(chars)
+
+# strsplit() returns a list
+# 
+# [[1]] extracts the character vector
+
+
+# Looping Through Characters
+
+for (char in chars) {
+  print(char)
+}
+
 
 ```
 
 
-### Data Frames
 
-A data frame is a table-like structure where each column can be a different data type.
+Count the number of characters in a string:
+
+nchar() counts characters, not vector length.
 
 ```{r}
-df <- data.frame(
-id = 1:5,
-age = c(23, 35, 41, 29, 50),
-group = c("A", "B", "A", "B", "A")
-)
 
-df
+nchar(gene_string)
 
 ```
 
-Inspecting a data frame:
+Counting Specific Characters
+
+Finding the First Position of a Pattern: regexpr()
+```{r}
+
+regexpr("AG", gene_string)[1]
+
+# regexpr() finds the first occurrence of a pattern
+# The result gives the starting position and match length
+```
+
+Finding All Positions of a Pattern: gregexpr()
 
 ```{r}
-str(df)
-summary(df)
-head(df)
+
+gregexpr("AG", gene_string)[[1]]
+
+# gregexpr() finds all occurrences
+# Returns a list of positions
 
 ```
 
-Accessing columns:
 
 ```{r}
 
-df$age
-df[, "group"]
+table(chars)
+
+sum(chars == "A")
+sum(chars == "G")
+
+sum(strsplit(gene_string, "")[[1]] == "A")
+sum(strsplit(gene_string, "")[[1]] == "G")
+
+```
+
+Pattern Matching
+
+Check if a pattern exists:
+
+```{r}
+
+grepl("CG", gene_string)
+
+# Returns TRUE or FALSE
+```
+
+Count how many times a pattern occurs:
+
+```{r}
+
+length(gregexpr("CG", gene_string)[[1]])
+
+# gregexpr() returns match positions
+# length() gives the number of matches
+
+```
+
+Additional Useful Base R String Functions
+
+Convert Case:
+
+```{r}
+tolower(gene_string)
+toupper(gene_string)
+
+```
+
+Extract Substrings
+
+```{r}
+substr(gene_string, start = 1, stop = 3)
+
+```
+
+Replace Text
+
+```{r}
+sub("CG", "XX", gene_string)
+# Replaces the first occurrence of a pattern.
+
+gsub("CG", "XX", gene_string)
+# gsub() replaces all occurrences
+```
+
+## Control Structures
+
+Control structures allow R to make decisions and repeat actions based on conditions.
+They are used when the flow of execution needs to change depending on the data or logic.
+
+Conditional Statements: if and else
+
+Conditional statements execute different code blocks depending on whether a condition is TRUE or FALSE.
+
+```{r}
+
+x <- 3
+
+if (x > 5) {
+  "x is greater than 5"
+} else {
+  "x is less than or equal to 5"
+}
+
+# if checks a condition
+# else runs when the condition is not met
+
+```
+
+Vectorized Conditionals: ifelse()
+
+ifelse() applies a condition element-wise to vectors, making it useful for data analysis.
+
+
+```{r}
+x <- c(3, 7, 2, 9)
+
+ifelse(x > 5, "High", "Low")
+
+# Works on entire vectors at once
+# Commonly used for creating new columns or labels
+
+```
+
+
+for Loop
+
+A for loop repeats a block of code for each value in a sequence.
+
+
+```{r}
+
+for (i in 1:5) {
+  print(i)
+}
+
+# Useful when an operation must be repeated step-by-step
+# In R, vectorized solutions are often preferred when possible
+
+```
+
+while Loop
+
+A while loop keeps running as long as a condition remains TRUE.
+
+```{r}
+
+x <- 1
+
+while (x <= 5) {
+  print(x)
+  x <- x + 1
+}
+
+# The condition is checked before each iteration
+# Be careful to update the condition to avoid infinite loops
+
+```
+
+Infinite Loop (Conceptual Example)
+
+An infinite loop occurs when a loop condition never becomes FALSE.
+This can cause the program to run forever unless explicitly stopped.
+
+```{r}
+
+# while (TRUE) {
+# print("This will run forever")
+# }
+
+# Infinite loops usually happen due to missing or incorrect stopping conditions.
+
+```
+
+### Loop Control: break and next
+
+Using **break** to Stop a Loop Early.
+
+break exits a loop before it finishes all iterations.
+
+```{r}
+
+for (i in 1:10) {
+    
+    if (i == 5) {
+        break
+    }
+    
+    print(i)
+}
+
+```
+
+Explanation:
+
+ - The loop stops as soon as i becomes 5
+
+ - Remaining values are not processed
+
+Use case:
+
+- Stop processing when a condition of interest is reached.
+
+Using **next** to Skip an Iteration
+
+next skips the current iteration and continues with the next one.
+
+```{r}
+
+for (i in 1:5) {
+
+if (i == 3) {
+next
+}
+
+print(i)
+}
+
+# explanation:
+# 
+# The value 3 is skipped
+# 
+# All other values are processed normally
+# 
+# Use case:
+# 
+# Ignore missing, invalid, or unwanted values.
 
 ```
 

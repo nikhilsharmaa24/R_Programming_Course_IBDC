@@ -1,7 +1,9 @@
 ---
 title: "R Programming for Statistical & Genomic Data Analysis"
-author: "Nikhil Sharma"
-date: "29 Jan 2026 – 3 Feb 2026"
+author: |
+  **Author:** Nikhil Sharma  
+  **Course Coordinator:** Shruti Kaushal
+date: "26 Jan 2026 – 30 Jan 2026"
 site: bookdown::bookdown_site
 documentclass: book
 ---
@@ -20,7 +22,7 @@ It is designed as a **hands-on, reproducible course** using **RMarkdown** and **
 By the end of this course, students will be able to:
 
 - Write basic R programs
-- Manipulate and visualize data
+- Manipulate and visualize data using tidyverse 
 - Perform common statistical analyses
 - Explore genomic data using Bioconductor
 - Produce reproducible analysis reports
@@ -32,9 +34,7 @@ By the end of this course, students will be able to:
 We will not focus on:
 
 - Advanced programming concepts or algorithms
-
 - Software engineering practices or application development
-
 - Writing optimized or production-level R code
 
 ---
@@ -69,9 +69,9 @@ All installation steps are covered in the next chapter.
 
 - **Day 3:** Statistical analysis  
 
-- **Day 4:** Genomic data exploration  
+- **Day 4:** Genomic data exploration - 1  
 
-- **Day 5:** Mini project
+- **Day 5:** Genomic data exploration - 2
 
 ---
 

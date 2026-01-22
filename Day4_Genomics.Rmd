@@ -1,4 +1,4 @@
-# Day-4 : Genomic Data Exploration Using R
+# Day-4 : Genomic Data Exploration Using R - 1 
 
 ## Learning Objectives
 
@@ -177,6 +177,8 @@ y = "Number of Samples"
 
 ```
 
+
+
 ```{r}
 counts <- assay(airway)
 
@@ -187,6 +189,10 @@ xlab = "Read Counts")
 
 ```
 
+### Log Transformation for Exploration
+
+- Raw counts are highly skewed.
+- For visualization only, we use a log transformation:
 
 ```{r}
 
@@ -198,6 +204,8 @@ main = "Log-transformed Counts (Sample 1)",
 xlab = "log2(count + 1)")
 
 ```
+
+
 
 ```{r}
 group <- colData(airway)$dex
@@ -250,6 +258,10 @@ head(sig_genes)
 
 ```
 
+### Volcano Plot
+
+- A volcano plot shows both effect size and significance.
+
 ```{r}
 
 ggplot(res_df, aes(x = log2FoldChange, y = -log10(pvalue))) +
@@ -263,6 +275,8 @@ y = "-log10(p-value)"
 )
 
 ```
+
+- we can add colors based on up-regulation and down-regulation.
 
 ```{r}
 res_df <- res_df %>%
@@ -294,6 +308,8 @@ ggplot(res_df, aes(x = log2FoldChange, y = -log10(pvalue), color = regulation)) 
   theme_minimal()
 
 ```
+
+- adding the labels for top most significant genes. 
 
 ```{r}
 library(ggrepel)

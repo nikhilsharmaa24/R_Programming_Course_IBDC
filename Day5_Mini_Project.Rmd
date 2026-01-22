@@ -1,0 +1,122 @@
+# Day-5 : Genomic Data Exploration Using R - 2 
+
+```{r}
+
+proteins <- data.frame(name = c(
+"HBA", "HBB", "HBD", "HBG1", "HBG2",
+"HBE1", "MB", "NGB", "CYGB"
+),uniprot_id = c(
+"P69905", "P68871", "P02042", "P69891", "P69892",
+"P02100", "P02144", "Q9NPG2", "Q8WWI4"
+),
+stringsAsFactors = FALSE
+)
+
+proteins
+
+
+dir.create("fasta_files", showWarnings = FALSE)
+
+for (i in seq_len(nrow(proteins))) {
+url <- paste0(
+"https://rest.uniprot.org/uniprotkb/",
+proteins$uniprot_id[i],
+".fasta"
+)
+
+dest <- file.path(
+"fasta_files",
+paste0(proteins$name[i], ".fasta")
+)
+
+download.file(url, dest)
+}
+
+```
+
+```{r}
+
+read_fasta <- function(file) {
+lines <- readLines(file)
+sequence <- paste(lines[-1], collapse = "")
+sequence <- gsub("[^ACDEFGHIKLMNPQRSTVWY]", "", sequence)
+sequence
+}
+
+fasta_files <- list.files("fasta_files", full.names = TRUE)
+
+sequences <- sapply(fasta_files, read_fasta)
+names(sequences) <- proteins$name
+
+sequences
+
+
+```
+
+
+```{r}
+
+protein_lengths <- nchar(sequences)
+
+length_df <- data.frame(
+Protein = names(protein_lengths),
+Length = as.numeric(protein_lengths)
+)
+
+length_df
+
+```
+
+```{r}
+
+aa_composition <- lapply(sequences, function(seq) {
+table(strsplit(seq, "")[[1]])
+})
+
+aa_composition
+
+```
+
+```{r}
+
+hydrophobic <- c("A", "V", "I", "L", "M", "F", "W", "Y")
+
+hydrophobic_fraction <- sapply(sequences, function(seq) {
+aa <- strsplit(seq, "")[[1]]
+mean(aa %in% hydrophobic)
+})
+
+hydrophobic_df <- data.frame(
+Protein = names(hydrophobic_fraction),
+HydrophobicFraction = hydrophobic_fraction
+)
+
+hydrophobic_df
+
+ggplot(hydrophobic_df, aes(x = Protein, y = HydrophobicFraction)) +
+geom_col() +
+labs(
+title = "Hydrophobic Amino Acid Fraction",
+y = "Fraction",
+x = "Protein"
+)
+
+```
+
+```{r}
+
+motif <- "AA"
+
+motif_counts <- sapply(sequences, function(seq) {
+length(gregexpr(motif, seq)[[1]][gregexpr(motif, seq)[[1]] > 0])
+})
+
+motif_df <- data.frame(
+Protein = names(motif_counts),
+HG_Count = motif_counts
+)
+
+motif_df
+
+```
+

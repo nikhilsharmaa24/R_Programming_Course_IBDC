@@ -1,5 +1,7 @@
 # Day-2 : Data Manipulation and Visualization in R
 
+---
+
 ## Learning Objectives
 
 By the end of this day, students will be able to:
@@ -22,10 +24,17 @@ The **tidyverse** is a collection of R packages designed for:
 
 Core tidyverse packages include:
 
-- `dplyr` – data manipulation
-- `ggplot2` – data visualization
-- `tidyr` – data reshaping
-- `readr` – data import
+- `ggplot2` – data visualization  
+- `dplyr` – data manipulation  
+- `tidyr` – data reshaping  
+- `readr`  – data import  
+- `tibble` – modern data frames  
+- `stringr` – string manipulation  
+- `forcats` – categorical data handling  
+- `lubridate` - makes it easier to work with dates and times
+- `readxl` - data import * 
+
+note: readxl is not loaded automatically with library(tidyverse)
 
 ---
 
@@ -34,12 +43,13 @@ Core tidyverse packages include:
 Install packages (only once):
 
 ```{r, eval=FALSE}
-install.packages("tidyverse")
+# install.packages("tidyverse")
 ```
 
 Load packages (before every session):
 
 ```{r}
+
 library(tidyverse)
 
 ```
@@ -66,7 +76,36 @@ str(iris)
 
 ```
 
-### Data Manipulation with dplyr
+## The Pipe Operator (`%>%`)
+
+When working with the tidyverse, we often perform multiple operations in sequence.
+The **pipe operator (`%>%`)** allows us to write these steps in a clear and readable way.
+
+The pipe takes the output of one step and passes it as the input to the next step. You can read `%>%` as “and then”, which helps in understanding the flow of the code.
+
+
+Without the pipe
+
+```{r}
+head(select(iris, Sepal.Length, Sepal.Width))
+```
+
+with pipe 
+```{r}
+
+iris %>%
+  select(Sepal.Length, Sepal.Width) %>%
+  head()
+
+```
+
+The pipe allows code to be read from top to bottom, similar to a workflow.
+
+
+## Data Manipulation with dplyr
+
+Note: Most tidyverse functions assume that data is already in tidy format.
+
 
 Selecting Columns
 
@@ -132,13 +171,16 @@ sd_sepal_length = sd(Sepal.Length)
 
 Grouped Operations (group_by)
 
+This allow us to perform summaries separately for each group in the data.
+
+
 ```{r}
 iris %>%
-group_by(Species) %>%
-summarise(
-mean_sepal_length = mean(Sepal.Length),
-mean_petal_length = mean(Petal.Length)
-)
+  group_by(Species) %>%
+  summarise(
+    mean_sepal_length = mean(Sepal.Length),
+    mean_petal_length = mean(Petal.Length)
+  )
 
 ```
 
@@ -147,10 +189,10 @@ mean_petal_length = mean(Petal.Length)
 The grammar of graphics:
 
 - Data
-
 - Aesthetics (aes)
-
 - Geometries (geom_*)
+
+In ggplot2, plots are built by combining data, aesthetics, and geometric layers.
 
 ### Basic Scatter Plot
 
@@ -194,31 +236,182 @@ Combining dplyr and ggplot2
 ```{r}
 
 iris %>%
-filter(Species != "setosa") %>%
-ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +
-geom_point()
+  filter(Species != "setosa") %>%
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point()
 
 ```
 
 ## Exploratory Data Analysis (EDA)
 
-### EDA helps you:
+Exploratory Data Analysis (EDA) is the process of examining and summarizing data to understand its main characteristics before applying formal statistical models.
 
-- Understand distributions
+EDA relies heavily on visualization and simple summaries, rather than statistical tests.
 
-- Identify outliers
+**Why EDA is important**
 
-- Compare groups 
+- EDA helps you to:
 
-- Generate hypotheses
+- Understand the structure and shape of the data
 
-### Questions to ask:
+- Detect outliers and unusual observations
 
-- Are there missing values?
+- Identify patterns and relationships
 
-- Are variables skewed?
+- Compare groups
 
-- Do groups differ?
+- Assess data quality
+
+- Generate hypotheses for further analysis
+
+### Understanding the Structure of the Data
+
+Before any analysis, always inspect the data.
+```{r}
+
+summary(iris)
+```
+
+This helps answer:
+
+- What variables are present?
+
+- Are they numeric or categorical?
+
+- Are ranges reasonable?
+
+### Checking for Missing Values
+
+```{r}
+colSums(is.na(iris))
+
+# can you write this in tidyverse way? 
+```
+
+### Understanding Distributions
+
+Histogram (distribution of a numeric variable)
+
+```{r}
+
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(bins = 30) +
+  labs(
+  title = "Distribution of Sepal Length",
+  x = "Sepal Length",
+  y = "Count"
+  )
+
+```
+
+Questions to ask:
+
+- Is the distribution symmetric or skewed?
+- Are there extreme values?
+
+### Identifying Outliers
+
+```{r}
+
+ggplot(iris, aes(y = Sepal.Length)) +
+  geom_boxplot() +
+  labs(
+  title = "Boxplot of Sepal Length",
+  y = "Sepal Length"
+  )
+
+```
+
+Boxplots are useful for spotting:
+
+- Outliers
+- Spread of the data
+- Median values
+
+### Comparing Groups 
+
+Boxplot by group
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+geom_boxplot() +
+labs(
+title = "Sepal Length by Species",
+x = "Species",
+y = "Sepal Length"
+)
+
+```
+
+This helps answer:
+
+- Do groups differ in central tendency?
+- Is variability similar across groups?
+
+### Exploring Relationships Between Variables
+
+Scatter plot
+
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point() +
+  labs(
+  title = "Petal Length vs Petal Width",
+  x = "Petal Length",
+  y = "Petal Width"
+  )
+
+```
+
+Scatter plot with grouping
+
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+geom_point() +
+labs(
+title = "Petal Length vs Petal Width by Species"
+)
+
+```
+
+Questions to ask:
+
+- Are variables related?
+- Do relationships differ by group?
+
+### Simple Group Summaries
+
+```{r}
+
+iris %>%
+  group_by(Species) %>%
+  summarise(
+  mean_sepal_length = mean(Sepal.Length),
+  sd_sepal_length = sd(Sepal.Length)
+  )
+
+
+```
+
+These summaries describe patterns, not statistical significance.
+
+### EDA vs Statistical Analysis
+
+EDA answers:
+
+- What does the data look like?
+
+Statistical analysis answers:
+
+Are the observed differences statistically significant?
+
+Formal hypothesis testing will be covered in week-3 in Statistics sessions. Will give introduction in next session from prospect of analysis.
+
+**Good EDA helps you:**
+
+- Understand your data
+- Avoid incorrect assumptions
+- Ask better scientific questions
 
 ## Hands-on Exercises
 

@@ -1,16 +1,20 @@
 # Day-3 : Statistical Analysis Using R
 
+---
+
 ## Learning Objectives
 
 By the end of this day, students will be able to:
 
 - Understand descriptive and inferential statistics
 - Summarize data numerically and graphically
+- Understand the role of probability in statistics
 - Perform common hypothesis tests in R
 - Interpret p-values and confidence intervals
 - Fit and interpret basic statistical models
 
 ---
+
 
 ## Types of Data
 
@@ -76,10 +80,60 @@ geom_boxplot()
 
 ```
 
+## Introduction to Probability (Conceptual)
+
+Statistics is built on the idea of random variation.
+
+**In practice:**
+
+- We observe data from a sample
+
+- Samples vary due to randomness
+
+- Probability helps us quantify uncertainty
+
+### Sampling Variation
+
+Even when sampling from the same population, sample statistics vary.
+
+```{r}
+set.seed(123)
+
+sample_means <- replicate(
+1000,
+mean(sample(iris$Sepal.Length, size = 30))
+)
+
+hist(
+sample_means,
+main = "Sampling Distribution of the Mean",
+xlab = "Sample Mean"
+)
+
+```
+
+Key idea:
+Variation in results does not always imply a real difference — it may be due to chance.
+
+
+Probability Distributions (Intuition)
+
+Many biological measurements follow approximately normal distributions.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(bins = 20) +
+  geom_density(color = "blue") +
+  labs(title = "Histogram with Density Curve")
+
+```
+
 
 ## Introduction to Hypothesis Testing
 
-A hypothesis test evaluates evidence against a null hypothesis.
+Hypothesis testing uses probability to evaluate whether observed differences
+are likely due to random variation or represent a real effect.
+
 
 ### Key concepts:
 
@@ -87,7 +141,7 @@ A hypothesis test evaluates evidence against a null hypothesis.
 
 - Alternative hypothesis (H₁): effect or difference exists
 
-- p-value: probability of observing the data assuming H₀ is true
+- p-value: probability of observing the data or statistics assuming H₀ is true
 
 ### t-test
 
@@ -96,6 +150,7 @@ One-Sample t-test
 Tests whether the mean differs from a known value.
 
 ```{r}
+
 t.test(iris$Sepal.Length, mu = 5)
 
 ```
@@ -105,6 +160,7 @@ t.test(iris$Sepal.Length, mu = 5)
 Compare Sepal Length between two species.
 
 ```{r}
+
 t.test(
 Sepal.Length ~ Species,
 data = subset(iris, Species %in% c("setosa", "versicolor"))
@@ -117,9 +173,10 @@ data = subset(iris, Species %in% c("setosa", "versicolor"))
 Used when data do not meet t-test assumptions.
 
 ```{r}
+
 wilcox.test(
-Sepal.Length ~ Species,
-data = subset(iris, Species %in% c("setosa", "versicolor"))
+  Sepal.Length ~ Species,
+  data = subset(iris, Species %in% c("setosa", "versicolor"))
 )
 
 ```
@@ -168,16 +225,18 @@ summary(lm_model)
 ```
 
 ### Visualizing the Regression
+
 ```{r}
 ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
-geom_point() +
-geom_smooth(method = "lm", se = TRUE)
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE)
 
 ```
 
 Model Diagnostics (Brief Overview)
 
 ```{r}
+
 par(mfrow = c(2, 2))
 plot(lm_model)
 
@@ -199,8 +258,7 @@ When reporting results, always consider:
 
 ## Machine Learning (Statistical Learning): A Gentle Introduction
 
-In this course, **machine learning** is introduced as an extension of
-**statistical modeling**, with a different primary goal.
+In this course, **machine learning** is introduced as an extension of **statistical modeling**, with a different primary goal.
 
 While traditional statistical analysis often focuses on:
 - Estimating effects
@@ -268,6 +326,7 @@ Here:
 Instead of p-values, we evaluate prediction error.
 
 ```{r}
+
 mean((predictions - y_test)^2)
 
 ```
