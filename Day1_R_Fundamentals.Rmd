@@ -22,16 +22,6 @@ Interact execution means:
 3. You immediately see the output or error
 4. Then you decide what to do next
 
-Contrast with typical compiled languages
-
-In many compiled languages (like C or Java):
-
-1. You write the entire program
-2. Compile the whole program
-3. Run it
-4. Only then see results or errors
-You cannot easily run line-by-line commands in the same way.
-
 This interpreted behavior of R is very important for task like data Analysis and modeling.
 
 R is a **programming language and environment** designed for:
