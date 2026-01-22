@@ -304,7 +304,7 @@ numbers[2:4]
 genes[2]
 
 numbers[-2] # excess all elements except 2nd 
-numbers[-1:-4] # excess all elements except 2nd 
+numbers[-1:-4] # excess only 5th element 
 
 ```
 
@@ -346,9 +346,6 @@ $ → access by name
 [ ] → returns a sub-list
 
 - Why Lists Are Important
-
-- Explain in plain language:
-
 - Many R functions return results as lists.
 
 
