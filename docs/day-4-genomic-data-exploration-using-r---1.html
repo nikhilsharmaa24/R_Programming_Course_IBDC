@@ -155,6 +155,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.11.1" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio"><i class="fa fa-check"></i><b>0.11.1</b> Step 2: Install RStudio</a></li>
 <li class="chapter" data-level="0.11.2" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio"><i class="fa fa-check"></i><b>0.11.2</b> Step 3: Launch RStudio</a></li>
+<li class="chapter" data-level="0.11.3" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-windows"><i class="fa fa-check"></i><b>0.11.3</b> Installing RStudio Desktop (Windows)</a></li>
+<li class="chapter" data-level="0.11.4" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-1-download-rstudio"><i class="fa fa-check"></i><b>0.11.4</b> Step 1: Download RStudio</a></li>
+<li class="chapter" data-level="0.11.5" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio-1"><i class="fa fa-check"></i><b>0.11.5</b> Step 2: Install RStudio</a></li>
+<li class="chapter" data-level="0.11.6" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio-1"><i class="fa fa-check"></i><b>0.11.6</b> Step 3: Launch RStudio</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
@@ -349,13 +353,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-bioconductor" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Installing Bioconductor<a href="day-4-genomic-data-exploration-using-r---1.html#installing-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Install Bioconductor (only once):</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb246-1" tabindex="-1"></a><span class="co"># install.packages(&quot;BiocManager&quot;) [unhash it for first run]</span></span>
-<span id="cb246-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb246-2" tabindex="-1"></a></span>
-<span id="cb246-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb246-3" tabindex="-1"></a><span class="co"># BiocManager::install() [unhash it for first run]</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb247-1" tabindex="-1"></a><span class="co"># install.packages(&quot;BiocManager&quot;) [unhash it for first run]</span></span>
+<span id="cb247-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb247-2" tabindex="-1"></a></span>
+<span id="cb247-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb247-3" tabindex="-1"></a><span class="co"># BiocManager::install() [unhash it for first run]</span></span></code></pre></div>
 <p>Install required packages:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb247-1" tabindex="-1"></a><span class="co"># BiocManager::install(c(&quot;SummarizedExperiment&quot;, &quot;airway&quot;, &quot;Biobase&quot;)) [unhash it for first run]</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb248-1" tabindex="-1"></a><span class="co"># BiocManager::install(c(&quot;SummarizedExperiment&quot;, &quot;airway&quot;, &quot;Biobase&quot;)) [unhash it for first run]</span></span></code></pre></div>
 <p>Loading Required Libraries</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb248-1" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb249-1" tabindex="-1"></a><span class="fu">library</span>(SummarizedExperiment)</span></code></pre></div>
 <pre><code>## Loading required package: MatrixGenerics</code></pre>
 <pre><code>## Loading required package: matrixStats</code></pre>
 <pre><code>## 
@@ -459,11 +463,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
 ## 
 ##     anyMissing, rowMedians</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb285-1" tabindex="-1"></a><span class="fu">library</span>(airway)</span>
-<span id="cb285-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb285-2" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
-<span id="cb285-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb285-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb285-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb285-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb285-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb285-5" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-1" tabindex="-1"></a><span class="fu">library</span>(airway)</span>
+<span id="cb286-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-2" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
+<span id="cb286-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb286-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb286-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-5" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span></code></pre></div>
 <p>Example Dataset: airway</p>
 <p>The airway dataset contains RNA-seq gene expression data from an experiment
 studying the effect of dexamethasone on human airway smooth muscle cells.</p>
@@ -476,8 +480,8 @@ studying the effect of dexamethasone on human airway smooth muscle cells.</p>
 <li><p>Data is not log-transformed</p></li>
 </ul>
 <p>Load the dataset:</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-1" tabindex="-1"></a><span class="fu">data</span>(airway)</span>
-<span id="cb286-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb286-2" tabindex="-1"></a>airway</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb287-1" tabindex="-1"></a><span class="fu">data</span>(airway)</span>
+<span id="cb287-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb287-2" tabindex="-1"></a>airway</span></code></pre></div>
 <pre><code>## class: RangedSummarizedExperiment 
 ## dim: 63677 8 
 ## metadata(1): &#39;&#39;
@@ -497,7 +501,7 @@ studying the effect of dexamethasone on human airway smooth muscle cells.</p>
 </ul>
 <p>Exploring the Expression Data
 Assay Data (Counts Matrix)</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb288-1" tabindex="-1"></a><span class="fu">assay</span>(airway)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb289-1" tabindex="-1"></a><span class="fu">assay</span>(airway)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##                 SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516
 ## ENSG00000000003        679        448        873        408       1138
 ## ENSG00000000005          0          0          0          0          0
@@ -505,10 +509,10 @@ Assay Data (Counts Matrix)</p>
 ## ENSG00000000457        260        211        263        164        245
 ## ENSG00000000460         60         55         40         35         78</code></pre>
 <p>Dimensions:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb290-1" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">assay</span>(airway))</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb291-1" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">assay</span>(airway))</span></code></pre></div>
 <pre><code>## [1] 63677     8</code></pre>
 <p>Sample Metadata (colData)</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb292-1" tabindex="-1"></a><span class="fu">colData</span>(airway)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb293-1" tabindex="-1"></a><span class="fu">colData</span>(airway)</span></code></pre></div>
 <pre><code>## DataFrame with 8 rows and 9 columns
 ##            SampleName     cell      dex    albut        Run avgLength
 ##              &lt;factor&gt; &lt;factor&gt; &lt;factor&gt; &lt;factor&gt;   &lt;factor&gt; &lt;integer&gt;
@@ -531,8 +535,8 @@ Assay Data (Counts Matrix)</p>
 ## SRR1039520  SRX384357 SRS508579 SAMN02422683
 ## SRR1039521  SRX384358 SRS508580 SAMN02422677</code></pre>
 <p>Convert to data frame:</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb294-1" tabindex="-1"></a>sample_info <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colData</span>(airway))</span>
-<span id="cb294-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb294-2" tabindex="-1"></a><span class="fu">head</span>(sample_info)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb295-1" tabindex="-1"></a>sample_info <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colData</span>(airway))</span>
+<span id="cb295-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb295-2" tabindex="-1"></a><span class="fu">head</span>(sample_info)</span></code></pre></div>
 <pre><code>##            SampleName    cell   dex albut        Run avgLength Experiment
 ## SRR1039508 GSM1275862  N61311 untrt untrt SRR1039508       126  SRX384345
 ## SRR1039509 GSM1275863  N61311   trt untrt SRR1039509       126  SRX384346
@@ -548,7 +552,7 @@ Assay Data (Counts Matrix)</p>
 ## SRR1039516 SRS508575 SAMN02422682
 ## SRR1039517 SRS508576 SAMN02422673</code></pre>
 <p>Gene Metadata (rowData)</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb296-1" tabindex="-1"></a><span class="fu">rowData</span>(airway)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb297-1" tabindex="-1"></a><span class="fu">rowData</span>(airway)</span></code></pre></div>
 <pre><code>## DataFrame with 63677 rows and 10 columns
 ##                         gene_id     gene_name  entrezid   gene_biotype
 ##                     &lt;character&gt;   &lt;character&gt; &lt;integer&gt;    &lt;character&gt;
@@ -591,72 +595,72 @@ Assay Data (Counts Matrix)</p>
 ## ENSG00000273493               NA  RP11-80H18.4</code></pre>
 <p>Basic Quality Checks
 Library Sizes</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb298-1" tabindex="-1"></a>library_sizes <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">assay</span>(airway))</span>
-<span id="cb298-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb298-2" tabindex="-1"></a>library_sizes</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb299-1" tabindex="-1"></a>library_sizes <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">assay</span>(airway))</span>
+<span id="cb299-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb299-2" tabindex="-1"></a>library_sizes</span></code></pre></div>
 <pre><code>## SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 
 ##   20637971   18809481   25348649   15163415   24448408   30818215   19126151 
 ## SRR1039521 
 ##   21164133</code></pre>
 <p>Visualize library sizes:</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(library_sizes), <span class="fu">aes</span>(<span class="at">x =</span> library_sizes)) <span class="sc">+</span></span>
-<span id="cb300-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb300-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb300-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Library Size Distribution&quot;</span>,</span>
-<span id="cb300-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Total Read Counts&quot;</span>,</span>
-<span id="cb300-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Number of Samples&quot;</span></span>
-<span id="cb300-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb300-7" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-99-1.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-1" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">assay</span>(airway)</span>
-<span id="cb301-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-2" tabindex="-1"></a></span>
-<span id="cb301-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-3" tabindex="-1"></a><span class="fu">hist</span>(counts[, <span class="dv">1</span>],</span>
-<span id="cb301-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-4" tabindex="-1"></a><span class="at">breaks =</span> <span class="dv">50</span>,</span>
-<span id="cb301-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Distribution of Raw Counts (Sample 1)&quot;</span>,</span>
-<span id="cb301-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-6" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;Read Counts&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(library_sizes), <span class="fu">aes</span>(<span class="at">x =</span> library_sizes)) <span class="sc">+</span></span>
+<span id="cb301-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb301-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb301-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Library Size Distribution&quot;</span>,</span>
+<span id="cb301-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Total Read Counts&quot;</span>,</span>
+<span id="cb301-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Number of Samples&quot;</span></span>
+<span id="cb301-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb301-7" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-100-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-1" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">assay</span>(airway)</span>
+<span id="cb302-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-2" tabindex="-1"></a></span>
+<span id="cb302-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-3" tabindex="-1"></a><span class="fu">hist</span>(counts[, <span class="dv">1</span>],</span>
+<span id="cb302-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-4" tabindex="-1"></a><span class="at">breaks =</span> <span class="dv">50</span>,</span>
+<span id="cb302-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Distribution of Raw Counts (Sample 1)&quot;</span>,</span>
+<span id="cb302-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-6" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;Read Counts&quot;</span>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-101-1.png" alt="" width="672" /></p>
 <div id="log-transformation-for-exploration" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Log Transformation for Exploration<a href="day-4-genomic-data-exploration-using-r---1.html#log-transformation-for-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Raw counts are highly skewed.</li>
 <li>For visualization only, we use a log transformation:</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-1" tabindex="-1"></a>log_counts <span class="ot">&lt;-</span> <span class="fu">log2</span>(counts <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb302-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-2" tabindex="-1"></a></span>
-<span id="cb302-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-3" tabindex="-1"></a><span class="fu">hist</span>(log_counts[, <span class="dv">1</span>],</span>
-<span id="cb302-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-4" tabindex="-1"></a><span class="at">breaks =</span> <span class="dv">50</span>,</span>
-<span id="cb302-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Log-transformed Counts (Sample 1)&quot;</span>,</span>
-<span id="cb302-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb302-6" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;log2(count + 1)&quot;</span>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-101-1.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-1" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">colData</span>(airway)<span class="sc">$</span>dex</span>
-<span id="cb303-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-2" tabindex="-1"></a>group</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-1" tabindex="-1"></a>log_counts <span class="ot">&lt;-</span> <span class="fu">log2</span>(counts <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb303-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-2" tabindex="-1"></a></span>
+<span id="cb303-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-3" tabindex="-1"></a><span class="fu">hist</span>(log_counts[, <span class="dv">1</span>],</span>
+<span id="cb303-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-4" tabindex="-1"></a><span class="at">breaks =</span> <span class="dv">50</span>,</span>
+<span id="cb303-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Log-transformed Counts (Sample 1)&quot;</span>,</span>
+<span id="cb303-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb303-6" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">&quot;log2(count + 1)&quot;</span>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-102-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb304-1" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">colData</span>(airway)<span class="sc">$</span>dex</span>
+<span id="cb304-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb304-2" tabindex="-1"></a>group</span></code></pre></div>
 <pre><code>## [1] untrt trt   untrt trt   untrt trt   untrt trt  
 ## Levels: trt untrt</code></pre>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
-<span id="cb305-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-2" tabindex="-1"></a>log_counts,</span>
-<span id="cb305-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-3" tabindex="-1"></a><span class="at">col =</span> <span class="fu">ifelse</span>(group <span class="sc">==</span> <span class="st">&quot;trt&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;lightblue&quot;</span>),</span>
-<span id="cb305-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-4" tabindex="-1"></a><span class="at">las =</span> <span class="dv">2</span>,</span>
-<span id="cb305-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Log-transformed Expression Values&quot;</span></span>
-<span id="cb305-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb305-6" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-103-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb306-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-2" tabindex="-1"></a>log_counts,</span>
+<span id="cb306-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-3" tabindex="-1"></a><span class="at">col =</span> <span class="fu">ifelse</span>(group <span class="sc">==</span> <span class="st">&quot;trt&quot;</span>, <span class="st">&quot;tomato&quot;</span>, <span class="st">&quot;lightblue&quot;</span>),</span>
+<span id="cb306-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-4" tabindex="-1"></a><span class="at">las =</span> <span class="dv">2</span>,</span>
+<span id="cb306-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-5" tabindex="-1"></a><span class="at">main =</span> <span class="st">&quot;Log-transformed Expression Values&quot;</span></span>
+<span id="cb306-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-104-1.png" alt="" width="672" /></p>
 </div>
 <div id="differential-expression-analysis-conceptual" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Differential Expression Analysis (Conceptual)<a href="day-4-genomic-data-exploration-using-r---1.html#differential-expression-analysis-conceptual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>We now demonstrate how genomic analyses are typically performed using a specialized package.</li>
 </ul>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-1" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSet</span>(</span>
-<span id="cb306-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-2" tabindex="-1"></a>airway,</span>
-<span id="cb306-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-3" tabindex="-1"></a><span class="at">design =</span> <span class="sc">~</span> dex</span>
-<span id="cb306-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb306-4" tabindex="-1"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb307-1" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(dds)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb307-1" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSet</span>(</span>
+<span id="cb307-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb307-2" tabindex="-1"></a>airway,</span>
+<span id="cb307-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb307-3" tabindex="-1"></a><span class="at">design =</span> <span class="sc">~</span> dex</span>
+<span id="cb307-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb307-4" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb308-1" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(dds)</span></code></pre></div>
 <pre><code>## estimating size factors</code></pre>
 <pre><code>## estimating dispersions</code></pre>
 <pre><code>## gene-wise dispersion estimates</code></pre>
 <pre><code>## mean-dispersion relationship</code></pre>
 <pre><code>## final dispersion estimates</code></pre>
 <pre><code>## fitting model and testing</code></pre>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb314-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">results</span>(dds)</span>
-<span id="cb314-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb314-2" tabindex="-1"></a></span>
-<span id="cb314-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb314-3" tabindex="-1"></a><span class="fu">head</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb315-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">results</span>(dds)</span>
+<span id="cb315-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb315-2" tabindex="-1"></a></span>
+<span id="cb315-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb315-3" tabindex="-1"></a><span class="fu">head</span>(res)</span></code></pre></div>
 <pre><code>## log2 fold change (MLE): dex untrt vs trt 
 ## Wald test p-value: dex untrt vs trt 
 ## DataFrame with 6 rows and 6 columns
@@ -676,15 +680,15 @@ Library Sizes</p>
 ## ENSG00000000457  0.930572
 ## ENSG00000000460  0.895441
 ## ENSG00000000938        NA</code></pre>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-1" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(res)</span>
-<span id="cb316-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-2" tabindex="-1"></a>res_df<span class="sc">$</span>gene <span class="ot">&lt;-</span> <span class="fu">rownames</span>(res_df)</span>
-<span id="cb316-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-3" tabindex="-1"></a></span>
-<span id="cb316-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-4" tabindex="-1"></a>sig_genes <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
-<span id="cb316-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-5" tabindex="-1"></a><span class="fu">filter</span>(padj <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="fu">abs</span>(log2FoldChange) <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
-<span id="cb316-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-6" tabindex="-1"></a></span>
-<span id="cb316-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb316-7" tabindex="-1"></a><span class="fu">nrow</span>(sig_genes)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-1" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(res)</span>
+<span id="cb317-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-2" tabindex="-1"></a>res_df<span class="sc">$</span>gene <span class="ot">&lt;-</span> <span class="fu">rownames</span>(res_df)</span>
+<span id="cb317-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-3" tabindex="-1"></a></span>
+<span id="cb317-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-4" tabindex="-1"></a>sig_genes <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
+<span id="cb317-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-5" tabindex="-1"></a><span class="fu">filter</span>(padj <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="fu">abs</span>(log2FoldChange) <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb317-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-6" tabindex="-1"></a></span>
+<span id="cb317-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb317-7" tabindex="-1"></a><span class="fu">nrow</span>(sig_genes)</span></code></pre></div>
 <pre><code>## [1] 877</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb318-1" tabindex="-1"></a><span class="fu">head</span>(sig_genes)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb319-1" tabindex="-1"></a><span class="fu">head</span>(sig_genes)</span></code></pre></div>
 <pre><code>##                   baseMean log2FoldChange     lfcSE      stat       pvalue
 ## ENSG00000003402 2546.61420      -1.183425 0.1635592 -7.235455 4.639712e-13
 ## ENSG00000004799  914.37901      -2.544032 0.9011874 -2.822977 4.757993e-03
@@ -705,79 +709,79 @@ Library Sizes</p>
 <ul>
 <li>A volcano plot shows both effect size and significance.</li>
 </ul>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-1" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue))) <span class="sc">+</span></span>
-<span id="cb320-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-2" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb320-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-3" tabindex="-1"></a><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb320-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-4" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb320-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-5" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb320-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-6" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Volcano Plot&quot;</span>,</span>
-<span id="cb320-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-7" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Log2 Fold Change&quot;</span>,</span>
-<span id="cb320-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-8" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;-log10(p-value)&quot;</span></span>
-<span id="cb320-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb320-9" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Warning: Removed 30259 rows containing missing values or values outside
-## the scale range (`geom_point()`).</code></pre>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-107-1.png" alt="" width="672" /></p>
-<ul>
-<li>we can add colors based on up-regulation and down-regulation.</li>
-</ul>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-1" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
-<span id="cb322-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb322-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-3" tabindex="-1"></a>    <span class="at">regulation =</span> <span class="fu">case_when</span>(</span>
-<span id="cb322-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-4" tabindex="-1"></a>      padj <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FoldChange <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">&quot;Up-regulated&quot;</span>,</span>
-<span id="cb322-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-5" tabindex="-1"></a>      padj <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FoldChange <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;Down-regulated&quot;</span>,</span>
-<span id="cb322-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-6" tabindex="-1"></a>      <span class="cn">TRUE</span>                             <span class="sc">~</span> <span class="st">&quot;Not significant&quot;</span></span>
-<span id="cb322-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-7" tabindex="-1"></a>    )</span>
-<span id="cb322-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-8" tabindex="-1"></a>  )</span>
-<span id="cb322-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-9" tabindex="-1"></a></span>
-<span id="cb322-10"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-10" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue), <span class="at">color =</span> regulation)) <span class="sc">+</span></span>
-<span id="cb322-11"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-11" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb322-12"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-12" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb322-13"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-13" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb322-14"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-14" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb322-15"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-15" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb322-16"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-16" tabindex="-1"></a>      <span class="st">&quot;Up-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb322-17"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-17" tabindex="-1"></a>      <span class="st">&quot;Down-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb322-18"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-18" tabindex="-1"></a>      <span class="st">&quot;Not significant&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey&quot;</span></span>
-<span id="cb322-19"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-19" tabindex="-1"></a>    )</span>
-<span id="cb322-20"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-20" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb322-21"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-21" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb322-22"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-22" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volcano Plot of Differential Gene Expression&quot;</span>,</span>
-<span id="cb322-23"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-23" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Log2 Fold Change&quot;</span>,</span>
-<span id="cb322-24"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-24" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;-log10(p-value)&quot;</span>,</span>
-<span id="cb322-25"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-25" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Gene Regulation&quot;</span></span>
-<span id="cb322-26"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-26" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb322-27"><a href="day-4-genomic-data-exploration-using-r---1.html#cb322-27" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-1" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue))) <span class="sc">+</span></span>
+<span id="cb321-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-2" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb321-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-3" tabindex="-1"></a><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb321-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-4" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb321-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-5" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb321-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-6" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Volcano Plot&quot;</span>,</span>
+<span id="cb321-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-7" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Log2 Fold Change&quot;</span>,</span>
+<span id="cb321-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-8" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;-log10(p-value)&quot;</span></span>
+<span id="cb321-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb321-9" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## Warning: Removed 30259 rows containing missing values or values outside
 ## the scale range (`geom_point()`).</code></pre>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-108-1.png" alt="" width="672" /></p>
 <ul>
-<li>adding the labels for top most significant genes.</li>
+<li>we can add colors based on up-regulation and down-regulation.</li>
 </ul>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-1" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb324-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-2" tabindex="-1"></a></span>
-<span id="cb324-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-3" tabindex="-1"></a>top_genes <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
-<span id="cb324-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-4" tabindex="-1"></a>  <span class="fu">filter</span>(regulation <span class="sc">!=</span> <span class="st">&quot;Not significant&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb324-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-5" tabindex="-1"></a>  <span class="fu">arrange</span>(padj) <span class="sc">%&gt;%</span></span>
-<span id="cb324-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-6" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb324-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-7" tabindex="-1"></a></span>
-<span id="cb324-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-8" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(log2FoldChange, <span class="sc">-</span><span class="fu">log10</span>(pvalue), <span class="at">color =</span> regulation)) <span class="sc">+</span></span>
-<span id="cb324-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb324-10"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-10" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
-<span id="cb324-11"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-11" tabindex="-1"></a>    <span class="at">data =</span> top_genes,</span>
-<span id="cb324-12"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-12" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> gene),</span>
-<span id="cb324-13"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-13" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb324-14"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-14" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb324-15"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-15" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb324-16"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-16" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb324-17"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-17" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb324-18"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-18" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Up-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb324-19"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-19" tabindex="-1"></a>               <span class="st">&quot;Down-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb324-20"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-20" tabindex="-1"></a>               <span class="st">&quot;Not significant&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb324-21"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-21" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb324-22"><a href="day-4-genomic-data-exploration-using-r---1.html#cb324-22" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-1" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
+<span id="cb323-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb323-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-3" tabindex="-1"></a>    <span class="at">regulation =</span> <span class="fu">case_when</span>(</span>
+<span id="cb323-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-4" tabindex="-1"></a>      padj <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FoldChange <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">&quot;Up-regulated&quot;</span>,</span>
+<span id="cb323-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-5" tabindex="-1"></a>      padj <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FoldChange <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;Down-regulated&quot;</span>,</span>
+<span id="cb323-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-6" tabindex="-1"></a>      <span class="cn">TRUE</span>                             <span class="sc">~</span> <span class="st">&quot;Not significant&quot;</span></span>
+<span id="cb323-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-7" tabindex="-1"></a>    )</span>
+<span id="cb323-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-8" tabindex="-1"></a>  )</span>
+<span id="cb323-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-9" tabindex="-1"></a></span>
+<span id="cb323-10"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-10" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(<span class="at">x =</span> log2FoldChange, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(pvalue), <span class="at">color =</span> regulation)) <span class="sc">+</span></span>
+<span id="cb323-11"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-11" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb323-12"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-12" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb323-13"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-13" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb323-14"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-14" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb323-15"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-15" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb323-16"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-16" tabindex="-1"></a>      <span class="st">&quot;Up-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb323-17"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-17" tabindex="-1"></a>      <span class="st">&quot;Down-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb323-18"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-18" tabindex="-1"></a>      <span class="st">&quot;Not significant&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey&quot;</span></span>
+<span id="cb323-19"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-19" tabindex="-1"></a>    )</span>
+<span id="cb323-20"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-20" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb323-21"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-21" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb323-22"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-22" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volcano Plot of Differential Gene Expression&quot;</span>,</span>
+<span id="cb323-23"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-23" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Log2 Fold Change&quot;</span>,</span>
+<span id="cb323-24"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-24" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;-log10(p-value)&quot;</span>,</span>
+<span id="cb323-25"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-25" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Gene Regulation&quot;</span></span>
+<span id="cb323-26"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-26" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb323-27"><a href="day-4-genomic-data-exploration-using-r---1.html#cb323-27" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 30259 rows containing missing values or values outside
 ## the scale range (`geom_point()`).</code></pre>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-109-1.png" alt="" width="672" /></p>
+<ul>
+<li>adding the labels for top most significant genes.</li>
+</ul>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-1" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb325-2"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-2" tabindex="-1"></a></span>
+<span id="cb325-3"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-3" tabindex="-1"></a>top_genes <span class="ot">&lt;-</span> res_df <span class="sc">%&gt;%</span></span>
+<span id="cb325-4"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-4" tabindex="-1"></a>  <span class="fu">filter</span>(regulation <span class="sc">!=</span> <span class="st">&quot;Not significant&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb325-5"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-5" tabindex="-1"></a>  <span class="fu">arrange</span>(padj) <span class="sc">%&gt;%</span></span>
+<span id="cb325-6"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-6" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb325-7"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-7" tabindex="-1"></a></span>
+<span id="cb325-8"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-8" tabindex="-1"></a><span class="fu">ggplot</span>(res_df, <span class="fu">aes</span>(log2FoldChange, <span class="sc">-</span><span class="fu">log10</span>(pvalue), <span class="at">color =</span> regulation)) <span class="sc">+</span></span>
+<span id="cb325-9"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb325-10"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-10" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
+<span id="cb325-11"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-11" tabindex="-1"></a>    <span class="at">data =</span> top_genes,</span>
+<span id="cb325-12"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-12" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> gene),</span>
+<span id="cb325-13"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-13" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb325-14"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-14" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb325-15"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-15" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb325-16"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-16" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb325-17"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-17" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb325-18"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-18" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Up-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb325-19"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-19" tabindex="-1"></a>               <span class="st">&quot;Down-regulated&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb325-20"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-20" tabindex="-1"></a>               <span class="st">&quot;Not significant&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb325-21"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-21" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb325-22"><a href="day-4-genomic-data-exploration-using-r---1.html#cb325-22" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 30259 rows containing missing values or values outside
+## the scale range (`geom_point()`).</code></pre>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-110-1.png" alt="" width="672" /></p>
 
 </div>
 </div>

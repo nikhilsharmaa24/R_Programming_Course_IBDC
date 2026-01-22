@@ -11,6 +11,10 @@ you-can-also-follow-below-link-for-installations
 installing-rstudio-desktop-linux
 step-2-install-rstudio
 step-3-launch-rstudio
+installing-rstudio-desktop-windows
+step-1-download-rstudio
+step-2-install-rstudio-1
+step-3-launch-rstudio-1
 day-1-fundamentals-of-r-programming
 learning-objectives-1
 what-is-r

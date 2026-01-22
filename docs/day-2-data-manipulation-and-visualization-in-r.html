@@ -155,6 +155,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.11.1" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio"><i class="fa fa-check"></i><b>0.11.1</b> Step 2: Install RStudio</a></li>
 <li class="chapter" data-level="0.11.2" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio"><i class="fa fa-check"></i><b>0.11.2</b> Step 3: Launch RStudio</a></li>
+<li class="chapter" data-level="0.11.3" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-windows"><i class="fa fa-check"></i><b>0.11.3</b> Installing RStudio Desktop (Windows)</a></li>
+<li class="chapter" data-level="0.11.4" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-1-download-rstudio"><i class="fa fa-check"></i><b>0.11.4</b> Step 1: Download RStudio</a></li>
+<li class="chapter" data-level="0.11.5" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio-1"><i class="fa fa-check"></i><b>0.11.5</b> Step 2: Install RStudio</a></li>
+<li class="chapter" data-level="0.11.6" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio-1"><i class="fa fa-check"></i><b>0.11.6</b> Step 3: Launch RStudio</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
@@ -350,9 +354,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-and-loading-packages" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Installing and Loading Packages<a href="day-2-data-manipulation-and-visualization-in-r.html#installing-and-loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Install packages (only once):</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb161-1" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb162-1" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span></code></pre></div>
 <p>Load packages (before every session):</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb162-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb163-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ── Attaching core tidyverse packages ────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.6
 ## ✔ forcats   1.0.1     ✔ stringr   1.6.0
@@ -376,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="working-with-a-real-dataset" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Working with a Real Dataset<a href="day-2-data-manipulation-and-visualization-in-r.html#working-with-a-real-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will use the built-in iris dataset.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb164-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb165-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -384,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb166-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb167-1" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
@@ -399,7 +403,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write these steps in a clear and readable way.</p>
 <p>The pipe takes the output of one step and passes it as the input to the next step. You can read <code>%&gt;%</code> as “and then”, which helps in understanding the flow of the code.</p>
 <p>Without the pipe</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb168-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(iris, Sepal.Length, Sepal.Width))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb169-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">select</span>(iris, Sepal.Length, Sepal.Width))</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width
 ## 1          5.1         3.5
 ## 2          4.9         3.0
@@ -408,9 +412,9 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          5.0         3.6
 ## 6          5.4         3.9</code></pre>
 <p>with pipe</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb170-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb170-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb170-2" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span></span>
-<span id="cb170-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb170-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb171-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb171-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb171-2" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb171-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb171-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width
 ## 1          5.1         3.5
 ## 2          4.9         3.0
@@ -424,7 +428,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 <h2><span class="header-section-number">2.6</span> Data Manipulation with dplyr<a href="day-2-data-manipulation-and-visualization-in-r.html#data-manipulation-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Note: Most tidyverse functions assume that data is already in tidy format.</p>
 <p>Selecting Columns</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb172-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb173-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length, Sepal.Width) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width
 ## 1          5.1         3.5
 ## 2          4.9         3.0
@@ -433,7 +437,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          5.0         3.6
 ## 6          5.4         3.9</code></pre>
 <p>Exclude columns:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb174-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Species) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb175-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Species) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## 1          5.1         3.5          1.4         0.2
 ## 2          4.9         3.0          1.4         0.2
@@ -442,7 +446,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          5.0         3.6          1.4         0.2
 ## 6          5.4         3.9          1.7         0.4</code></pre>
 <p>Filtering Rows</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb176-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb177-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -451,7 +455,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>Multiple conditions:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb178-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb179-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          6.3         3.3          6.0         2.5 virginica
 ## 2          5.8         2.7          5.1         1.9 virginica
@@ -460,10 +464,10 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          6.5         3.0          5.8         2.2 virginica
 ## 6          7.6         3.0          6.6         2.1 virginica</code></pre>
 <p>Creating New Variables (mutate)</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb180-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb180-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb180-2" tabindex="-1"></a><span class="fu">mutate</span>(</span>
-<span id="cb180-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb180-3" tabindex="-1"></a><span class="at">Sepal.Area =</span> Sepal.Length <span class="sc">*</span> Sepal.Width</span>
-<span id="cb180-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb180-4" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb181-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb181-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb181-2" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb181-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb181-3" tabindex="-1"></a><span class="at">Sepal.Area =</span> Sepal.Length <span class="sc">*</span> Sepal.Width</span>
+<span id="cb181-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb181-4" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species Sepal.Area
 ## 1          5.1         3.5          1.4         0.2  setosa      17.85
 ## 2          4.9         3.0          1.4         0.2  setosa      14.70
@@ -472,7 +476,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          5.0         3.6          1.4         0.2  setosa      18.00
 ## 6          5.4         3.9          1.7         0.4  setosa      21.06</code></pre>
 <p>Sorting Data (arrange)</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb182-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb183-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          4.3         3.0          1.1         0.1  setosa
 ## 2          4.4         2.9          1.4         0.2  setosa
@@ -480,7 +484,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 4          4.4         3.2          1.3         0.2  setosa
 ## 5          4.5         2.3          1.3         0.3  setosa
 ## 6          4.6         3.1          1.5         0.2  setosa</code></pre>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb184-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb185-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))<span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          7.9         3.8          6.4         2.0 virginica
 ## 2          7.7         3.8          6.7         2.2 virginica
@@ -489,21 +493,21 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 ## 5          7.7         3.0          6.1         2.3 virginica
 ## 6          7.6         3.0          6.6         2.1 virginica</code></pre>
 <p>Summarizing Data (summarise)</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb186-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb186-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb186-2" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb186-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb186-3" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb186-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb186-4" tabindex="-1"></a><span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
-<span id="cb186-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb186-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb187-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb187-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb187-2" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb187-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb187-3" tabindex="-1"></a><span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb187-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb187-4" tabindex="-1"></a><span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
+<span id="cb187-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb187-5" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##   mean_sepal_length sd_sepal_length
 ## 1          5.843333       0.8280661</code></pre>
 <p>Grouped Operations (group_by)</p>
 <p>This allow us to perform summaries separately for each group in the data.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb188-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb188-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb188-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-4" tabindex="-1"></a>    <span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb188-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-5" tabindex="-1"></a>    <span class="at">mean_petal_length =</span> <span class="fu">mean</span>(Petal.Length)</span>
-<span id="cb188-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb188-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb189-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb189-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb189-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-4" tabindex="-1"></a>    <span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb189-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-5" tabindex="-1"></a>    <span class="at">mean_petal_length =</span> <span class="fu">mean</span>(Petal.Length)</span>
+<span id="cb189-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb189-6" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   Species    mean_sepal_length mean_petal_length
 ##   &lt;fct&gt;                  &lt;dbl&gt;             &lt;dbl&gt;
@@ -522,32 +526,32 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 <p>In ggplot2, plots are built by combining data, aesthetics, and geometric layers.</p>
 <div id="basic-scatter-plot" class="section level3 hasAnchor" number="2.7.1">
 <h3><span class="header-section-number">2.7.1</span> Basic Scatter Plot<a href="day-2-data-manipulation-and-visualization-in-r.html#basic-scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb190-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
-<span id="cb190-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb190-2" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-57-1.png" alt="" width="672" /></p>
-<p>Adding Color and Labels</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb191-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb191-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb191-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length vs Width&quot;</span>,</span>
-<span id="cb191-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
-<span id="cb191-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Width&quot;</span></span>
-<span id="cb191-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
+<span id="cb191-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb191-2" tabindex="-1"></a><span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-58-1.png" alt="" width="672" /></p>
-<p>Boxplots</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb192-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p>Adding Color and Labels</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb192-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb192-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb192-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length vs Width&quot;</span>,</span>
+<span id="cb192-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb192-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Width&quot;</span></span>
+<span id="cb192-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb192-7" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-59-1.png" alt="" width="672" /></p>
-<p>Histograms</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb193-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb193-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb193-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p>Boxplots</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb193-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb193-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb193-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-60-1.png" alt="" width="672" /></p>
-<p>Combining dplyr and ggplot2</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb194-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-2" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb194-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb194-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p>Histograms</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb194-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb194-2" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-61-1.png" alt="" width="672" /></p>
+<p>Combining dplyr and ggplot2</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb195-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb195-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb195-2" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb195-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb195-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb195-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb195-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-62-1.png" alt="" width="672" /></p>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level2 hasAnchor" number="2.8">
@@ -567,7 +571,7 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 <div id="understanding-the-structure-of-the-data" class="section level3 hasAnchor" number="2.8.1">
 <h3><span class="header-section-number">2.8.1</span> Understanding the Structure of the Data<a href="day-2-data-manipulation-and-visualization-in-r.html#understanding-the-structure-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before any analysis, always inspect the data.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb195-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb196-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 ##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 ##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -591,22 +595,22 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 </div>
 <div id="checking-for-missing-values" class="section level3 hasAnchor" number="2.8.2">
 <h3><span class="header-section-number">2.8.2</span> Checking for Missing Values<a href="day-2-data-manipulation-and-visualization-in-r.html#checking-for-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb197-1" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(iris))</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb198-1" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(iris))</span></code></pre></div>
 <pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
 ##            0            0            0            0            0</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb199-1" tabindex="-1"></a><span class="co"># can you write this in tidyverse way? </span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-1" tabindex="-1"></a><span class="co"># can you write this in tidyverse way? </span></span></code></pre></div>
 </div>
 <div id="understanding-distributions" class="section level3 hasAnchor" number="2.8.3">
 <h3><span class="header-section-number">2.8.3</span> Understanding Distributions<a href="day-2-data-manipulation-and-visualization-in-r.html#understanding-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Histogram (distribution of a numeric variable)</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb200-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb200-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb200-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Distribution of Sepal Length&quot;</span>,</span>
-<span id="cb200-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
-<span id="cb200-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Count&quot;</span></span>
-<span id="cb200-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb200-7" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-64-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb201-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb201-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb201-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Distribution of Sepal Length&quot;</span>,</span>
+<span id="cb201-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Sepal Length&quot;</span>,</span>
+<span id="cb201-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Count&quot;</span></span>
+<span id="cb201-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-7" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-65-1.png" alt="" width="672" /></p>
 <p>Questions to ask:</p>
 <ul>
 <li>Is the distribution symmetric or skewed?</li>
@@ -615,13 +619,13 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 </div>
 <div id="identifying-outliers" class="section level3 hasAnchor" number="2.8.4">
 <h3><span class="header-section-number">2.8.4</span> Identifying Outliers<a href="day-2-data-manipulation-and-visualization-in-r.html#identifying-outliers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb201-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb201-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb201-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Boxplot of Sepal Length&quot;</span>,</span>
-<span id="cb201-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-5" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span></span>
-<span id="cb201-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb201-6" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-65-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb202-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb202-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb202-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Boxplot of Sepal Length&quot;</span>,</span>
+<span id="cb202-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-5" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span></span>
+<span id="cb202-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-6" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-66-1.png" alt="" width="672" /></p>
 <p>Boxplots are useful for spotting:</p>
 <ul>
 <li>Outliers</li>
@@ -632,14 +636,14 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 <div id="comparing-groups" class="section level3 hasAnchor" number="2.8.5">
 <h3><span class="header-section-number">2.8.5</span> Comparing Groups<a href="day-2-data-manipulation-and-visualization-in-r.html#comparing-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Boxplot by group</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb202-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb202-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb202-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length by Species&quot;</span>,</span>
-<span id="cb202-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb202-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span></span>
-<span id="cb202-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb202-7" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-66-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb203-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-2" tabindex="-1"></a><span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb203-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb203-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Sepal Length by Species&quot;</span>,</span>
+<span id="cb203-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-5" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb203-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-6" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span></span>
+<span id="cb203-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-67-1.png" alt="" width="672" /></p>
 <p>This helps answer:</p>
 <ul>
 <li>Do groups differ in central tendency?</li>
@@ -649,21 +653,21 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 <div id="exploring-relationships-between-variables" class="section level3 hasAnchor" number="2.8.6">
 <h3><span class="header-section-number">2.8.6</span> Exploring Relationships Between Variables<a href="day-2-data-manipulation-and-visualization-in-r.html#exploring-relationships-between-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Scatter plot</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width)) <span class="sc">+</span></span>
-<span id="cb203-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb203-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb203-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Petal Length vs Petal Width&quot;</span>,</span>
-<span id="cb203-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
-<span id="cb203-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Petal Width&quot;</span></span>
-<span id="cb203-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb203-7" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-67-1.png" alt="" width="672" /></p>
-<p>Scatter plot with grouping</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb204-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb204-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb204-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Petal Length vs Petal Width by Species&quot;</span></span>
-<span id="cb204-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width)) <span class="sc">+</span></span>
+<span id="cb204-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb204-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-3" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb204-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-4" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Petal Length vs Petal Width&quot;</span>,</span>
+<span id="cb204-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Petal Length&quot;</span>,</span>
+<span id="cb204-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Petal Width&quot;</span></span>
+<span id="cb204-7"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb204-7" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-68-1.png" alt="" width="672" /></p>
+<p>Scatter plot with grouping</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb205-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-2" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb205-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb205-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Petal Length vs Petal Width by Species&quot;</span></span>
+<span id="cb205-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-5" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-69-1.png" alt="" width="672" /></p>
 <p>Questions to ask:</p>
 <ul>
 <li>Are variables related?</li>
@@ -672,12 +676,12 @@ The <strong>pipe operator (<code>%&gt;%</code>)</strong> allows us to write thes
 </div>
 <div id="simple-group-summaries" class="section level3 hasAnchor" number="2.8.7">
 <h3><span class="header-section-number">2.8.7</span> Simple Group Summaries<a href="day-2-data-manipulation-and-visualization-in-r.html#simple-group-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb205-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb205-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb205-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-4" tabindex="-1"></a>  <span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb205-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-5" tabindex="-1"></a>  <span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
-<span id="cb205-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb205-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb206-2"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb206-3"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb206-4"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-4" tabindex="-1"></a>  <span class="at">mean_sepal_length =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb206-5"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-5" tabindex="-1"></a>  <span class="at">sd_sepal_length =</span> <span class="fu">sd</span>(Sepal.Length)</span>
+<span id="cb206-6"><a href="day-2-data-manipulation-and-visualization-in-r.html#cb206-6" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   Species    mean_sepal_length sd_sepal_length
 ##   &lt;fct&gt;                  &lt;dbl&gt;           &lt;dbl&gt;

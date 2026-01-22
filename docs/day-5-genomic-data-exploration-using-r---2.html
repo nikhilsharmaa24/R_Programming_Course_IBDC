@@ -155,6 +155,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.11.1" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio"><i class="fa fa-check"></i><b>0.11.1</b> Step 2: Install RStudio</a></li>
 <li class="chapter" data-level="0.11.2" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio"><i class="fa fa-check"></i><b>0.11.2</b> Step 3: Launch RStudio</a></li>
+<li class="chapter" data-level="0.11.3" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#installing-rstudio-desktop-windows"><i class="fa fa-check"></i><b>0.11.3</b> Installing RStudio Desktop (Windows)</a></li>
+<li class="chapter" data-level="0.11.4" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-1-download-rstudio"><i class="fa fa-check"></i><b>0.11.4</b> Step 1: Download RStudio</a></li>
+<li class="chapter" data-level="0.11.5" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-2-install-rstudio-1"><i class="fa fa-check"></i><b>0.11.5</b> Step 2: Install RStudio</a></li>
+<li class="chapter" data-level="0.11.6" data-path="day-0-installation-environment-setup-linux.html"><a href="day-0-installation-environment-setup-linux.html#step-3-launch-rstudio-1"><i class="fa fa-check"></i><b>0.11.6</b> Step 3: Launch RStudio</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="day-1-fundamentals-of-r-programming.html"><a href="day-1-fundamentals-of-r-programming.html"><i class="fa fa-check"></i><b>1</b> Day-1 : Fundamentals of R Programming</a>
@@ -304,17 +308,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="day-5-genomic-data-exploration-using-r---2" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Day-5 : Genomic Data Exploration Using R - 2<a href="day-5-genomic-data-exploration-using-r---2.html#day-5-genomic-data-exploration-using-r---2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-1" tabindex="-1"></a>proteins <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(</span>
-<span id="cb326-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-2" tabindex="-1"></a><span class="st">&quot;HBA&quot;</span>, <span class="st">&quot;HBB&quot;</span>, <span class="st">&quot;HBD&quot;</span>, <span class="st">&quot;HBG1&quot;</span>, <span class="st">&quot;HBG2&quot;</span>,</span>
-<span id="cb326-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-3" tabindex="-1"></a><span class="st">&quot;HBE1&quot;</span>, <span class="st">&quot;MB&quot;</span>, <span class="st">&quot;NGB&quot;</span>, <span class="st">&quot;CYGB&quot;</span></span>
-<span id="cb326-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-4" tabindex="-1"></a>),<span class="at">uniprot_id =</span> <span class="fu">c</span>(</span>
-<span id="cb326-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-5" tabindex="-1"></a><span class="st">&quot;P69905&quot;</span>, <span class="st">&quot;P68871&quot;</span>, <span class="st">&quot;P02042&quot;</span>, <span class="st">&quot;P69891&quot;</span>, <span class="st">&quot;P69892&quot;</span>,</span>
-<span id="cb326-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-6" tabindex="-1"></a><span class="st">&quot;P02100&quot;</span>, <span class="st">&quot;P02144&quot;</span>, <span class="st">&quot;Q9NPG2&quot;</span>, <span class="st">&quot;Q8WWI4&quot;</span></span>
-<span id="cb326-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-7" tabindex="-1"></a>),</span>
-<span id="cb326-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-8" tabindex="-1"></a><span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb326-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-9" tabindex="-1"></a>)</span>
-<span id="cb326-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-10" tabindex="-1"></a></span>
-<span id="cb326-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb326-11" tabindex="-1"></a>proteins</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-1" tabindex="-1"></a>proteins <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(</span>
+<span id="cb327-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-2" tabindex="-1"></a><span class="st">&quot;HBA&quot;</span>, <span class="st">&quot;HBB&quot;</span>, <span class="st">&quot;HBD&quot;</span>, <span class="st">&quot;HBG1&quot;</span>, <span class="st">&quot;HBG2&quot;</span>,</span>
+<span id="cb327-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-3" tabindex="-1"></a><span class="st">&quot;HBE1&quot;</span>, <span class="st">&quot;MB&quot;</span>, <span class="st">&quot;NGB&quot;</span>, <span class="st">&quot;CYGB&quot;</span></span>
+<span id="cb327-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-4" tabindex="-1"></a>),<span class="at">uniprot_id =</span> <span class="fu">c</span>(</span>
+<span id="cb327-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-5" tabindex="-1"></a><span class="st">&quot;P69905&quot;</span>, <span class="st">&quot;P68871&quot;</span>, <span class="st">&quot;P02042&quot;</span>, <span class="st">&quot;P69891&quot;</span>, <span class="st">&quot;P69892&quot;</span>,</span>
+<span id="cb327-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-6" tabindex="-1"></a><span class="st">&quot;P02100&quot;</span>, <span class="st">&quot;P02144&quot;</span>, <span class="st">&quot;Q9NPG2&quot;</span>, <span class="st">&quot;Q8WWI4&quot;</span></span>
+<span id="cb327-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-7" tabindex="-1"></a>),</span>
+<span id="cb327-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-8" tabindex="-1"></a><span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb327-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-9" tabindex="-1"></a>)</span>
+<span id="cb327-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-10" tabindex="-1"></a></span>
+<span id="cb327-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb327-11" tabindex="-1"></a>proteins</span></code></pre></div>
 <pre><code>##   name uniprot_id
 ## 1  HBA     P69905
 ## 2  HBB     P68871
@@ -325,35 +329,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 7   MB     P02144
 ## 8  NGB     Q9NPG2
 ## 9 CYGB     Q8WWI4</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-1" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;fasta_files&quot;</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb328-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-2" tabindex="-1"></a></span>
-<span id="cb328-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(proteins))) {</span>
-<span id="cb328-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-4" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
-<span id="cb328-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-5" tabindex="-1"></a><span class="st">&quot;https://rest.uniprot.org/uniprotkb/&quot;</span>,</span>
-<span id="cb328-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-6" tabindex="-1"></a>proteins<span class="sc">$</span>uniprot_id[i],</span>
-<span id="cb328-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-7" tabindex="-1"></a><span class="st">&quot;.fasta&quot;</span></span>
-<span id="cb328-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-8" tabindex="-1"></a>)</span>
-<span id="cb328-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-9" tabindex="-1"></a></span>
-<span id="cb328-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-10" tabindex="-1"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(</span>
-<span id="cb328-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-11" tabindex="-1"></a><span class="st">&quot;fasta_files&quot;</span>,</span>
-<span id="cb328-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-12" tabindex="-1"></a><span class="fu">paste0</span>(proteins<span class="sc">$</span>name[i], <span class="st">&quot;.fasta&quot;</span>)</span>
-<span id="cb328-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-13" tabindex="-1"></a>)</span>
-<span id="cb328-14"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-14" tabindex="-1"></a></span>
-<span id="cb328-15"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-15" tabindex="-1"></a><span class="fu">download.file</span>(url, dest)</span>
-<span id="cb328-16"><a href="day-5-genomic-data-exploration-using-r---2.html#cb328-16" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-1" tabindex="-1"></a>read_fasta <span class="ot">&lt;-</span> <span class="cf">function</span>(file) {</span>
-<span id="cb329-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-2" tabindex="-1"></a>lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(file)</span>
-<span id="cb329-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-3" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">paste</span>(lines[<span class="sc">-</span><span class="dv">1</span>], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb329-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-4" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[^ACDEFGHIKLMNPQRSTVWY]&quot;</span>, <span class="st">&quot;&quot;</span>, sequence)</span>
-<span id="cb329-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-5" tabindex="-1"></a>sequence</span>
-<span id="cb329-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-6" tabindex="-1"></a>}</span>
-<span id="cb329-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-7" tabindex="-1"></a></span>
-<span id="cb329-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-8" tabindex="-1"></a>fasta_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;fasta_files&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-1" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;fasta_files&quot;</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb329-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-2" tabindex="-1"></a></span>
+<span id="cb329-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(proteins))) {</span>
+<span id="cb329-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-4" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb329-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-5" tabindex="-1"></a><span class="st">&quot;https://rest.uniprot.org/uniprotkb/&quot;</span>,</span>
+<span id="cb329-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-6" tabindex="-1"></a>proteins<span class="sc">$</span>uniprot_id[i],</span>
+<span id="cb329-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-7" tabindex="-1"></a><span class="st">&quot;.fasta&quot;</span></span>
+<span id="cb329-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-8" tabindex="-1"></a>)</span>
 <span id="cb329-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-9" tabindex="-1"></a></span>
-<span id="cb329-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-10" tabindex="-1"></a>sequences <span class="ot">&lt;-</span> <span class="fu">sapply</span>(fasta_files, read_fasta)</span>
-<span id="cb329-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-11" tabindex="-1"></a><span class="fu">names</span>(sequences) <span class="ot">&lt;-</span> proteins<span class="sc">$</span>name</span>
-<span id="cb329-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-12" tabindex="-1"></a></span>
-<span id="cb329-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-13" tabindex="-1"></a>sequences</span></code></pre></div>
+<span id="cb329-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-10" tabindex="-1"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(</span>
+<span id="cb329-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-11" tabindex="-1"></a><span class="st">&quot;fasta_files&quot;</span>,</span>
+<span id="cb329-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-12" tabindex="-1"></a><span class="fu">paste0</span>(proteins<span class="sc">$</span>name[i], <span class="st">&quot;.fasta&quot;</span>)</span>
+<span id="cb329-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-13" tabindex="-1"></a>)</span>
+<span id="cb329-14"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-14" tabindex="-1"></a></span>
+<span id="cb329-15"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-15" tabindex="-1"></a><span class="fu">download.file</span>(url, dest)</span>
+<span id="cb329-16"><a href="day-5-genomic-data-exploration-using-r---2.html#cb329-16" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-1" tabindex="-1"></a>read_fasta <span class="ot">&lt;-</span> <span class="cf">function</span>(file) {</span>
+<span id="cb330-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-2" tabindex="-1"></a>lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(file)</span>
+<span id="cb330-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-3" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">paste</span>(lines[<span class="sc">-</span><span class="dv">1</span>], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb330-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-4" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[^ACDEFGHIKLMNPQRSTVWY]&quot;</span>, <span class="st">&quot;&quot;</span>, sequence)</span>
+<span id="cb330-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-5" tabindex="-1"></a>sequence</span>
+<span id="cb330-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-6" tabindex="-1"></a>}</span>
+<span id="cb330-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-7" tabindex="-1"></a></span>
+<span id="cb330-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-8" tabindex="-1"></a>fasta_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;fasta_files&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb330-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-9" tabindex="-1"></a></span>
+<span id="cb330-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-10" tabindex="-1"></a>sequences <span class="ot">&lt;-</span> <span class="fu">sapply</span>(fasta_files, read_fasta)</span>
+<span id="cb330-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-11" tabindex="-1"></a><span class="fu">names</span>(sequences) <span class="ot">&lt;-</span> proteins<span class="sc">$</span>name</span>
+<span id="cb330-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-12" tabindex="-1"></a></span>
+<span id="cb330-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb330-13" tabindex="-1"></a>sequences</span></code></pre></div>
 <pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              HBA 
 ## &quot;MAPVYEGMASHVQVFSPHTLQSSAFCSVKKLKIEPSSNWDMTGYGSHSKVYSQSKNIPLSQPATTTVSTSLPVPNPSLPYEQTIVFPGSTGHIVVTSASSTSVTGQVLGGPHNLMRRSTVSLLDTYQKCGLKRKSEEIENTSSVQIIEEHPPMIQNNASGATVATATTSTATSKNSGSNSEGDYQLVQHEVLCSMTNTYEVLEFLGRGTFGQVVKCWKRGTNEIVAIKILKNHPSYARQGQIEVSILARLSTESADDYNFVRAYECFQHKNHTCLVFEMLEQNLYDFLKQNKFSPLPLKYIRPVLQQVATALMKLKSLGLIHADLKPENIMLVDPSRQPYRVKVIDFGSASHVSKAVCSTYLQSRYYRAPEIILGLPFCEAIDMWSLGCVIAELFLGWPLYPGASEYDQIRYISQTQGLPAEYLLSAGTKTTRFFNRDTDSPYPLWRLKTPDDHEAETGIKSKEARKYIFNCLDDMAQVNMTTDLEGSDMLVEKADRREFIDLLKKMLTIDADKRITPIETLNHPFVTMTHLLDFPHSTHVKSCFQNMEICKRRVNMYDTVNQSKTPFITHVAPSTSTNLTMTFNNQLTTVHNQAPSSTSATISLANPEVSILNYPSTLYQPSAASMAAVAQRSMPLQTGTAQICARPDPFQQALIVCPPGFQGLQASPSKHAGYSVRMENAVPIVTQAPGAQPLQIQPGLLAQQAWPSGTQQILLPPAWQQLTGVATHTSVQHATVIPETMAGTQQLADWRNTHAHGSHYNPIMQQPALLTGHVTLPAAQPLNVGVAHVMRQQPTSTTSSRKSKQHQSSVRNVSTCEVSSSQAISSPQRSKRVKENTPPRCAMVHSSPACSTSVTCGWGDVASSTTRERQRQTIVIPDTPSPTVSVITISSDTDEEEEQKHAPTSTVSKQRKNVISCVTVHDSPYSDSSSNTSPYSVQQRAGHNNANAFDTKGSLENHCTGNPRTIIVPPLKTQASEVLVECDSLVPVNTSHHSSSYKSKSSSNVTSTSGHSSGSSSGAITYRQQRPGPHFQQQQPLNLSQAQQHITTDRTGSHRRQQAYITPTMAQAPYSFPHNSPSHGTVHPHLAAAAAAAHLPTQPHLYTYTAPAALGSTGTVAHLVASQGSARHTVQHTAYPASIVHQVPVSMGPRVLPSPTIHPSQYPAQFAHQTYISASPASTVYTGYPLSPAKVNQYPYI&quot; 
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              HBB 
@@ -372,14 +376,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &quot;MGLSDGEWQLVLNVWGKVEADIPGHGQEVLIRLFKGHPETLEKFDKFKHLKSEDEMKASEDLKKHGATVLTALGGILKKKGHHEAEIKPLAQSHATKHKIPVKYLEFISECIIQVLQSKHPGDFGADAQGAMNKALELFRKDMASNYKELGFQG&quot; 
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             CYGB 
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        &quot;MERPEPELIRQSWRAVSRSPLEHGTVLFARLFALEPDLLPLFQYNCRQFSSPEDCLSSPEFLDHIRKVMLVIDAAVTNVEDLSSLEEYLASLGRKHRAVGVKLSSFSTVGESLLYMLEKCLGPAFTPATRAAWSQLYGAVVQAMSRGWDGE&quot;</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-1" tabindex="-1"></a>protein_lengths <span class="ot">&lt;-</span> <span class="fu">nchar</span>(sequences)</span>
-<span id="cb331-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-2" tabindex="-1"></a></span>
-<span id="cb331-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-3" tabindex="-1"></a>length_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb331-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-4" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(protein_lengths),</span>
-<span id="cb331-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-5" tabindex="-1"></a><span class="at">Length =</span> <span class="fu">as.numeric</span>(protein_lengths)</span>
-<span id="cb331-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-6" tabindex="-1"></a>)</span>
-<span id="cb331-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-7" tabindex="-1"></a></span>
-<span id="cb331-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb331-8" tabindex="-1"></a>length_df</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-1" tabindex="-1"></a>protein_lengths <span class="ot">&lt;-</span> <span class="fu">nchar</span>(sequences)</span>
+<span id="cb332-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-2" tabindex="-1"></a></span>
+<span id="cb332-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-3" tabindex="-1"></a>length_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb332-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-4" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(protein_lengths),</span>
+<span id="cb332-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-5" tabindex="-1"></a><span class="at">Length =</span> <span class="fu">as.numeric</span>(protein_lengths)</span>
+<span id="cb332-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-6" tabindex="-1"></a>)</span>
+<span id="cb332-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-7" tabindex="-1"></a></span>
+<span id="cb332-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb332-8" tabindex="-1"></a>length_df</span></code></pre></div>
 <pre><code>##   Protein Length
 ## 1     HBA   1198
 ## 2     HBB    142
@@ -390,11 +394,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 7      MB    147
 ## 8     NGB    154
 ## 9    CYGB    151</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb333-1" tabindex="-1"></a>aa_composition <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
-<span id="cb333-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb333-2" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">strsplit</span>(seq, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]])</span>
-<span id="cb333-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb333-3" tabindex="-1"></a>})</span>
-<span id="cb333-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb333-4" tabindex="-1"></a></span>
-<span id="cb333-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb333-5" tabindex="-1"></a>aa_composition</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb334-1" tabindex="-1"></a>aa_composition <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
+<span id="cb334-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb334-2" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">strsplit</span>(seq, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]])</span>
+<span id="cb334-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb334-3" tabindex="-1"></a>})</span>
+<span id="cb334-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb334-4" tabindex="-1"></a></span>
+<span id="cb334-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb334-5" tabindex="-1"></a>aa_composition</span></code></pre></div>
 <pre><code>## $HBA
 ## 
 ##   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W   Y 
@@ -439,19 +443,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##  A  C  D  E  F  G  H  I  K  L  M  N  P  Q  R  S  T  V  W  Y 
 ## 13  3  6 13  7  8  3  3  4 21  4  2  9  5 11 16  5 11  3  4</code></pre>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-1" tabindex="-1"></a>hydrophobic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;L&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb335-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-2" tabindex="-1"></a></span>
-<span id="cb335-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-3" tabindex="-1"></a>hydrophobic_fraction <span class="ot">&lt;-</span> <span class="fu">sapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
-<span id="cb335-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-4" tabindex="-1"></a>aa <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(seq, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb335-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-5" tabindex="-1"></a><span class="fu">mean</span>(aa <span class="sc">%in%</span> hydrophobic)</span>
-<span id="cb335-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-6" tabindex="-1"></a>})</span>
-<span id="cb335-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-7" tabindex="-1"></a></span>
-<span id="cb335-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-8" tabindex="-1"></a>hydrophobic_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb335-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-9" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(hydrophobic_fraction),</span>
-<span id="cb335-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-10" tabindex="-1"></a><span class="at">HydrophobicFraction =</span> hydrophobic_fraction</span>
-<span id="cb335-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-11" tabindex="-1"></a>)</span>
-<span id="cb335-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-12" tabindex="-1"></a></span>
-<span id="cb335-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb335-13" tabindex="-1"></a>hydrophobic_df</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-1" tabindex="-1"></a>hydrophobic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;L&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
+<span id="cb336-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-2" tabindex="-1"></a></span>
+<span id="cb336-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-3" tabindex="-1"></a>hydrophobic_fraction <span class="ot">&lt;-</span> <span class="fu">sapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
+<span id="cb336-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-4" tabindex="-1"></a>aa <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(seq, <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb336-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-5" tabindex="-1"></a><span class="fu">mean</span>(aa <span class="sc">%in%</span> hydrophobic)</span>
+<span id="cb336-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-6" tabindex="-1"></a>})</span>
+<span id="cb336-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-7" tabindex="-1"></a></span>
+<span id="cb336-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-8" tabindex="-1"></a>hydrophobic_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb336-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-9" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(hydrophobic_fraction),</span>
+<span id="cb336-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-10" tabindex="-1"></a><span class="at">HydrophobicFraction =</span> hydrophobic_fraction</span>
+<span id="cb336-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-11" tabindex="-1"></a>)</span>
+<span id="cb336-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-12" tabindex="-1"></a></span>
+<span id="cb336-13"><a href="day-5-genomic-data-exploration-using-r---2.html#cb336-13" tabindex="-1"></a>hydrophobic_df</span></code></pre></div>
 <pre><code>##      Protein HydrophobicFraction
 ## HBA      HBA           0.3522538
 ## HBB      HBB           0.4647887
@@ -462,26 +466,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## MB        MB           0.4149660
 ## NGB      NGB           0.3831169
 ## CYGB    CYGB           0.4370861</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-1" tabindex="-1"></a><span class="fu">ggplot</span>(hydrophobic_df, <span class="fu">aes</span>(<span class="at">x =</span> Protein, <span class="at">y =</span> HydrophobicFraction)) <span class="sc">+</span></span>
-<span id="cb337-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-2" tabindex="-1"></a><span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb337-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb337-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Hydrophobic Amino Acid Fraction&quot;</span>,</span>
-<span id="cb337-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-5" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Fraction&quot;</span>,</span>
-<span id="cb337-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-6" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Protein&quot;</span></span>
-<span id="cb337-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb337-7" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-114-1.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-1" tabindex="-1"></a>motif <span class="ot">&lt;-</span> <span class="st">&quot;AA&quot;</span></span>
-<span id="cb338-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-2" tabindex="-1"></a></span>
-<span id="cb338-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-3" tabindex="-1"></a>motif_counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
-<span id="cb338-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-4" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">gregexpr</span>(motif, seq)[[<span class="dv">1</span>]][<span class="fu">gregexpr</span>(motif, seq)[[<span class="dv">1</span>]] <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
-<span id="cb338-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-5" tabindex="-1"></a>})</span>
-<span id="cb338-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-6" tabindex="-1"></a></span>
-<span id="cb338-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-7" tabindex="-1"></a>motif_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb338-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-8" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(motif_counts),</span>
-<span id="cb338-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-9" tabindex="-1"></a><span class="at">HG_Count =</span> motif_counts</span>
-<span id="cb338-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-10" tabindex="-1"></a>)</span>
-<span id="cb338-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-11" tabindex="-1"></a></span>
-<span id="cb338-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-12" tabindex="-1"></a>motif_df</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-1" tabindex="-1"></a><span class="fu">ggplot</span>(hydrophobic_df, <span class="fu">aes</span>(<span class="at">x =</span> Protein, <span class="at">y =</span> HydrophobicFraction)) <span class="sc">+</span></span>
+<span id="cb338-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-2" tabindex="-1"></a><span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb338-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-3" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb338-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-4" tabindex="-1"></a><span class="at">title =</span> <span class="st">&quot;Hydrophobic Amino Acid Fraction&quot;</span>,</span>
+<span id="cb338-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-5" tabindex="-1"></a><span class="at">y =</span> <span class="st">&quot;Fraction&quot;</span>,</span>
+<span id="cb338-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-6" tabindex="-1"></a><span class="at">x =</span> <span class="st">&quot;Protein&quot;</span></span>
+<span id="cb338-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb338-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="R_Programming_Course_files/figure-html/unnamed-chunk-115-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-1" tabindex="-1"></a>motif <span class="ot">&lt;-</span> <span class="st">&quot;AA&quot;</span></span>
+<span id="cb339-2"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-2" tabindex="-1"></a></span>
+<span id="cb339-3"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-3" tabindex="-1"></a>motif_counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(sequences, <span class="cf">function</span>(seq) {</span>
+<span id="cb339-4"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-4" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">gregexpr</span>(motif, seq)[[<span class="dv">1</span>]][<span class="fu">gregexpr</span>(motif, seq)[[<span class="dv">1</span>]] <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
+<span id="cb339-5"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-5" tabindex="-1"></a>})</span>
+<span id="cb339-6"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-6" tabindex="-1"></a></span>
+<span id="cb339-7"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-7" tabindex="-1"></a>motif_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb339-8"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-8" tabindex="-1"></a><span class="at">Protein =</span> <span class="fu">names</span>(motif_counts),</span>
+<span id="cb339-9"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-9" tabindex="-1"></a><span class="at">HG_Count =</span> motif_counts</span>
+<span id="cb339-10"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-10" tabindex="-1"></a>)</span>
+<span id="cb339-11"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-11" tabindex="-1"></a></span>
+<span id="cb339-12"><a href="day-5-genomic-data-exploration-using-r---2.html#cb339-12" tabindex="-1"></a>motif_df</span></code></pre></div>
 <pre><code>##      Protein HG_Count
 ## HBA      HBA        7
 ## HBB      HBB        2
