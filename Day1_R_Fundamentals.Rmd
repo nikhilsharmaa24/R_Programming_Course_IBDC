@@ -375,6 +375,7 @@ Factors are used to represent **categorical data** in R.
 They store values as integers internally, but display meaningful labels called *levels*.
 
 ```{r}
+
 group <- factor(c("A", "B", "A", "B"))
 group
 
@@ -412,7 +413,7 @@ df
 Inspecting a data frame:
 
 ```{r}
-
+dim(df)
 str(df)
 summary(df)
 head(df)
@@ -479,7 +480,6 @@ for (char in chars) {
 ```
 
 
-
 Count the number of characters in a string:
 
 nchar() counts characters, not vector length.
@@ -493,6 +493,7 @@ nchar(gene_string)
 Counting Specific Characters
 
 Finding the First Position of a Pattern: regexpr()
+
 ```{r}
 
 regexpr("AG", gene_string)[1]
@@ -512,6 +513,7 @@ gregexpr("AG", gene_string)[[1]]
 
 ```
 
+Find number of occurrence of particular character
 
 ```{r}
 
@@ -526,7 +528,6 @@ sum(strsplit(gene_string, "")[[1]] == "G")
 ```
 
 Pattern Matching
-
 Check if a pattern exists:
 
 ```{r}
@@ -557,14 +558,14 @@ toupper(gene_string)
 
 ```
 
-Extract Substrings
+Extract Substrings from particular postion
 
 ```{r}
 substr(gene_string, start = 1, stop = 3)
 
 ```
 
-Replace Text
+Replace Text where ever the string matches
 
 ```{r}
 sub("CG", "XX", gene_string)
