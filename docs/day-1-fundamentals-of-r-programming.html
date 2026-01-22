@@ -513,17 +513,24 @@ Behavior: Ignored during execution; have no functional impact.</p>
 <span id="cb27-3"><a href="day-1-fundamentals-of-r-programming.html#cb27-3" tabindex="-1"></a><span class="co">#&#39; This function takes two numeric values and returns their sum.</span></span>
 <span id="cb27-4"><a href="day-1-fundamentals-of-r-programming.html#cb27-4" tabindex="-1"></a><span class="co">#&#39; </span></span>
 <span id="cb27-5"><a href="day-1-fundamentals-of-r-programming.html#cb27-5" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="day-1-fundamentals-of-r-programming.html#cb27-6" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb27-7"><a href="day-1-fundamentals-of-r-programming.html#cb27-7" tabindex="-1"></a>  a <span class="sc">+</span> b</span>
-<span id="cb27-8"><a href="day-1-fundamentals-of-r-programming.html#cb27-8" tabindex="-1"></a>}</span>
-<span id="cb27-9"><a href="day-1-fundamentals-of-r-programming.html#cb27-9" tabindex="-1"></a></span>
-<span id="cb27-10"><a href="day-1-fundamentals-of-r-programming.html#cb27-10" tabindex="-1"></a><span class="fu">add_numbers</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<span id="cb27-6"><a href="day-1-fundamentals-of-r-programming.html#cb27-6" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="day-1-fundamentals-of-r-programming.html#cb27-7" tabindex="-1"></a>add_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb27-8"><a href="day-1-fundamentals-of-r-programming.html#cb27-8" tabindex="-1"></a>  a <span class="sc">+</span> b</span>
+<span id="cb27-9"><a href="day-1-fundamentals-of-r-programming.html#cb27-9" tabindex="-1"></a>}</span>
+<span id="cb27-10"><a href="day-1-fundamentals-of-r-programming.html#cb27-10" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="day-1-fundamentals-of-r-programming.html#cb27-11" tabindex="-1"></a><span class="fu">add_numbers</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 </div>
 </div>
 <div id="creating-objects-in-r" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Creating Objects in R<a href="day-1-fundamentals-of-r-programming.html#creating-objects-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R stores values in objects.</p>
+<p>In R, everything you work with is stored in an object.</p>
+<p>An object can be thought of as a container that has:</p>
+<ul>
+<li>a structure, defined by its data structure (e.g., vector, list, data frame), and</li>
+<li>values, whose nature is defined by data types (e.g., numeric, character, logical).</li>
+</ul>
+<p>Objects allow you to store, reuse, and manipulate data throughout your analysis.</p>
 <p>Assignment is typically done using &lt;-:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="day-1-fundamentals-of-r-programming.html#cb29-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb29-2"><a href="day-1-fundamentals-of-r-programming.html#cb29-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
@@ -597,7 +604,7 @@ Variables can store data of different types, and different types can do differen
 <span id="cb34-6"><a href="day-1-fundamentals-of-r-programming.html#cb34-6" tabindex="-1"></a></span>
 <span id="cb34-7"><a href="day-1-fundamentals-of-r-programming.html#cb34-7" tabindex="-1"></a>logical_value <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># (a.k.a. boolean) - (TRUE or FALSE)</span></span>
 <span id="cb34-8"><a href="day-1-fundamentals-of-r-programming.html#cb34-8" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="day-1-fundamentals-of-r-programming.html#cb34-9" tabindex="-1"></a>complex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span> <span class="sc">+</span> <span class="dv">3</span><span class="dt">i</span>) <span class="co"># where &quot;i&quot; is the imaginary part</span></span></code></pre></div>
+<span id="cb34-9"><a href="day-1-fundamentals-of-r-programming.html#cb34-9" tabindex="-1"></a>complex_value <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span> <span class="sc">+</span> <span class="dv">3</span><span class="dt">i</span>) <span class="co"># where &quot;i&quot; is the imaginary part</span></span></code></pre></div>
 <p>Check the type of an object:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="day-1-fundamentals-of-r-programming.html#cb35-1" tabindex="-1"></a><span class="fu">class</span>(numeric_value)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -686,13 +693,6 @@ as.complex()</p>
 </tbody>
 </table>
 <p>R provides many built-in data structures. Each is used to handle data in different ways:</p>
-<ul>
-<li>Vectors</li>
-<li>Lists</li>
-<li>Matrices</li>
-<li>Arrays</li>
-<li>Data Frames</li>
-</ul>
 </div>
 <div id="vector" class="section level3 hasAnchor" number="1.8.2">
 <h3><span class="header-section-number">1.8.2</span> Vector<a href="day-1-fundamentals-of-r-programming.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
