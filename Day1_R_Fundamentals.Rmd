@@ -446,6 +446,36 @@ numbers + 10
 
 ```
 
+### Matrices
+
+Matrices are special kind of vector which has dimension attribute. It has rows and columns 
+
+```{r}
+
+# it is constructed as column first
+m <- matrix(1:8)
+dim(m)
+attributes(m)
+
+m <- matrix(1:8, nrow = 3, ncol = 3)
+dim(m)
+attributes(m)
+
+# matrices can be created from vectors by adding dimension attribute
+
+m <- 1:9
+dim(m) <- c(3, 3)
+m
+
+# matrices can be create by cbind and rbind
+y <- 1:3
+z <- 10:12
+
+cbind(y, z)
+rbind(y, z)
+
+```
+
 ### Factors
 
 Factors are used to represent **categorical data** in R.
