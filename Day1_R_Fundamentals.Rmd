@@ -105,7 +105,7 @@ In layman term you can think of them as properties of an object.
 
 ```{r}
 
-x <- c(10, 20, 30)
+x <- c(10, 20, 30) # function c is used to create a vector
 names(x) <- c("a", "b", "c")
 
 attributes(x)
@@ -123,6 +123,15 @@ class(df)
 dim(df)
 names(df)
 
+# user define attributes
+x <- c(5, 10, 15)
+
+attr(x, "source") <- "Survey Data"
+attr(x, "collected_on") <- "2026-01-22"
+
+attributes(x)
+
+attr(x, "source") <- NULL
 
 ```
 
@@ -298,6 +307,15 @@ class(y)
 class(a)
 class(b)
 
+# problem with some conversion
+x <- c("a", "b", "c")
+
+as.numeric(x)
+as.logical(x)
+
+# what is the hack here?
+as.numeric(as.factor(x))
+
 ```
 
 ---
@@ -331,7 +349,29 @@ numbers <- c(1, 2, 3, 4, 5)
 genes <- c("TP53", "BRCA1", "EGFR")
 flags <- c(TRUE, FALSE, TRUE)
 
+# using vector function
+
+vector("numeric", length = 10) # created empty vector
+
+
 ```
+
+What if we mix the data types.
+
+```{r}
+y <- c(1.7, "a")
+y # character
+
+y <- c(TRUE, 2)
+y # numeric
+
+# this is called Coercion
+# every element of vector needs to be of same type
+
+# explicitly coercion: we will see in type conversion
+
+```
+
 
 Indexing vectors:
 
