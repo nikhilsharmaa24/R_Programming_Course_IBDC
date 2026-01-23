@@ -545,6 +545,7 @@ dim(airquality)
 dim(airquality[complete.cases(airquality), ])
 
 dim(na.omit(airquality))
+
 ```
 
 
@@ -584,6 +585,11 @@ Accessing columns:
 df$age
 df[, "group"]
 
+df[1, ]
+df[10, ]
+df[, 2]
+df[, 3]
+
 ```
 
 ## Vectorization: Thinking in Vectors
@@ -598,6 +604,25 @@ one element at a time. This makes R code:
 - Faster to execute
 
 This is different from many other programming languages, where you often need loops to process each value individually.
+
+```{r}
+x <- c(1, 2, 3, 4, 5); y <- c(6, 7, 8, 9, 10) # element wise addition
+
+x+y
+
+x > 3
+
+
+# vectorization
+x * 2
+# using loop
+result <- numeric(length(x))
+for (i in seq_along(x)) {
+  result[i] <- x[i] * 2
+}
+
+
+```
 
 
 ## Working with Text (Strings)
