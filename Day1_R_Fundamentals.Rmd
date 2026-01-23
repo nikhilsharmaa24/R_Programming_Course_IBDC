@@ -58,6 +58,45 @@ Main components:
 
 ---
 
+## Creating Objects in R
+
+In R, everything you work with is stored in an object.
+
+An object can be thought of as a container that has:
+
+- a structure, defined by its data structure (e.g., vector, list, data frame), and
+- values, whose nature is defined by data types (e.g., numeric, character, logical).
+
+Objects allow you to store, reuse, and manipulate data throughout your analysis.
+
+Assignment is typically done using <-:
+
+```{r}
+
+x <- 10
+y <- 3
+
+z = 10
+
+10 -> a
+20 -> b
+
+```
+
+Use the objects in calculations:
+
+```{r}
+
+x + y
+x * y
+
+```
+
+💡 **Tip**
+The "=" operator also works, but <- is the recommended R convention.
+
+---
+
 ## Using R as a Calculator
 
 Let’s start with simple arithmetic and basic mathematical operations 
@@ -150,44 +189,6 @@ add_numbers <- function(a, b) {
 add_numbers(2,3)
 
 ```
-
-
-## Creating Objects in R
-
-In R, everything you work with is stored in an object.
-
-An object can be thought of as a container that has:
-
-- a structure, defined by its data structure (e.g., vector, list, data frame), and
-- values, whose nature is defined by data types (e.g., numeric, character, logical).
-
-Objects allow you to store, reuse, and manipulate data throughout your analysis.
-
-Assignment is typically done using <-:
-
-```{r}
-
-x <- 10
-y <- 3
-
-z = 10
-
-10 -> a
-20 -> b
-
-```
-
-Use the objects in calculations:
-
-```{r}
-
-x + y
-x * y
-
-```
-
-💡 **Tip**
-The "=" operator also works, but <- is the recommended R convention.
 
 ---
 
