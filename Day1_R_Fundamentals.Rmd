@@ -415,6 +415,9 @@ my_list$numbers
 my_list[[2]]
 my_list[1]
 
+
+my_list[["flag"]]
+
 ```
 
 $ → access by name
@@ -507,10 +510,50 @@ group
 
 ```
 
+### Missing values
+
+Missing values are donated by NA or NaN. 
+use is.na () to detect NA and is.nan() for NaN.
+These can character or numeric etc.
+A NaN values is also NA, but converse is not true.
+
+
+```{r}
+x <- c(1, 2, NA, 4, 5)
+is.na(x)
+is.nan(x)
+
+x <- c(1, 2, NA, NaN, 5)
+is.na(x)
+is.nan(x)
+
+# subsetting or removing missing values
+
+# very common task in analysis
+x <- c(1, 2, NA, 4, 5)
+
+x[!is.na(x)]
+
+x[complete.cases(x)]
+
+na.omit(x)
+
+data(airquality)
+
+dim(airquality)
+
+dim(airquality[complete.cases(airquality), ])
+
+dim(na.omit(airquality))
+```
+
 
 ### Data Frames
 
 A data frame is a table-like structure where each column can be a different data type.
+Mostly well suited for tabular data as in our csv or excel files. read.csv() and read.table() ara base functions to read these files 
+special type of list, where every list needs to be of same length.
+
 
 ```{r}
 
