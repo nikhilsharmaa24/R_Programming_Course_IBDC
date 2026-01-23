@@ -478,9 +478,12 @@ rbind(y, z)
 
 ### Factors
 
-Factors are used to represent **categorical data** in R.
+Factors are used to represent **categorical data** in R. It can be ordered or unordered. you can think of factors as integer with each integer value maps to **label**.
 
-They store values as integers internally, but display meaningful labels called *levels*.
+factors are really important when you will proceed to statistical test or models.
+
+its good to have factors with labels as compare to integers, eg. male or female rather than 1 or 2.
+
 
 ```{r}
 
