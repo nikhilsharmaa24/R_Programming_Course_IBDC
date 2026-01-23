@@ -902,6 +902,17 @@ print(i)
 
 ```
 
+## functions
+
+Functions are created using function() directive and stored as object. In particular, they are R object of class function. 
+
+```{r}
+
+name <- function(variables) {
+  
+}
+```
+
 
 ## Getting Help in R
 
