@@ -13,9 +13,9 @@ By the end of this day, students will be able to:
 
 ## What Is R?
 
-R is an interpreted language, meaning commands are executed immediately as they are entered, allowing users to interact with the language and see results in real time.
+R is an interpreted language, where code is executed interactively and results are shown immediately.
 
-Interact execution means:
+Interactively means:
 
 1. You type a command
 2. R executes it right away
