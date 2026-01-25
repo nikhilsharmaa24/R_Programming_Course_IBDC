@@ -55,6 +55,8 @@ tidy-data-principles
 working-with-a-real-dataset
 the-pipe-operator
 data-manipulation-with-dplyr
+joins
+reshaping-data-tidyr
 introduction-to-ggplot2
 basic-scatter-plot
 exploratory-data-analysis-eda

@@ -87,7 +87,8 @@ The pipe takes the output of one step and passes it as the input to the next ste
 Without the pipe
 
 ```{r}
-head(select(iris, Sepal.Length, Sepal.Width))
+iris[1:6, c("Sepal.Length", "Sepal.Width")]
+
 ```
 
 with pipe 
@@ -107,10 +108,10 @@ The pipe allows code to be read from top to bottom, similar to a workflow.
 Note: Most tidyverse functions assume that data is already in tidy format.
 
 
-Selecting Columns
+Selecting Columns, no need to write "" when writing name of columns
 
 ```{r}
-iris %>% select(Sepal.Length, Sepal.Width) %>% head()
+iris %>% select(Sepal.Length, Sepal.Width) %>% head(10)
 
 ```
 
@@ -144,15 +145,17 @@ Sepal.Area = Sepal.Length * Sepal.Width
 
 ```
 
-
 Sorting Data (arrange)
 
+ascending: 
 
 ```{r}
+
 iris %>% arrange(Sepal.Length)%>% head()
 
 ```
 
+descending
 
 ```{r}
 iris %>% arrange(desc(Sepal.Length))%>% head()
@@ -162,10 +165,10 @@ Summarizing Data (summarise)
 
 ```{r}
 iris %>%
-summarise(
-mean_sepal_length = mean(Sepal.Length),
-sd_sepal_length = sd(Sepal.Length)
-)
+  summarise(
+  mean_sepal_length = mean(Sepal.Length),
+  sd_sepal_length = sd(Sepal.Length)
+  )
 
 ```
 
@@ -183,6 +186,295 @@ iris %>%
   )
 
 ```
+
+rename() — Rename Columns
+
+Used to make column names shorter or more meaningful.
+
+```{r}
+iris %>%
+  rename(
+    SL = Sepal.Length,
+    SW = Sepal.Width
+  ) %>%
+  head()
+
+```
+
+distinct() — Keep Unique Rows
+
+Used to remove duplicate rows or extract unique values.
+
+```{r}
+
+iris %>%
+  distinct(Species)
+
+iris %>%
+  distinct(Species, Sepal.Length)
+
+```
+
+slice() — Select Rows by Position
+
+Used when you want rows based on row numbers, not conditions.
+
+```{r}
+
+iris %>%
+  slice(1:5)
+
+iris %>%
+  slice((n() - 4):n())
+
+```
+
+pull() — Extract a Column as a Vector
+
+Converts a data frame column into a plain vector.
+
+```{r}
+species_vec <- iris %>%
+  pull(Species)
+
+species_vec
+
+```
+
+sample_n() — Randomly Sample Rows
+
+Randomly select a fixed number of rows.
+
+```{r}
+iris %>%
+  sample_n(10)
+
+```
+
+sample_frac() — Sample a Fraction of Rows
+
+Randomly select a fraction of the dataset.
+
+```{r}
+iris %>%
+  sample_frac(0.1)  # 10% of the data
+
+```
+
+
+## Joins
+
+Joining datasets is common in biology (samples + metadata
+
+```{r}
+# Example datasets
+df1 <- tibble(ID = 1:3, Value = c(10,20,30))
+df2 <- tibble(ID = 2:4, Group = c("A","B","C"))
+
+# Inner join
+inner_join(df1, df2, by = "ID")
+
+# Left join
+left_join(df1, df2, by = "ID")
+# right join
+right_join(df1, df2, by = "ID")
+
+# full join
+
+df <- full_join(df1, df2, by = "ID") 
+df %>% drop_na() # removing all nas dplyr function
+
+# drop by condition
+df %>% 
+  filter(!is.na(Value))
+
+df %>% 
+  filter(!is.na(Group))
+
+df %>% 
+  filter(!is.na(Group) | !is.na(Value))
+
+df %>% 
+  filter(!is.na(Group) & !is.na(Value))
+
+```
+
+### Reshaping Data (tidyr)
+
+```{r}
+
+library(tidyr)
+library(tibble)
+
+gene_expression_wide <- tibble(
+  Gene = c("BRCA1", "TP53", "EGFR"),
+  Sample_A = c(12.5, 8.3, 15.2),
+  Sample_B = c(13.1, 9.0, 14.8),
+  Sample_C = c(11.9, 8.7, 16.0)
+)
+
+gene_expression_wide
+
+# Each row = a gene
+# Each column = a sample
+# This is easy for humans to read but not tidy.
+
+# Wideto Long (Tidy Format)
+
+# Convert sample columns into rows using pivot_longer().
+
+gene_expression_long <- gene_expression_wide %>%
+  pivot_longer(
+    cols = starts_with("Sample"),
+    names_to = "Sample",
+    values_to = "Expression"
+  )
+
+gene_expression_long
+# easy inetegration with ggplot format
+
+ggplot(gene_expression_long,
+       aes(x = Sample, y = Expression, fill = Gene)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Gene Expression Across Samples",
+    y = "Expression Level"
+  )
+
+# Long to Wide (When Needed)
+
+# Sometimes, you need to go back to wide format (e.g., for export or specific tools).
+
+gene_expression_wide_again <- gene_expression_long %>%
+  pivot_wider(
+    names_from = Sample,
+    values_from = Expression
+  )
+
+gene_expression_wide_again
+
+
+
+
+# time dependent data
+
+time_course <- tibble(
+  Gene = c("MYC", "MYC", "MYC",
+           "TP53", "TP53", "TP53",
+           "EGFR", "EGFR", "EGFR"),
+  Time = c("0h", "6h", "12h",
+           "0h", "6h", "12h",
+           "0h", "6h", "12h"),
+  Expression = c(
+    5.2, 8.1, 12.4,   # MYC
+    7.5, 6.8, 5.9,    # TP53
+    10.1, 12.3, 14.8  # EGFR
+  )
+)
+
+time_course
+
+time_course %>%
+  pivot_wider(
+    names_from = Time,
+    values_from = Expression
+  )
+
+ggplot(time_course,
+       aes(x = Time, y = Expression, color = Gene, group = Gene)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Gene Expression Time Course",
+    y = "Expression Level"
+  )
+
+
+```
+
+When Column Names Are Badly Named
+
+Suppose the dataset came from an external source with inconsistent naming:
+
+```{r}
+gene_expression_bad <- tibble(
+  `Gene ID` = c("BRCA1", "TP53", "EGFR"),
+  `Sample A (day 0)` = c(12.5, 8.3, 15.2),
+  `Sample-B day6` = c(13.1, 9.0, 14.8),
+  `sample_c_day_12` = c(11.9, 8.7, 16.0)
+)
+
+gene_expression_bad
+
+# Problems:
+# Spaces and special characters
+# Inconsistent capitalization
+# Hard to use in code
+
+# Cleaning Column Names (Recommended Workflow)
+# Rename Manually Using rename()
+
+gene_expression_clean <- gene_expression_bad %>%
+  rename(
+    Gene = `Gene ID`,
+    Sample_A = `Sample A (day 0)`,
+    Sample_B = `Sample-B day6`,
+    Sample_C = `sample_c_day_12`
+  )
+
+gene_expression_clean
+
+# Use this when:
+# Dataset is small
+# You want full control over names
+
+# Clean Names Automatically (Common in Practice)
+library(janitor)
+
+gene_expression_auto <- gene_expression_bad %>%
+  janitor::clean_names()
+
+gene_expression_auto
+
+
+
+
+
+```
+
+Converting Columns to Rows (Wide → Long)
+
+```{r}
+
+gene_expression_wide <- tibble(
+  Gene = c("BRCA1", "TP53", "EGFR"),
+  Sample_A = c(12.5, 8.3, 15.2),
+  Sample_B = c(13.1, 9.0, 14.8),
+  Sample_C = c(11.9, 8.7, 16.0)
+)
+
+gene_expression_wide
+
+# Step 1: Convert to Matrix (Required for Transpose)
+# Transposition works on matrices, not tibbles.
+
+expr_matrix <- gene_expression_wide %>%
+  column_to_rownames("Gene") %>%
+  as.matrix()
+
+expr_matrix
+
+expr_matrix_t <- t(expr_matrix)
+expr_matrix_t
+expr_df <- as.data.frame(expr_matrix_t)
+expr_df
+
+# keep row names as column, often help ful
+expr_df %>%
+  rownames_to_column("Sample")
+
+```
+
 
 ## Introduction to ggplot2
 
