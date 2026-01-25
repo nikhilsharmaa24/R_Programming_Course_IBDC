@@ -906,12 +906,86 @@ print(i)
 
 Functions are created using function() directive and stored as object. In particular, they are R object of class function. 
 
+Functions can be passed as arguments to another function. 
+functions can be nested so that you can define one function inside of other.
+
 ```{r}
 
-name <- function(variables) {
-  
+class(mean)
+
+f <- function(arguments) {
+  # code to perform a task
 }
 ```
+
+Function Arguments:
+
+Arguments are the inputs to a function.
+They allow functions to work with different values without rewriting code.
+
+```{r}
+square <- function(x) {
+  x^2
+}
+
+square(5)
+square(c(1, 2, 3))
+
+# multiple arguments
+add_numbers <- function(a, b) {
+  a + b
+}
+
+# Arguments can be passed:
+# By position
+# By name
+
+add_numbers(2, 3)
+add_numbers(b = 3, a = 2)
+
+# Default Argument Values
+# Arguments can have default values, making them optional.
+
+power <- function(x, exponent = 2) {
+  x^exponent
+}
+
+power(4)       # uses default exponent
+power(4, 3)    # overrides default
+
+# Named vs Positional Arguments (Important)
+seq(from = 1, to = 10, by = 2)
+seq(1, 10, 2)
+
+# Named arguments improve readability and reduce errors. it is recommended to not to mess with default order, might lead to confusion. start with reading the function using ?.
+
+mydata <- rnorm(100)
+
+sd(mydata)
+sd(x = mydata)
+
+sd(x = mydata, na.rm = FALSE)
+sd(na.rm = FALSE, x = mydata)
+
+# it is also possible to not define default value of argument
+
+f <- function(a,b=2,c=4, d=NULL) {
+  a^2
+}
+
+# lazy evaluation: arguments are evaluated lazily, that mean they are evaluated only if they needed.
+
+f(4) # did not use any other argument except a, and didn't produce any error.
+
+fname <- function(a, b) {
+  print(a)
+  print(b)
+}
+
+fname(3) # here function will evaluate b also
+
+```
+
 
 
 ## Getting Help in R
