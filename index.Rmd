@@ -101,6 +101,11 @@ This course draws inspiration from the following excellent resources:
 - **Xie, Y., Allaire, J. J., & Grolemund, G.**  
   *R Markdown: The Definitive Guide*  
   https://bookdown.org/yihui/rmarkdown/
+
+- **Peng, R. D., Caffo, B., & Leek, J.**
+    *Data Science: Foundations using R Specialization.*
+    https://www.coursera.org/specializations/data-science-foundations-r
+
 ---
 
 ➡️ Proceed to **Installation & Environment Setup** to begin.

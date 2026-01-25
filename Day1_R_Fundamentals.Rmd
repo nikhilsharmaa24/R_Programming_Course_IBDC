@@ -977,22 +977,291 @@ f <- function(a,b=2,c=4, d=NULL) {
 
 f(4) # did not use any other argument except a, and didn't produce any error.
 
-fname <- function(a, b) {
-  print(a)
-  print(b)
+# fname <- function(a, b) {
+#   print(a)
+#   print(b)
+# }
+# fname(3) # here function will evaluate b also
+
+```
+
+The ... (Dot-Dot-Dot) Argument
+
+Using ... tells R that our function can accept extra arguments, which are then forwarded to another function inside it.
+This lets us use the other function’s optional arguments directly.
+
+```{r}
+my_mean <- function(x, ...) {
+  mean(x, ...)
 }
 
-fname(3) # here function will evaluate b also
+# Here, ... allows my_mean() to use optional arguments of mean() such as na.rm = TRUE, without redefining them.
+
+my_mean(c(1, 2, NA, 4), na.rm = TRUE)
+
+# x is handled by my_mean
+# na.rm = TRUE is captured by ... and passed to mean()
+
+
+# ... argument is also necessary when we dont know how many arguments will be there
+
+args(paste)
+paste("a", "b")
+paste("a", "b", "C", "d", sep=":")
+
+# any arguments after ..., needs to be named explicitly
+
+```
+
+## Variable Scope in R (Basics)
+
+Scope refers to where an object is visible and accessible in your code.
+In this course, we focus only on basic function scoping, which is sufficient for most data analysis tasks.
+
+**Local Variables in Functions**
+
+Variables created inside a function exist only within that function.
+These are called local variables.
+
+```{r}
+
+f <- function() {
+  x <- 10
+  x
+}
+
+f()
+
+x
+
+# Here, x is created inside the function, so it is not accessible outside.
+
+```
+
+**Global Variables (Outside Functions)**
+
+Variables created outside functions exist in the global environment.
+
+```{r}
+
+y <- 5
+
+g <- function() {
+  y + 1
+}
+
+g()
+
+# However, relying on global variables is not recommended.
+
+# Best Practice: Use Function Arguments
+# Instead of using global variables, always pass values as arguments.
+
+g <- function(y) {
+  y + 1
+}
+
+g(5)
+
+```
+
+Note on Advanced Scoping Concepts (Not Covered):
+
+The following advanced topics are intentionally not covered in this course:
+
+- Environments
+- Lexical scoping rules
+- Parent frames
+- <<- operator
+
+These concepts are mainly relevant for advanced R programming and package development, and are not required for effective data analysis.
+
+
+## Dates and Time in R
+
+R has built-in support for working with dates and time, which is useful for:
+
+- experiment timelines
+- sample collection dates
+- time-series measurements
+
+Dates are represented in class Date, and time class POSIXct or POSIXlt
+
+POSIXct - useful when want to store dates in dataframe
+POSIXlt - its a kind of list, which stored other information like day of week, day of year, month , day of month
+
+Working with Dates
+
+```{r}
+d1 <- as.Date("2026-01-22")
+d2 <- as.Date("2026-02-01")
+class(d1)
+
+# operation on days
+d2 - d1
+
+d1 + 7
+d2 - 3
+
+Sys.Date()
+
+```
+
+Working with Date-Time
+Creating Date-Time Objects
+
+```{r}
+
+t1 <- as.POSIXct("2026-01-22 10:30:00")
+t2 <- as.POSIXct("2026-01-22 18:00:00")
+
+class(t1)
+t2 - t1
+
+Sys.time()
+
+format(d1, "%Y")   # Year
+format(d1, "%m")   # Month
+format(d1, "%d")   # Day
+
+format(t1, "%H")   # Hour
+format(t1, "%M")   # Minute
+
+# Common Date Operations
+# Sorting by Date
+
+dates <- as.Date(c("2026-01-05", "2026-01-01", "2026-01-03"))
+sort(dates)
+
+# Filtering Using Dates
+dates[dates > as.Date("2026-01-02")]
+
+t1 <- as.POSIXct("2026-01-22 10:30:00")
+t2 <- as.POSIXct("2026-01-22 18:00:00")
+
+### as.POSIXlt
+
+t_lt <- as.POSIXlt("2026-01-22 10:30:45")
+t_lt2 <- as.POSIXlt("2026-01-29 10:30:45")
+class(t_lt)
+
+t_lt$year 
+
+# year is counted from 1900
+# mon starts from 0 (January = 0)
+
+
+t_lt2 - t_lt
+
+format(t_lt, "%Y")
+format(t_lt, "%S")
+format(t_lt, "%m")
+
+```
+
+Parsing Date-Time from Character Strings.
+
+Real-world data often contains dates stored as character strings, often messy way of representing.
+To convert them properly, we use strptime().
+
+```{r}
+
+x <- "29-01-2026 10:30:00"
+
+dt <- strptime(x, format = "%d-%m-%Y %H:%M:%S")
+dt
+
+x <- c("Jan 10, 2012 10:40")
+dt <- strptime(x, format = "%B %d, %Y %H:%M")
+dt
+
+# now if you don't remember these codes in format, like i don't, always read the document ?strptime
 
 ```
 
 
+Working with Dates and Time Using lubridate. (in next session in more detail)
+
+Base R provides powerful date-time classes (Date, POSIXct, POSIXlt), but working with them can sometimes feel verbose or unintuitive, especially when parsing dates or extracting components.
+
+The lubridate package (part of the tidyverse) is designed to make date and time handling:
+
+## Loop Functions in R (Apply Family)
+
+In addition to for and while loops, R provides a set of loop functions, commonly known as the apply family.
+These functions allow you to apply an operation repeatedly over elements of a data structure without writing explicit loops.
+
+Why Use Loop Functions?
+
+- Loop functions are:
+- Shorter and cleaner than manual loops
+- Easier to read and maintain
+- Less error-prone
+- Idiomatic R (you will see them often in real code)
+
+| Function   | Used With              | Purpose |
+|-----------|------------------------|---------|
+| `apply()`  | Matrix / data frame    | Apply a function over rows or columns |
+| `lapply()` | List                   | Apply a function to each element (returns a list) |
+| `sapply()` | List / vector          | Same as `lapply()` but simplifies output |
+| `tapply()` | Vector                 | Apply a function over subsets defined by a factor |
+| `mapply()` | Multiple inputs        | Vectorized version of a function |
+
+apply() — Working with Rows and Columns,Used mainly with matrices or data frames.
+
+```{r}
+m <- matrix(1:12, nrow = 3)
+
+# Apply sum to each column
+apply(m, 2, sum)
+
+# Apply mean to each row
+apply(m, 1, mean)
+
+apply(m, 1, sum)
+apply(m, 1, sd)
+
+# 2 → columns
+# 1 → rows
+
+```
+
+lapply() — Looping Over Lists
+
+```{r}
+
+x <- list(a = 1:5, b = 6:10, c = 11:15)
+lapply(x, mean)
+
+# Output is always a list
+```
+
+sapply() — Simplified Output,  Similar to lapply(), but tries to simplify the result.
+
+```{r}
+
+sapply(x, mean)
+
+```
+
+tapply() — Group-wise Operations, Very useful for biological or experimental data.
+
+```{r}
+values <- c(5.1, 5.5, 6.0, 6.2, 5.8)
+group  <- c("Control", "Control", "Treated", "Treated", "Treated")
+
+tapply(values, group, mean)
+
+# Summarizing measurements by condition, treatment, or group
+
+```
 
 ## Getting Help in R
 
 R has built-in help documentation.
 
 ```{r}
+
 ?mean
 help(mean)
 
