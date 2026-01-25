@@ -354,8 +354,6 @@ gene_expression_wide_again <- gene_expression_long %>%
 gene_expression_wide_again
 
 
-
-
 # time dependent data
 
 time_course <- tibble(
@@ -478,15 +476,28 @@ expr_df %>%
 
 ## Introduction to ggplot2
 
-The grammar of graphics:
+ggplot2 is based on the Grammar of Graphics, which means plots are built by combining independent components.
 
-- Data
-- Aesthetics (aes)
-- Geometries (geom_*)
+Core Components of a ggplot
 
-In ggplot2, plots are built by combining data, aesthetics, and geometric layers.
+- Data: the dataset you want to visualize
+- Aesthetics (aes): how variables map to visual properties (x, y, color, size, etc.)
+- Geometries (geom_*): the type of plot (points, lines, bars, boxes, …)
+
+
+Basic structure:
+
+```{r}
+# ggplot(data, aes(x = variable1, y = variable2)) +
+#   geom_*
+
+```
 
 ### Basic Scatter Plot
+
+Relationship Between Two Variables
+Question answered:
+Are two numeric variables related?
 
 ```{r}
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
@@ -497,6 +508,7 @@ geom_point()
 Adding Color and Labels
 
 ```{r}
+
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 geom_point() +
 labs(
@@ -505,23 +517,239 @@ x = "Sepal Length",
 y = "Sepal Width"
 )
 
+# Use case (biology):
+# Comparing morphological measurements across species groups.
+
 ```
 
-Boxplots
+### Scatter Plot with Trend Line
+
+Question answered:
+Is there an overall trend or correlation?
 
 ```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point() +
+geom_smooth(method = "lm", se = FALSE)
+
+# what if we fit regression group wise
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+geom_point() +
+geom_smooth(method = "lm", se = FALSE)
+
+# combine group and overall trend
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point() +
+geom_smooth(method = "lm", se = FALSE, color = "black") +
+geom_smooth(
+aes(color = Species),
+method = "lm",
+se = FALSE
+)
+
+# In biological data, different groups (species, treatments, conditions) often show different relationships.
+# Grouped regression lines help reveal these group-specific patterns.
+
+```
+
+
+### Boxplots 
+
+Compare Distributions Across Groups
+
+Question answered:
+
+How does a numeric variable differ between groups?
+
+```{r}
+
 ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
 geom_boxplot()
 
+# Use case (biology):
+# Comparing gene expression, cell size, or phenotype across conditions.
 ```
 
-Histograms
+### Histograms 
+
+Distribution of a Single Variable
+
+Question answered:
+
+How is a variable distributed?
+
 
 ```{r}
+
 ggplot(iris, aes(x = Sepal.Length)) +
 geom_histogram(bins = 20)
 
+# histogram by group
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+geom_histogram(bins = 20, alpha = 0.6)
+
+
 ```
+
+### Density Plots 
+
+Smooth Distribution
+
+Comparing distributions without binning effects.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length)) +
+geom_density()
+
+# by group 
+
+ggplot(iris, aes(x = Sepal.Length, color = Species)) +
+geom_density()
+
+```
+
+Violin Plots 
+
+Distribution Shape + Spread (density plot or histogram + boxplot)
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+geom_violin(trim = FALSE)
+
+```
+
+Bar Plots 
+
+Counts and Summaries
+
+Count of Observations per Group
+
+```{r}
+
+ggplot(iris, aes(x = Species)) +
+geom_bar()
+
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  stat_summary(fun = mean, geom = "bar") +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2)
+
+```
+
+Line Plots 
+
+Trends Over Time
+
+Example: simulated time-course data
+
+```{r}
+time_course <- tibble(
+Time = c(0, 6, 12),
+Expression = c(5.2, 8.1, 12.4)
+)
+
+ggplot(time_course, aes(x = Time, y = Expression)) +
+geom_line() +
+geom_point()
+
+# Gene expression over time or treatment duration.
+
+```
+
+Faceting (Multiple Plots by Group)
+
+```{r}
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+geom_point() +
+facet_wrap(~ Species)
+
+# Use case:
+# Compare patterns across experimental conditions side-by-side.
+
+```
+
+### Venn Diagrams
+
+Used for:
+
+Overlap of genes between experiments
+
+Shared pathways
+
+Common differentially expressed genes
+
+```{r}
+
+# if (!require(devtools)) install.packages("devtools")
+# devtools::install_github("yanlinlin82/ggvenn")
+
+set.seed(20190708)
+genes <- paste("gene",1:1000,sep="")
+x <- list(
+  A = sample(genes,300), 
+  B = sample(genes,525), 
+  C = sample(genes,440),
+  D = sample(genes,350)
+  )
+
+library(ggvenn)
+
+ggvenn(
+  x, 
+  fill_color = c("#0073C2FF", "#EFC000FF", "#868686FF", "#CD534CFF"),
+  stroke_size = 0.5, set_name_size = 4
+  )
+
+```
+
+```{r}
+library(pheatmap)
+
+# Create a hypothetical gene expression matrix
+
+expression_matrix <- matrix(
+c(
+8.2, 6.1, 7.4, 5.9,
+3.2, 2.8, 3.5, 2.9,
+10.5, 11.2, 9.8, 10.1,
+4.6, 5.1, 4.8, 5.3,
+7.9, 8.4, 8.1, 8.7
+),
+nrow = 5,
+byrow = TRUE
+)
+
+# Add gene names (rows)
+
+rownames(expression_matrix) <- c(
+"BRCA1",
+"TP53",
+"EGFR",
+"MYC",
+"CDKN1A"
+)
+
+# Add sample names (columns)
+
+colnames(expression_matrix) <- c(
+"Sample_1",
+"Sample_2",
+"Sample_3",
+"Sample_4"
+)
+
+expression_matrix
+
+pheatmap(expression_matrix, cluster_rows = FALSE,
+  cluster_cols = FALSE)
+
+pheatmap(expression_matrix)
+
+```
+
+
 
 Combining dplyr and ggplot2
 
