@@ -790,6 +790,7 @@ Before any analysis, always inspect the data.
 ```{r}
 
 summary(iris)
+
 ```
 
 This helps answer:

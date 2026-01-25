@@ -15,20 +15,138 @@ By the end of this day, students will be able to:
 
 ---
 
-
 ## Types of Data
 
-Understanding data types is essential for choosing the right statistical test.
+Understanding data types is essential for choosing the right statistical test. Also these are default data type in many statistical packages.
 
 - **Numeric** – continuous or discrete values  
 - **Categorical** – groups or labels  
 - **Binary** – two outcomes (e.g., yes/no)
 
-Example using `iris`:
+
+### Why Do We Need Statistics? 
+
+In biology, data are variable by nature. Even under controlled conditions, measurements differ due to biological and technical variability.
+Statistics provides tools to summarize data, quantify uncertainty, and draw conclusions from samples.
+
+Key ideas:
+
+- Data ≠ truth
+- Samples ≠ populations
+- Variation is normal
+
+Before we can do statistics meaningfully, we need a basic understanding of probability, because:
+
+- Statistics is built on probability.
+- Probability helps us describe randomness, variation, and uncertainty in data.
+
+In other words:
+
+Probability explains why results vary
+
+Statistics helps us make decisions despite that variation
+
+## Introduction to Probability
+
+Statistics is built on the idea of random variation.
+
+**In practice:**
+
+- We observe data from a sample
+
+- Samples vary due to randomness
+
+- Probability helps us quantify uncertainty
+
+### Populations vs Samples
+
+Population: The complete set of possible outcomes (e.g., all students in the class).
+
+Sample: A subset of the population (e.g., a random group of students measured for some trait).
+
+Suppose you have 50 students, and you want to predict the gender distribution. You know historically your class has roughly equal number of males and females
+
 
 ```{r}
-str(iris)
+set.seed(123)
+
+# Simulate the population of 50 students (M = male, F = female)
+
+students <- sample(c("M", "F"), size = 50, replace = TRUE)
+table(students)
+
+# Notice that the number of males and females in your sample can vary just by chance.
+
 ```
+
+### Sampling Distribution
+
+What if you take random samples of 10 students from your class multiple times?
+Each sample will have a different number of males and females — this is sampling variation.
+
+
+```{r}
+
+set.seed(123)
+sample_gender_counts <- replicate(1000, {
+sample10 <- sample(students, 10)
+sum(sample10 == "M")  # count number of males in each sample
+})
+
+# Visualize
+
+hist(sample_gender_counts,
+  main = "Distribution of Male Students in Random Samples of 10",
+  xlab = "Number of Males",
+  col = "lightblue",
+  breaks = 0:10)
+
+abline(v = mean(sample_gender_counts), col = "red", lwd = 2)
+
+```
+
+Each bar shows how likely a particular number of males occurs in a random sample of 10 students.
+
+The red line shows the average number of males across all samples.
+
+This histogram is a sampling distribution, the foundation of statistical inference.
+
+### Probability as “Long-Run Frequency”
+
+Probability tells us how likely an event is in repeated experiments.
+
+```{r}
+# Probability that a random sample of 10 students has exactly 5 males
+
+mean(sample_gender_counts == 5)
+
+mean(sample_gender_counts == 2)
+
+# If you repeat sampling many times, this fraction approximates the probability.
+# This is exactly what a p-value measures in hypothesis testing.
+
+```
+
+
+Variation in results does not always imply a real difference — it may be due to chance.
+
+### Connecting to Statistics
+
+Once we understand variation and probability:
+
+We can estimate population proportions (e.g., % male/female in class).
+
+We can test hypotheses (e.g., is the class gender ratio equal?).
+
+```{r}
+
+# One-sample proportion test: Is the proportion of males 0.5?
+
+prop.test(sum(students == "M"), length(students), p = 0.5)
+
+# The p-value tells us if the observed proportion of males significantly differs from 50%.
+```
+
 
 ## Descriptive Statistics
 
@@ -79,55 +197,6 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) +
 geom_boxplot()
 
 ```
-
-## Introduction to Probability (Conceptual)
-
-Statistics is built on the idea of random variation.
-
-**In practice:**
-
-- We observe data from a sample
-
-- Samples vary due to randomness
-
-- Probability helps us quantify uncertainty
-
-### Sampling Variation
-
-Even when sampling from the same population, sample statistics vary.
-
-```{r}
-set.seed(123)
-
-sample_means <- replicate(
-1000,
-mean(sample(iris$Sepal.Length, size = 30))
-)
-
-hist(
-sample_means,
-main = "Sampling Distribution of the Mean",
-xlab = "Sample Mean"
-)
-
-```
-
-Key idea:
-Variation in results does not always imply a real difference — it may be due to chance.
-
-
-Probability Distributions (Intuition)
-
-Many biological measurements follow approximately normal distributions.
-
-```{r}
-ggplot(iris, aes(x = Sepal.Length)) +
-  geom_histogram(bins = 20) +
-  geom_density(color = "blue") +
-  labs(title = "Histogram with Density Curve")
-
-```
-
 
 ## Introduction to Hypothesis Testing
 
