@@ -29,128 +29,66 @@ Understanding data types is essential for choosing the right statistical test. A
 In biology, data are variable by nature. Even under controlled conditions, measurements differ due to biological and technical variability.
 Statistics provides tools to summarize data, quantify uncertainty, and draw conclusions from samples.
 
+Statistics helps us to:
+
+- Summarize complex data
+- Understand natural variation
+- Make decisions using samples instead of entire populations
+
 Key ideas:
 
 - Data ≠ truth
 - Samples ≠ populations
-- Variation is normal
+- Variation is expected and normal
 
-Before we can do statistics meaningfully, we need a basic understanding of probability, because:
+Statistics gives us tools to decide whether observed differences are meaningful or simply due to random variation.
 
-- Statistics is built on probability.
-- Probability helps us describe randomness, variation, and uncertainty in data.
+Example: Two treatments show different average gene expression levels — is the difference real or random? Stats will help in answering that question.
 
-In other words:
+---
 
-Probability explains why results vary
+## Descriptive vs Inferential Statistics
 
-Statistics helps us make decisions despite that variation
+Statistics can be broadly divided into two categories:
 
-## Introduction to Probability
+- **Descriptive statistics**  
+  Summarize and describe the observed data.
 
-Statistics is built on the idea of random variation.
+- **Inferential statistics**  
+  Use sample data to draw conclusions about a larger population.
 
-**In practice:**
+Examples:
 
-- We observe data from a sample
+- Calculating the mean sepal length → *descriptive*
+- Testing whether two species differ in mean sepal length → *inferential*
 
-- Samples vary due to randomness
+In this session, we start with **descriptive statistics** and then move to **inferential statistics**.
 
-- Probability helps us quantify uncertainty
-
-### Populations vs Samples
-
-Population: The complete set of possible outcomes (e.g., all students in the class).
-
-Sample: A subset of the population (e.g., a random group of students measured for some trait).
-
-Suppose you have 50 students, and you want to predict the gender distribution. You know historically your class has roughly equal number of males and females
-
-
-```{r}
-set.seed(123)
-
-# Simulate the population of 50 students (M = male, F = female)
-
-students <- sample(c("M", "F"), size = 50, replace = TRUE)
-table(students)
-
-# Notice that the number of males and females in your sample can vary just by chance.
-
-```
-
-### Sampling Distribution
-
-What if you take random samples of 10 students from your class multiple times?
-Each sample will have a different number of males and females — this is sampling variation.
-
-
-```{r}
-
-set.seed(123)
-sample_gender_counts <- replicate(1000, {
-sample10 <- sample(students, 10)
-sum(sample10 == "M")  # count number of males in each sample
-})
-
-# Visualize
-
-hist(sample_gender_counts,
-  main = "Distribution of Male Students in Random Samples of 10",
-  xlab = "Number of Males",
-  col = "lightblue",
-  breaks = 0:10)
-
-abline(v = mean(sample_gender_counts), col = "red", lwd = 2)
-
-```
-
-Each bar shows how likely a particular number of males occurs in a random sample of 10 students.
-
-The red line shows the average number of males across all samples.
-
-This histogram is a sampling distribution, the foundation of statistical inference.
-
-### Probability as “Long-Run Frequency”
-
-Probability tells us how likely an event is in repeated experiments.
-
-```{r}
-# Probability that a random sample of 10 students has exactly 5 males
-
-mean(sample_gender_counts == 5)
-
-mean(sample_gender_counts == 2)
-
-# If you repeat sampling many times, this fraction approximates the probability.
-# This is exactly what a p-value measures in hypothesis testing.
-
-```
-
-
-Variation in results does not always imply a real difference — it may be due to chance.
-
-### Connecting to Statistics
-
-Once we understand variation and probability:
-
-We can estimate population proportions (e.g., % male/female in class).
-
-We can test hypotheses (e.g., is the class gender ratio equal?).
-
-```{r}
-
-# One-sample proportion test: Is the proportion of males 0.5?
-
-prop.test(sum(students == "M"), length(students), p = 0.5)
-
-# The p-value tells us if the observed proportion of males significantly differs from 50%.
-```
-
+---
 
 ## Descriptive Statistics
 
-Descriptive statistics summarize the main characteristics of data.
+Descriptive statistics summarize the main characteristics of a dataset.
+
+### Measures of Central Tendency
+
+Measures of central tendency describe the “typical” value of a dataset.
+
+- **Mean** – arithmetic average (sensitive to outliers)
+- **Median** – middle value (robust to outliers)
+
+Measures of Variation (Spread):
+
+Variation describes how spread out the data are.
+
+Variance – average squared deviation from the mean
+
+Standard deviation (SD) – typical distance from the mean
+
+range - difference in maximum and minimum value
+
+Inter-quartile range: difference in 3rd and 1st quintile
+
 
 ### Numeric Summaries
 
@@ -198,6 +136,121 @@ geom_boxplot()
 
 ```
 
+### From Description to Inference
+
+Inferential statistics help us answer questions such as:
+
+Are observed differences real?
+
+Or could they be explained by natural variation?
+
+To answer these questions, we use hypothesis testing.
+
+
+### Populations vs Samples
+
+Population: The complete set of possible outcomes (e.g., all students in the class).
+
+Sample: A subset of the population (e.g., a random group of students measured for some trait).
+
+In practice, we usually work with samples, because measuring entire populations is often impossible.
+
+
+Suppose you have 50 students, and you want to predict the gender distribution. You know historically your class has roughly equal number of males and females
+
+
+```{r}
+set.seed(123)
+
+# Simulate the population of 50 students (M = male, F = female)
+
+students <- sample(c("M", "F"), size = 50, replace = TRUE)
+table(students)
+
+# Notice that the number of males and females in your sample can vary just by chance.
+
+```
+
+### Sampling Distribution
+
+What if you take random samples of 10 students from your class multiple times?
+Each sample will have a different number of males and females — this is sampling variation.
+
+
+```{r}
+
+set.seed(123)
+sample_gender_counts <- replicate(1000, {
+sample10 <- sample(students, 10)
+sum(sample10 == "M")  # count number of males in each sample
+})
+
+# Visualize
+
+library(ggplot2)
+
+ggplot(data.frame(male_count = sample_gender_counts),
+       aes(x = male_count)) +
+  geom_histogram(
+    breaks = 0:10,
+    fill = "lightblue",
+    color = "black"
+  ) +
+  geom_vline(
+    xintercept = mean(sample_gender_counts),
+    color = "red",
+    linewidth = 1
+  ) +
+  labs(
+    title = "Distribution of Male Students in Random Samples of 10",
+    x = "Number of Males",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+```
+
+Each bar shows how likely a particular number of males occurs in a random sample of 10 students.
+
+The red line shows the average number of males across all samples.
+
+This histogram is a sampling distribution, the foundation of statistical inference.
+
+### From Variation to Statistical Testing
+
+Observed differences do not automatically imply a real or meaningful effect.
+
+Statistics helps us answer questions like:
+
+Is the observed difference larger than what we would expect by chance?
+
+Is our sample consistent with a known or assumed population value?
+
+Example: Testing a Population Proportion
+
+We can formally test whether the proportion of males in the class differs from 50%.
+
+```{r}
+prop.test(sum(students == "M"),
+length(students),
+p = 0.5)
+
+# The test output includes a p-value, which helps us assess whether the observed proportion is consistent with the assumed population proportion.
+```
+
+### Interpreting p-values (Common Mistakes)
+
+A p-value is NOT:
+- The probability that the null hypothesis is true
+- A measure of effect size
+
+A p-value IS:
+- A measure of how surprising the data are if H₀ were true
+
+### Confidence Interval Interpretation 
+
+A 95% confidence interval means that if we repeated the experiment many times, about 95% of the intervals would contain the true value.
+
 ## Introduction to Hypothesis Testing
 
 Hypothesis testing uses probability to evaluate whether observed differences
@@ -237,9 +290,12 @@ data = subset(iris, Species %in% c("setosa", "versicolor"))
 
 ```
 
-### Non-Parametric Test: Wilcoxon Test
+### Non-Parametric Tests (Brief Overview)
 
-Used when data do not meet t-test assumptions.
+When data do not meet assumptions of parametric tests
+(e.g., normality), non-parametric tests are used.
+
+Example: Wilcoxon rank-sum test (shown for reference)
 
 ```{r}
 
@@ -260,26 +316,14 @@ summary(anova_model)
 
 ```
 
-Post-hoc Test
-
-```{r}
-TukeyHSD(anova_model)
-
-```
 
 ### Correlation Analysis
 
-Correlation measures the strength of association between two variables.
+measures the strength and direction of the linear relationship between two variables. varies from -1 to 1
 
 ```{r}
+
 cor(iris$Sepal.Length, iris$Petal.Length)
-
-```
-
-Test for significance:
-
-```{r}
-cor.test(iris$Sepal.Length, iris$Petal.Length)
 
 ```
 
@@ -302,14 +346,6 @@ ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
 
 ```
 
-Model Diagnostics (Brief Overview)
-
-```{r}
-
-par(mfrow = c(2, 2))
-plot(lm_model)
-
-```
 
 ### Interpreting Statistical Results
 
@@ -324,6 +360,208 @@ When reporting results, always consider:
 - Practical or biological relevance
 
 ⚠️ Statistical significance does not always imply practical importance.
+
+
+**Example: Statistical Significance vs Practical Importance**
+
+Scenario:
+
+Suppose we are studying whether a new treatment increases gene expression compared to a control.
+
+Outcome: Gene expression level (continuous)
+
+Two groups: Control vs Treatment
+
+Sample size: 100 per group (large experiment)
+
+```{r}
+set.seed(42)
+
+n <- 100
+
+control <- rnorm(n, mean = 10, sd = 2)
+treatment <- rnorm(n, mean = 10.3, sd = 2)  # small increase
+
+data <- data.frame(
+  expression = c(control, treatment),
+  group = rep(c("Control", "Treatment"), each = n)
+)
+
+# Descriptive Statistics
+
+data %>%
+  group_by(group) %>%
+  summarise(
+    mean_expression = mean(expression),
+    sd_expression = sd(expression)
+  )
+
+# Interpretation:
+# 
+# - Treatment has a slightly higher mean expression
+# 
+# - The difference looks small relative to variability
+
+# Visual Comparison
+library(ggplot2)
+
+ggplot(data, aes(x = group, y = expression)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(
+    title = "Gene Expression by Treatment Group",
+    y = "Expression Level"
+  ) +
+  theme_minimal()
+
+# Inferential Statistics: Two-Sample t-test
+
+test <- t.test(expression ~ group, data = data)
+test
+
+# What question is the test answering?
+# 
+# Is the observed difference in mean expression between Control and Treatment larger than what we’d expect by random chance?
+
+# Test statistic (this is the key number)
+# t = -0.21754
+# 
+# The t-statistic measures:
+# 
+# How far apart the two group means are
+# relative to the variability in the data
+# In plain words:
+# Difference between means ÷ random noise
+
+# Signal = difference between means
+# Noise = variability within groups
+
+# signal << noise  →  t ≈ 0  →  large p-value
+
+# Large |t| → strong evidence of a real difference
+# 
+# Small |t| → difference is tiny compared to variation
+# Here:
+# 
+# t = -0.22 → very close to zero
+# 
+# Means are almost the same compared to variability
+# 
+# (The negative sign just tells you direction, not importance.)
+# 
+# What does this mean?
+# 
+# If there were no real difference between groups,
+# there is an 82.8% chance of observing a difference at least this large just by random sampling.
+# 
+# ️ That is very high
+# ️ So the observed difference is not unusual at all
+# 
+# Conclusion: No statistical evidence of a difference.
+# 
+# Confidence interval
+# 95 percent confidence interval:
+#  -0.6039960  0.4839901
+
+# This interval represents:
+# 
+# Plausible values for the true difference in means
+# (Control − Treatment)
+# Key observation:
+# 
+# The interval includes 0
+# 
+# ️ Zero difference is completely plausible
+#  Supports the non-significant p-value
+
+test$conf.int
+
+# Interpretation
+# We are 95% confident the true mean difference lies in this interval
+# The interval does include zero, so the difference is statistically in-significant
+
+# Effect Size (Cohen’s d)
+
+mean_diff <- mean(treatment) - mean(control)
+pooled_sd <- sqrt((sd(control)^2 + sd(treatment)^2) / 2)
+
+cohens_d <- mean_diff / pooled_sd
+cohens_d
+
+
+```
+
+## t-Statistic vs Effect Size (Cohen’s d): The Math
+
+Understanding the mathematical difference between the **t-statistic** and **effect size**
+helps clarify why statistical significance and practical importance are not the same.
+
+---
+
+### 1️⃣ Two-Sample t-Statistic (Welch t-test)
+
+For two groups with sample means \( \bar{x}_1 \) and \( \bar{x}_2 \):
+
+\[
+t =
+\frac{\bar{x}_1 - \bar{x}_2}
+{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+\]
+
+Where:
+
+- \( \bar{x}_1 - \bar{x}_2 \) = difference in sample means  
+- \( s_1^2, s_2^2 \) = sample variances  
+- \( n_1, n_2 \) = sample sizes  
+
+🔑 **Key point**
+
+The denominator contains \( n_1 \) and \( n_2 \).  
+As sample size increases, the denominator becomes smaller, making the
+t-statistic **larger even if the mean difference stays the same**.
+
+This is why large datasets can produce very small p-values for very small effects.
+
+---
+
+### 2️⃣ Effect Size: Cohen’s d
+
+Cohen’s \( d \) standardizes the mean difference using **variability only**:
+
+\[
+d =
+\frac{\bar{x}_1 - \bar{x}_2}{s_{\text{pooled}}}
+\]
+
+Where the pooled standard deviation is:
+
+\[
+s_{\text{pooled}} =
+\sqrt{
+\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}
+{n_1 + n_2 - 2}
+}
+\]
+
+Where:
+
+- \( s_{\text{pooled}} \) = pooled standard deviation  
+- \( n_1 - 1 \), \( n_2 - 1 \) = degrees-of-freedom weights  
+
+🔑 **Key point**
+
+Cohen’s \( d \):
+
+- Uses sample size **only to weight variances**
+- Does **not** shrink with increasing \( n \)
+- Measures the **magnitude of the effect**, not the strength of evidence
+
+---
+
+### Important Takeaway
+
+> A result can be statistically significant (large t, small p-value)  
+> but have a small effect size (small Cohen’s d).
+
 
 ## Machine Learning (Statistical Learning): A Gentle Introduction
 
@@ -444,18 +682,97 @@ Common evaluation metrics for classification include:
 - **Specificity** – ability to detect negative cases
 - **Precision** – proportion of true positives among predicted positives
 
-The choice of metric depends on the **problem context**, especially in
-biomedical applications.
+The choice of metric depends on the **problem context**, especially in biomedical applications.
+
+**High-Dimensional Classification Using caret**
+
+In machine learning, we typically follow a **standard workflow**:
+ 
+1. Split data into training and test sets  
+2. Train a model on training data  
+3. Evaluate performance on unseen test data  
+ 
+The `caret` package provides a unified interface for this workflow.
+
+
+```{r}
+
+### Simulated High-Dimensional Dataset
+
+# We simulate a gene expression–like dataset:
+# 
+# - 60 samples
+# - 100 features (genes)
+# - Binary outcome (Disease vs Healthy)
+
+set.seed(123)
+
+library(caret)
+
+n_samples  <- 60
+n_features <- 100
+
+# Feature matrix
+X <- matrix(rnorm(n_samples * n_features),
+            nrow = n_samples,
+            ncol = n_features)
+
+# Outcome variable
+y <- factor(rep(c("Healthy", "Disease"),
+                each = n_samples / 2))
+
+# Introduce signal in a few genes
+X[y == "Disease", 1:5] <- X[y == "Disease", 1:5] + 1
+
+data_ml <- data.frame(Class = y, X)
+
+dim(data_ml)
+table(data_ml$Class)
+
+# train test(validation) split
+
+set.seed(123)
+
+train_index <- createDataPartition(data_ml$Class,
+                                   p = 0.7,
+                                   list = FALSE)
+
+train_data <- data_ml[train_index, ]
+test_data  <- data_ml[-train_index, ]
+
+# Model Training with caret
+# We train a logistic regression classifier.
+
+ctrl <- trainControl(
+  method = "cv",
+  number = 5
+)
+
+model_caret <- train(
+  Class ~ .,
+  data = train_data,
+  method = "glm", # rf, svm, gbm, xgboost
+  family = "binomial",
+  trControl = ctrl,
+  metric = "Accuracy"
+)
+
+model_caret
+
+pred_class <- predict(model_caret, newdata = test_data)
+
+confusionMatrix(pred_class, test_data$Class)
+
+```
 
 ---
 
-### Advanced Machine Learning Algorithms (Overview)
+### Advanced Machine Learning (Overview)
 
 Beyond linear models, many advanced algorithms are commonly used in practice.
 
 Examples include:
 
-- **Logistic regression** – classification using probabilistic models
 - **Decision trees** – rule-based models
 - **Random forests** – ensembles of decision trees
 - **Support vector machines (SVMs)** – margin-based classifiers
@@ -471,6 +788,115 @@ These methods are powerful, but require:
 > Exploring these algorithms is beyond the scope of this course and
 > typically covered in dedicated machine learning classes. For R, you can explore packages like caret and tidymodels specifically for ML tasks.
 
+**Core Concepts You Must Know in Machine Learning**
+
+Before applying advanced machine learning algorithms, it is important to understand how models are trained, evaluated, and controlled.
+These ideas apply to all machine learning methods.
+
+**Train–Test Split (Why We Need It)**
+
+- In machine learning, the goal is generalization:
+- How well does the model perform on new, unseen data?
+- To test this, we split data into:
+- Training set – used to fit the model (Learn patterns)
+- Test set – used only for final evaluation (Check generalization)
+
+If we evaluate a model on the same data used to train it, we get over-optimistic performance.
+
+**Overfitting vs Underfitting**
+
+Machine learning models can fail in two ways:
+
+- Underfitting:	Model too simple, misses important patterns
+- Overfitting:	Model too complex, memorizes noise
+
+intuition:
+
+- A straight line for complex data → underfitting
+- A curve passing through every point → overfitting
+
+The goal is good bias–variance tradeoff.
+
+**Cross-Validation (CV)**
+
+Cross-validation is a way to estimate model performance more reliably.
+
+Instead of one train–test split:
+
+- Data is split into K folds
+- Model is trained K times
+- Each fold is used once as validation data
+
+Most common: 5-fold-cv,  10-fold-cv
+
+Train → Validate → Repeat → Average performance
+
+Why it matters:
+
+- Reduces dependence on one random split
+- Gives more stable performance estimates
+- Standard practice in ML
+
+**Regularization (Controlling Model Complexity)**
+
+Regularization prevents models from becoming too complex.
+
+Idea:
+
+- Penalize large or unnecessary coefficients
+
+Common types:
+
+- L1 (Lasso) – performs feature selection
+- L2 (Ridge) – shrinks coefficients smoothly
+
+Why regularization is critical:
+
+Especially important in high-dimensional data
+
+- Improves generalization
+- Reduces overfitting
+
+**Evaluation Metrics Depend on the Task**
+
+Unlike classical statistics, machine learning does not rely on p-values.
+
+Regression:	MSE, RMSE, MAE, R²
+Classification:	Accuracy, Sensitivity, Specificity, Precision
+
+Important:
+
+- No single metric fits all problems
+- Metric choice depends on scientific or clinical context
+
+Note:
+For imbalanced datasets, where one outcome is rare (for example, many cancer or rare disease cases), the real-world class distribution is often not balanced.
+
+In such situations:
+
+Overall accuracy can be misleading
+
+Metrics like sensitivity, specificity, and precision become more important
+
+These metrics help ensure that models support good clinical and biological decision-making, especially when missing rare cases has serious consequences.
+
+In later machine learning courses, students will learn techniques to handle imbalanced data explicitly through resampling, cost-sensitive learning, and threshold tuning.
+
+**Validation Is Not Optional in ML**
+
+In statistics:
+
+ - Focus is often on estimation and hypothesis testing
+
+In machine learning:
+
+- Focus is on out-of-sample performance
+
+This means:
+
+- Always separate training and evaluation
+- Always validate models
+- Never trust performance on training data
 
 ## Hands-on Exercises
 
